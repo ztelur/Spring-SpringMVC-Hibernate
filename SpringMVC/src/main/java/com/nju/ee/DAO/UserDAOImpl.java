@@ -1,6 +1,6 @@
-package com.mark.java.DAO;
+package com.nju.ee.DAO;
 
-import com.mark.java.entity.User;
+import com.nju.ee.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

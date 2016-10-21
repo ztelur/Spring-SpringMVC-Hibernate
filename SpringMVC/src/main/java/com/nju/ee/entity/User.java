@@ -1,4 +1,4 @@
-package com.mark.java.entity;
+package com.nju.ee.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

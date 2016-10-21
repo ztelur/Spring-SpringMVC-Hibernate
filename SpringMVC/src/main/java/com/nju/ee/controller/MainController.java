@@ -1,7 +1,7 @@
-package com.mark.java.controller;
+package com.nju.ee.controller;
 
-import com.mark.java.entity.User;
-import com.mark.java.service.UserService;
+import com.nju.ee.entity.User;
+import com.nju.ee.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.mark.java.DAO;
+package com.nju.ee.DAO;
 
-import com.mark.java.entity.User;
+import com.nju.ee.entity.User;
 
 import java.util.List;
 

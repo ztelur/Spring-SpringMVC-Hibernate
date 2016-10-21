@@ -1,6 +1,6 @@
-package com.mark.java.service;
+package com.nju.ee.service;
 
-import com.mark.java.entity.User;
+import com.nju.ee.entity.User;
 
 import java.util.List;
 

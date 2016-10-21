@@ -1,7 +1,7 @@
-package com.mark.java.service;
+package com.nju.ee.service;
 
-import com.mark.java.DAO.UserDAO;
-import com.mark.java.entity.User;
+import com.nju.ee.DAO.UserDAO;
+import com.nju.ee.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

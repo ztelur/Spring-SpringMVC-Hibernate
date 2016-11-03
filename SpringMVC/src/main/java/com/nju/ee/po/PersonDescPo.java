@@ -8,10 +8,10 @@ import java.util.List;
 public class PersonDescPo {
     private String name;
     private String title; //称为　博导，博士生导师
-    private String avator;
+    private String avatar;
     private String department;
     private String position; //职位 　长江学者,ｘｘｘ主任
-    private String introducation;
+    private String introduction;
     private List<String> researchList;
     private List<String> paperList;
 
@@ -31,12 +31,12 @@ public class PersonDescPo {
         this.title = title;
     }
 
-    public String getAvator() {
-        return avator;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvator(String avator) {
-        this.avator = avator;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getDepartment() {
@@ -55,12 +55,12 @@ public class PersonDescPo {
         this.position = position;
     }
 
-    public String getIntroducation() {
-        return introducation;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setIntroducation(String introducation) {
-        this.introducation = introducation;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public List<String> getResearchList() {

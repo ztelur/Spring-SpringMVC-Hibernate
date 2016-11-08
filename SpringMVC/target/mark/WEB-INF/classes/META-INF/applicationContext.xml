@@ -10,8 +10,37 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
-       <context:component-scan base-package="com.mark.java.service"/>
-        <context:component-scan base-package="com.mark.java.entity"/>
-        <context:component-scan base-package="com.mark.java.DAO"/>
+    <context:component-scan base-package="com.nju.ee.service"/>
+    <context:component-scan base-package="com.nju.ee.entity"/>
+    <context:component-scan base-package="com.nju.ee.DAO"/>
+
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.nju.ee.DAO"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.pool_size">20</prop>
+                <prop key="hibernate.connection.autocommit">true</prop>
+
+                <prop key="hibernate.connection.CharSet">utf8</prop>
+                <prop key="hibernate.connection.characterEncoding">utf8</prop>
+                <prop key="hibernate.connection.useUnicode">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
 </beans>

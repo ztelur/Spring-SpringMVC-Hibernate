@@ -1,15 +1,17 @@
 package com.nju.ee.po;
 
+import java.util.Date;
+
 /**
  * Created by homer on 16-10-31.
  */
 public class ArticlePo {
     private String title;
-    private String date;
-    private String time;
+    private Date date;
     private String category;
-    private String url;
-    private String readTimes;
+    private int readTimes;
+    private String content;
+
 
     public String getTitle() {
         return title;
@@ -19,21 +21,14 @@ public class ArticlePo {
         this.title = title;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getCategory() {
         return category;
@@ -43,19 +38,12 @@ public class ArticlePo {
         this.category = category;
     }
 
-    public String getUrl() {
-        return url;
-    }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getReadTimes() {
+    public int getReadTimes() {
         return readTimes;
     }
 
-    public void setReadTimes(String readTimes) {
+    public void setReadTimes(int readTimes) {
         this.readTimes = readTimes;
     }
 }

@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 
     <link rel="shortcut icon" href="images/favicon.ico" />
-            <link rel="stylesheet" href="css/touchTouch.css">
+            <link rel="stylesheet" href="styles/touchTouch.css">
 
-            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="styles/style.css">
             <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.1.1.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
@@ -39,11 +39,7 @@
         </div>
         <div class="fl_right">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">A - Z Index</a></li>
-                <li><a href="#">Student Login</a></li>
-                <li class="last"><a href="#">Staff Login</a></li>
+
             </ul>
             <form action="#" method="post" id="sitesearch">
                 <fieldset>
@@ -61,14 +57,12 @@
         <!-- ###### -->
         <div id="topnav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="style-demo.html">Style Demo</a></li>
-                <li><a href="full-width.html">Full Width</a></li>
-                <li><a href="3-columns.html">3 Columns</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li class="active"><a href="gallery.html">Gallery</a></li>
-                <li><a href="#">This a very long link</a></li>
-                <li class="last"><a href="#">This is the last</a></li>
+                <li class="active"><a href="/">主页</a></li>
+                <li><a href="/devices">设备</a></li>
+                <li><a href="/articles">文章</a></li>
+                <li><a href="/teams">团队</a></li>
+                <li><a href="/news">新闻</a></li>
+                <li><a href="/contact">联系我们</a></li>
             </ul>
         </div>
         <!-- ###### -->

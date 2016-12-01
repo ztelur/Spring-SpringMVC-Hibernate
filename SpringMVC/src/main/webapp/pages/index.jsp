@@ -13,9 +13,9 @@
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     <!-- Homepage Specific Elements -->
-    <script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.tabs.setup.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tabs.setup.js"></script>
     <!-- End Homepage Specific Elements -->
 </head>
 <body id="top">
@@ -47,13 +47,12 @@
         <!-- ###### -->
         <div id="topnav">
             <ul>
-                <li class="active"><a href="index.html">主页</a></li>
-                <li><a href="style-demo.html">设备</a></li>
-                <li><a href="full-width.html">文章</a></li>
-                <li><a href="3-columns.html">团队</a></li>
-                <li><a href="portfolio.html">新闻</a></li>
-                <li><a href="portfolio.html">联系我们</a></li>
-                <li><a href="portfolio.html"></a></li>
+                <li class="active"><a href="/">主页</a></li>
+                <li><a href="/devices">设备</a></li>
+                <li><a href="/articles">文章</a></li>
+                <li><a href="/teams">团队</a></li>
+                <li><a href="/news">新闻</a></li>
+                <li><a href="/contact">联系我们</a></li>
 
             </ul>
         </div>

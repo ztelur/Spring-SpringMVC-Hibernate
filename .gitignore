@@ -10,3 +10,9 @@ SpringMVC/target/*
 *.class
 
 
+
+.idea/compiler.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/misc.xml

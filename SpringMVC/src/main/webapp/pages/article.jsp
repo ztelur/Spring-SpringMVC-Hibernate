@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.nju.ee.po.ArticlePo" %><%--
   Created by IntelliJ IDEA.
   User: homer
   Date: 16-10-30
@@ -12,22 +14,25 @@
     <title>文章</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
-    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="styles/touchTouch.css">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/styles/touchTouch.css">
 
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate-1.1.1.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/superfish.js"></script>
-    <script src="js/jquery.equalheights.js"></script>
-    <script src="js/jquery.mobilemenu.js"></script>
-    <script src="js/tmStickUp.js"></script>
-    <script src="js/jquery.ui.totop.js"></script>
-    <script src="js/touchTouch.jquery.js"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-migrate-1.1.1.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/superfish.js"></script>
+    <script src="/js/jquery.equalheights.js"></script>
+    <script src="/js/jquery.mobilemenu.js"></script>
+    <script src="/js/tmStickUp.js"></script>
+    <script src="/js/jquery.ui.totop.js"></script>
+    <script src="/js/touchTouch.jquery.js"></script>
+
+
+    <link rel="stylesheet" href="/styles/articles-list.css" type="text/css"/>
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -68,11 +73,39 @@
         <!-- ###### -->
     </div>
 </div>
+
+
+
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
+        <div class="article-list">
+        <%
+            List<ArticlePo>  articlesList = new ArrayList<ArticlePo>();
+            ArticlePo articlePo = new ArticlePo();
+            articlePo.setTitle("第一篇文章在第一个场雪的下午进行");
 
-</div>
+
+            for(ArticlePo po : articlesList){
+        %>
+        <h1 class="article-list-title">
+            <span style="font-size: 12pt;">
+                <%=po.getTitle() %><br>
+            </span>
+        </h1>
+        <p>11/05/2016 - Le 17 mai prochain, à 11h, une cérémonie aura lieu à l’ISEP afin de déposer une plaque dans ses locaux, honorant les différentes collaborations entre la grande école d’ingénieurs et Texas Instruments...
+            <br>
+            <a href="/images/ISEP/Communication/Presse/cp_ceremonie_TI_ISEP.pdf">
+                Lire la suite...
+            </a>
+            <a href="/images/ISEP/Communication/Presse/CP_2015_Isep_qualification_EESPIG.pdf">
+                <img src="/images/pdf_button.png" border="0">
+            </a>
+        </p>
+        <%}
+        %>
+        </div>
+    </div>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper row4">

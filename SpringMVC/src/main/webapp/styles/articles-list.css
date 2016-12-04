@@ -1,0 +1,21 @@
+.article-list {
+    margin-left:30px;
+    margin-right: 30px;
+}
+
+.article-list .article-list-title {
+    font-size: 26px;
+    line-height: 28px;
+    margin: 12px 0;
+    word-wrap: break-word;
+}
+
+.article-list p {
+    word-wrap: break-word;
+    margin: 0 0 9px;
+}
+
+.article-list a {
+    text-decoration: none;
+    color: #0061a1;
+}

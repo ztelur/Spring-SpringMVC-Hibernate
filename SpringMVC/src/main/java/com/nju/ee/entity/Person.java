@@ -18,7 +18,7 @@ public class Person {
     private String department;
     private String position; //职位 　长江学者,ｘｘｘ主任
     private String introduction;
-    private String url;
+    private String url;//xx
 
     @ManyToMany (fetch = FetchType.LAZY,mappedBy = "people")
     private Set<Team> teams;

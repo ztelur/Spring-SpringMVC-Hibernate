@@ -11,7 +11,16 @@ public class ArticlePo {
     private String category;
     private int readTimes;
     private String content;
+    public ArticlePo() {
 
+    }
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getTitle() {
         return title;

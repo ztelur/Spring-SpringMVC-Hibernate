@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/articles")
 public class ArticleController {
     @Autowired
-    ArticleService articleService;
+    private ArticleService articleService;
 
     /**
      * @return 跳转到文章列表页
@@ -73,7 +73,8 @@ public class ArticleController {
      * 在服务器更新资源（客户端提供改变后的完整资源)
      *
      * @param article 文章对象（需传入与其属性相对应的参数）
-     * @return
+     * @return json格式的RestResult对象（其data属性为ArticlePo，
+     * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
@@ -85,7 +86,8 @@ public class ArticleController {
      * 删除文章
      *
      * @param id 文章编号
-     * @return
+     * @return json格式的RestResult对象（其data属性为ArticlePo，
+     * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody

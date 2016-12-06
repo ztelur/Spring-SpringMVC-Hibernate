@@ -54,7 +54,13 @@ public class ArticleController {
         //TODO: 新增文章详情页
         return "article_detail";
     }
-
+    /**
+     * 跳转至添加文章的编辑页面
+     **/
+    @RequestMapping(value = "/add")
+    public String addArticle(){
+        return "add_article";
+    }
 
     /**
      * 新增文章。

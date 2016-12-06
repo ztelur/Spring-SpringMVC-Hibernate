@@ -1,10 +1,4 @@
-/*
-Template Name: Academic Education
-File: Navigation CSS
-Author: OS Templates
-Author URI: http://www.cssmoban.com/
-Licence: <a href="#">Website Template Licence</a>
-*/
+
 
 #topnav{
 	display:block;
@@ -125,33 +119,33 @@ Licence: <a href="#">Website Template Licence</a>
 	text-align:center;
 	}
 
-.pagination ul{
-	margin:0;
-	padding:0;
-	list-style:none;
-	}
+/*.pagination ul{*/
+	/*margin:0;*/
+	/*padding:0;*/
+	/*list-style:none;*/
+	/*}*/
 
-.pagination li{
-	display:inline;
-	}
+/*.pagination li{*/
+	/*display:inline;*/
+	/*}*/
 
-.pagination .next{
-	margin:0;
-	}
+/*.pagination .next{*/
+	/*margin:0;*/
+	/*}*/
 
-.pagination a{
-	display:inline-block;
-	margin:0 2px 0 0;
-	padding:2px 5px 3px 5px;
-	border:1px solid #D8D9DE;
-	}
+/*.pagination a{*/
+	/*display:inline-block;*/
+	/*margin:0 2px 0 0;*/
+	/*padding:2px 5px 3px 5px;*/
+	/*border:1px solid #D8D9DE;*/
+	/*}*/
 
-.pagination .current, .pagination .splitter{
-	margin:0 2px 0 0;
-	padding:6px;
-	}
+/*.pagination .current, .pagination .splitter{*/
+	/*margin:0 2px 0 0;*/
+	/*padding:6px;*/
+	/*}*/
 
-#container .pagination a:hover, .pagination .current, .pagination .splitter{
-	color:#979797;
-	background-color:#FFFFFF;
-	}
+/*#container .pagination a:hover, .pagination .current, .pagination .splitter{*/
+	/*color:#979797;*/
+	/*background-color:#FFFFFF;*/
+	/*}*/

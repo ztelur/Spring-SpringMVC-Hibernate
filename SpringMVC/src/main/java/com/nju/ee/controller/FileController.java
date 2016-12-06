@@ -10,14 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by 克崽兽 on 2016/12/5.
  */
 @Controller
 @RequestMapping("/uploadFile")
-public class FileUploadController {
+public class FileController {
     @Autowired
     private FileService fileService;
+    @RequestMapping(method = RequestMethod.GET)
+    public String fileMain(){
+        return "file";
+    }
     /**
      * 上传文件
      * @param file
@@ -26,7 +32,7 @@ public class FileUploadController {
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public RestResult uploadImg(@RequestParam(value = "file")MultipartFile file){
-        return fileService.saveFile(file);
+    public RestResult uploadImg(@RequestParam(value = "file")MultipartFile file, HttpServletRequest request){
+        return fileService.saveFile(file,request);
     }
 }

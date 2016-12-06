@@ -28,7 +28,7 @@ public class RestResult {
         if(result == 1){
             this.data = data;
         }else{
-            this.error = (Error) data;
+            this.error = (com.nju.ee.po.Error) data;
         }
     }
     public static RestResult CreateResult(int result, Object data){

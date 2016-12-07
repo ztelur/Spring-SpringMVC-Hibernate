@@ -1,11 +1,11 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 import java.util.List;
 
 /**
  * Created by homer on 16-10-31.
  */
-public class PersonDescPo {
+public class PersonDescVo {
     private String name;
     private String title; //称为　博导，博士生导师
     private String avatar;

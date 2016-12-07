@@ -1,7 +1,7 @@
 package com.nju.ee.service;
 
-import com.nju.ee.po.Error;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.Error;
+import com.nju.ee.vo.RestResult;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

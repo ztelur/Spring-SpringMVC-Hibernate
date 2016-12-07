@@ -1,7 +1,7 @@
 package com.nju.ee.controller;
 
-import com.nju.ee.po.ArticlePo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.ArticleVo;
+import com.nju.ee.vo.RestResult;
 import com.nju.ee.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -71,7 +71,7 @@ public class ArticleController {
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public RestResult post(ArticlePo article) {
+    public RestResult post(ArticleVo article) {
         return articleService.addArticle(article);
     }
 
@@ -84,7 +84,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public RestResult put(@PathVariable("id") Integer id, ArticlePo article) {
+    public RestResult put(@PathVariable("id") Integer id, ArticleVo article) {
         return articleService.modifyArticle(id, article);
     }
 

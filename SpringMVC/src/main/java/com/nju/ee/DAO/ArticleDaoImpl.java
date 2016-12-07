@@ -1,7 +1,7 @@
 package com.nju.ee.DAO;
 
 import com.nju.ee.entity.Article;
-import com.nju.ee.po.ArticlePo;
+import com.nju.ee.vo.ArticleVo;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -46,23 +46,23 @@ public class ArticleDaoImpl implements ArticleDao{
         baseDao.delete(article);
     }
 
-    public Iterable<ArticlePo> findAll(Sort sort) {
+    public Iterable<ArticleVo> findAll(Sort sort) {
         return null;
     }
 
-    public Page<ArticlePo> findAll(Pageable pageable) {
+    public Page<ArticleVo> findAll(Pageable pageable) {
         return null;
     }
 
-    public <S extends ArticlePo> Iterable<S> save(Iterable<S> iterable) {
+    public <S extends ArticleVo> Iterable<S> save(Iterable<S> iterable) {
         return null;
     }
 
-    public <S extends ArticlePo> S save(S s) {
+    public <S extends ArticleVo> S save(S s) {
         return null;
     }
 
-    public ArticlePo findOne(Integer integer) {
+    public ArticleVo findOne(Integer integer) {
         return null;
     }
 
@@ -70,11 +70,11 @@ public class ArticleDaoImpl implements ArticleDao{
         return false;
     }
 
-    public Iterable<ArticlePo> findAll() {
+    public Iterable<ArticleVo> findAll() {
         return null;
     }
 
-    public Iterable<ArticlePo> findAll(Iterable<Integer> iterable) {
+    public Iterable<ArticleVo> findAll(Iterable<Integer> iterable) {
         return null;
     }
 
@@ -86,11 +86,11 @@ public class ArticleDaoImpl implements ArticleDao{
 
     }
 
-    public void delete(ArticlePo articlePo) {
+    public void delete(ArticleVo articleVo) {
 
     }
 
-    public void delete(Iterable<? extends ArticlePo> iterable) {
+    public void delete(Iterable<? extends ArticleVo> iterable) {
 
     }
 

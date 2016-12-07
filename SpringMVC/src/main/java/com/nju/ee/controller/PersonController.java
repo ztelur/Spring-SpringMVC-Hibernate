@@ -1,7 +1,7 @@
 package com.nju.ee.controller;
 
-import com.nju.ee.po.PersonPo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.PersonVo;
+import com.nju.ee.vo.RestResult;
 import com.nju.ee.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,7 +75,7 @@ public class PersonController {
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public RestResult post(PersonPo person) {
+    public RestResult post(PersonVo person) {
         return personService.addPerson(person);
     }
 
@@ -87,7 +87,7 @@ public class PersonController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public RestResult put(@PathVariable("id") Integer id, PersonPo person) {
+    public RestResult put(@PathVariable("id") Integer id, PersonVo person) {
         return personService.modifyPerson(id, person);
     }
 

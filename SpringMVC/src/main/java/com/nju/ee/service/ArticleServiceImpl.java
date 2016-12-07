@@ -1,8 +1,8 @@
 package com.nju.ee.service;
 
 import com.nju.ee.DAO.ArticleDao;
-import com.nju.ee.po.ArticlePo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.ArticleVo;
+import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +18,9 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     public RestResult getArticles(Integer page, Integer num) {
-        ArrayList<ArticlePo> list = new ArrayList<ArticlePo>();
+        ArrayList<ArticleVo> list = new ArrayList<ArticleVo>();
         for (int i = 0; i < 3; i++) {
-            ArticlePo po = new ArticlePo();
+            ArticleVo po = new ArticleVo();
             po.setCategory("A类");
             po.setDate(new Date());
             po.setReadTimes(10);
@@ -36,12 +36,12 @@ public class ArticleServiceImpl implements ArticleService {
 //        num = (num < 1) ? 10 : num;
 //        Sort sort = new Sort(new Sort.Order(Sort.Direction.DESC,"date"));
 //        Pageable request = new PageRequest(page - 1, num, sort);
-//        Page<ArticlePo> articles = articleDao.findAll(request);
+//        Page<ArticleVo> articles = articleDao.findAll(request);
 //        return RestResult.CreateResult(1,articles);
     }
 
     public RestResult getArticleDetail(Integer id) {
-        ArticlePo po = new ArticlePo();
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
         po.setDate(new Date());
         po.setReadTimes(10);
@@ -51,8 +51,8 @@ public class ArticleServiceImpl implements ArticleService {
         return result;
     }
 
-    public RestResult addArticle(ArticlePo article) {
-        ArticlePo po = new ArticlePo();
+    public RestResult addArticle(ArticleVo article) {
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
         po.setDate(new Date());
         po.setReadTimes(10);
@@ -62,8 +62,8 @@ public class ArticleServiceImpl implements ArticleService {
         return result;
     }
 
-    public RestResult modifyArticle(Integer id, ArticlePo article) {
-        ArticlePo po = new ArticlePo();
+    public RestResult modifyArticle(Integer id, ArticleVo article) {
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
         po.setDate(new Date());
         po.setReadTimes(10);
@@ -74,7 +74,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public RestResult deleteArticle(Integer id) {
-        ArticlePo po = new ArticlePo();
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
         po.setDate(new Date());
         po.setReadTimes(10);

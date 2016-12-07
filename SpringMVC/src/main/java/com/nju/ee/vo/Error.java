@@ -1,4 +1,4 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 /**
  * Created by 克崽兽 on 2016/12/5.

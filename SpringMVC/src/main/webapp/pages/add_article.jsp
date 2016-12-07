@@ -57,7 +57,7 @@
 
 <!-- Include jQuery. -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+<%--<script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>--%>
 <!-- Include JS files. -->
 <script type="text/javascript" src="../node_modules/froala-editor/js/froala_editor.min.js"></script>
 
@@ -100,7 +100,18 @@
 <!-- Initialize the editor. -->
 <script>
   $(function() {
-    $('#edit').froalaEditor()
+    $('#edit').froalaEditor(
+            {
+              // Set the image upload URL.
+              imageUploadURL: '/upload_image',
+              // Set request type.
+              imageUploadMethod: 'POST',
+              // Set max image size to 5MB.
+              imageMaxSize: 5 * 1024 * 1024,
+              // Allow to upload PNG and JPG.
+              imageAllowedTypes: ['jpeg', 'jpg', 'png']
+            }
+    )
   });
 </script>
 </body>

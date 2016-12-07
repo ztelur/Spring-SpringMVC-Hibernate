@@ -1,24 +1,22 @@
 package com.nju.ee.service;
 
-import com.nju.ee.po.Error;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.FileType;
+
+import com.nju.ee.vo.Error;
+import com.nju.ee.vo.RestResult;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * Created by 克崽兽 on 2016/12/5.
  */
 @Service
 public class FileServiceImpl extends ApplicationObjectSupport implements FileService {
-    public RestResult saveFile(MultipartFile file, HttpServletRequest request) {
+    public RestResult saveFile(MultipartFile file, String realPath, FileType fileType) {
         if (file == null || file.isEmpty()) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "文件不能为空"));
         }
@@ -37,7 +35,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
                 + "." + extensionName;
         //文件目录路径
         //TODO:考虑后期添加链接指向磁盘固定位置，否则每一次装载都会清除原图片
-        String filePath = request.getSession().getServletContext().getRealPath("/") + "fileUpload";
+        String filePath = realPath + "fileUpload";
 
         try {
             InputStream input = file.getInputStream();
@@ -50,7 +48,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
                 return RestResult.CreateResult(0, new Error(Error.SYS_ERROR,
                         "文件保存出错（成功存储的文件大小不符合实际大小)"));
             }
-            String fileUrl = filePath2Url(filePath + "/" + newFileName);
+            String fileUrl = filePath2Url(filePath + "/" + newFileName, fileType);
             return RestResult.CreateResult(1, fileUrl);
         } catch (IOException e) {
 //            e.printStackTrace();
@@ -59,19 +57,40 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
 
     }
 
-    private String filePath2Url(String filePath) {
+    public FileInputStream getFile(String fileName) {
+        String filePath = fileName2FilePath(fileName);
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(filePath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return fis;
+    }
+
+    private String filePath2Url(String filePath, FileType fileType) {
         String fileName = filePath
                 .substring(filePath.lastIndexOf("/") + 1);
         //TODO:新增属性文件保存路径，方便读取修改
         String contextRoot = "http://localhost:8080/ee/files";
-        return contextRoot+"/"+fileName;
+        switch (fileType) {
+            case DEFAULT:
+                contextRoot += "";
+                break;
+            case IMAGE:
+                contextRoot += "/img";
+                break;
+            case PDF:
+                contextRoot += "/pdf";
+                break;
+        }
+        return contextRoot + "/" + fileName;
     }
 
-    private String url2FilePath(String url){
-        String fileName = url.substring(url.lastIndexOf("/")+1);
+    private String fileName2FilePath(String fileName) {
         //TODO:新增属性文件保存路径，方便读取修改
         String fileRoot = "http://localhost:8080/ee/fileUpload";
-        return fileRoot+"/"+fileName;
+        return fileRoot + "/" + fileName;
     }
 
     private long saveFileFromInputStream(InputStream input, String path, String filename) throws IOException {

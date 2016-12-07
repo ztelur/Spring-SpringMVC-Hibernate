@@ -1,0 +1,67 @@
+.container{
+    margin: 20px auto 20px;
+    width: 500px;
+}
+.input_wrapper{
+    margin: 0;
+}
+.person_input{
+    width:500px;
+    margin: 20px 0 20px;
+    line-height: 1.33;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.introduction{
+    width:100%;
+    margin: 5px 0 10px 0;
+    line-height: 1.33;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form_footer{
+    width: 100%;
+    text-align: right;
+}
+.form_button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 5px;
+}
+.submit{
+}
+
+.select_container{
+    margin-top: 15px;
+    height: 200px;
+}
+.person_select{
+    width:40%;
+    height: 100%;
+    float:left;
+    padding:5px;
+}
+.person_result{
+    width:40%;
+    height: 100%;
+    float:right;
+    padding:5px;
+}
+.select_button_group{
+    display: inline-block;
+    width:60px;
+    padding: 60px 20px;
+}
+.s_btn{
+    width:60px ;
+    margin-bottom: 20px;
+}

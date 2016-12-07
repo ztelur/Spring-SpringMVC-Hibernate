@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.nju.ee.po.ArticlePo" %><%--
+<%@ page import="com.nju.ee.vo.ArticleVo" %>
+<%--
   Created by IntelliJ IDEA.
   User: homer
   Date: 16-10-30
@@ -84,7 +85,27 @@
 <div class="wrapper row3">
     <div class="rnd">
         <div class="news_list2">
+<<<<<<< HEAD
             <ul class="news_list_container">
+=======
+            <ul>
+                <%
+                    List<ArticleVo>  articlesList = new ArrayList<ArticleVo>();
+                    ArticleVo articleVo = new ArticleVo();
+                    articleVo.setTitle("第一篇文章在第一个场雪的下午进行");
+                    articlesList.add(articleVo);
+                    articlesList.add(articleVo);
+                    articlesList.add(articleVo);
+                    articlesList.add(articleVo);
+
+                    for(ArticleVo po : articlesList){
+                %>
+                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">团队成员获得重大科技突破奖</a></span><span class="hits">阅读次数：1487</span><br>
+                    <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span>
+                </li>
+
+                <% } %>
+>>>>>>> c3399cc1239347cbc9b6e55795045e8df41eea20
             </ul>
         </div>
     </div>

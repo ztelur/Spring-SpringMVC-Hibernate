@@ -43,7 +43,7 @@
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
-  <form class="article_form" onsubmit="return checkForm()" method="post">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles">
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>
     <input type="text" class="title_input" placeholder="请输入类别" id="category" name="category"/>
@@ -57,7 +57,7 @@
 
 <!-- Include jQuery. -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+<%--<script type="text/javascript" src="../js/jquery-1.4.1.min.js"></script>--%>
 <!-- Include JS files. -->
 <script type="text/javascript" src="../node_modules/froala-editor/js/froala_editor.min.js"></script>
 

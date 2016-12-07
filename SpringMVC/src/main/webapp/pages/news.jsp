@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
-
+    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery-migrate-1.1.1.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
     <script src="<%=request.getContextPath()%>/js/script.js"></script>
@@ -32,11 +32,11 @@
     <script src="<%=request.getContextPath()%>/js/tmStickUp.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/news.js"></script>
 
-    
+
     <link rel="stylesheet" href="styles/news.css" type="text/css" />
 
     <!-- End Gallery Specific Elements -->
@@ -85,6 +85,9 @@
 <div class="wrapper row3">
     <div class="rnd">
         <div class="news_list2">
+<<<<<<< HEAD
+            <ul class="news_list_container">
+=======
             <ul>
                 <%
                     List<ArticleVo>  articlesList = new ArrayList<ArticleVo>();
@@ -102,6 +105,7 @@
                 </li>
 
                 <% } %>
+>>>>>>> c3399cc1239347cbc9b6e55795045e8df41eea20
             </ul>
         </div>
     </div>

@@ -32,6 +32,7 @@ public class ArticleController {
     @ResponseBody
     public RestResult get(Integer page, Integer num){
         RestResult result = articleService.getArticles(page, num);
+
         return result;
     }
 

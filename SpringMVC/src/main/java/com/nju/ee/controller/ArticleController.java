@@ -23,14 +23,16 @@ public class ArticleController {
     /**
      * @return 跳转到文章列表页
      */
-    @RequestMapping(method = RequestMethod.GET)
-    public String articleMain(Integer page, Integer num, Model model) {
-        RestResult result = articleService.getArticles(page, num);
-        model.addAttribute("articles", result);
-        //TODO: 封装page,并将页面信息存入model
-        //model.addAttribute("");
-
+    @RequestMapping(value ="/main",method = RequestMethod.GET)
+    public String articleMain() {
         return "article";
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public RestResult get(Integer page, Integer num){
+        RestResult result = articleService.getArticles(page, num);
+        return result;
     }
 
     @RequestMapping("edit")

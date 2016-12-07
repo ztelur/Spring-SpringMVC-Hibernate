@@ -10,7 +10,7 @@ import java.io.FileInputStream;
  * Created by 克崽兽 on 2016/12/5.
  */
 public interface FileService {
-    public RestResult saveFile(MultipartFile file, String realPath, FileType fileType);
+    public RestResult saveFile(MultipartFile file, FileType fileType);
 
     public FileInputStream getFile(String fileName);
 }

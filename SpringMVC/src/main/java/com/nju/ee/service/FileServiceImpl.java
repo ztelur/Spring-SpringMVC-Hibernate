@@ -16,7 +16,7 @@ import java.io.*;
  */
 @Service
 public class FileServiceImpl extends ApplicationObjectSupport implements FileService {
-    public RestResult saveFile(MultipartFile file, String realPath, FileType fileType) {
+    public RestResult saveFile(MultipartFile file, FileType fileType) {
         if (file == null || file.isEmpty()) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "文件不能为空"));
         }
@@ -35,7 +35,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
                 + "." + extensionName;
         //文件目录路径
         //TODO:考虑后期添加链接指向磁盘固定位置，否则每一次装载都会清除原图片
-        String filePath = realPath + "fileUpload";
+        String filePath =   "d:/fileUpload";
 
         try {
             InputStream input = file.getInputStream();
@@ -63,7 +63,11 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         try {
             fis = new FileInputStream(filePath);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            try {
+                fis = new FileInputStream( filePath.substring(0,filePath.lastIndexOf("/")+1)+"default.png");
+            } catch (FileNotFoundException e1) {
+//                e1.printStackTrace();
+            }
         }
         return fis;
     }
@@ -89,7 +93,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
 
     private String fileName2FilePath(String fileName) {
         //TODO:新增属性文件保存路径，方便读取修改
-        String fileRoot = "http://localhost:8080/ee/fileUpload";
+        String fileRoot = "d:/fileUpload";
         return fileRoot + "/" + fileName;
     }
 

@@ -1,9 +1,9 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 /**
  * Created by homer on 16-10-31.
  */
-public class EquipmentPo {
+public class EquipmentVo {
     private String name;
     private String imgUrl;
     private String excerpt;

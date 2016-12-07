@@ -1,4 +1,4 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Page {
     private String pageSize;
     private String pageNum;
-    private ArrayList<ArticlePo> articles;
+    private ArrayList<ArticleVo> articles;
 
     public String getPageSize() {
         return pageSize;
@@ -26,11 +26,11 @@ public class Page {
         this.pageNum = pageNum;
     }
 
-    public ArrayList<ArticlePo> getArticles() {
+    public ArrayList<ArticleVo> getArticles() {
         return articles;
     }
 
-    public void setArticles(ArrayList<ArticlePo> articles) {
+    public void setArticles(ArrayList<ArticleVo> articles) {
         this.articles = articles;
     }
 }

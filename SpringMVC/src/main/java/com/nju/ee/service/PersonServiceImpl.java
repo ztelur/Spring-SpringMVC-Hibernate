@@ -1,7 +1,7 @@
 package com.nju.ee.service;
 
-import com.nju.ee.po.PersonPo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.PersonVo;
+import com.nju.ee.vo.RestResult;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,11 +17,11 @@ public class PersonServiceImpl implements PersonService {
         return null;
     }
 
-    public RestResult addPerson(PersonPo person) {
+    public RestResult addPerson(PersonVo person) {
         return null;
     }
 
-    public RestResult modifyPerson(Integer id, PersonPo person) {
+    public RestResult modifyPerson(Integer id, PersonVo person) {
         return null;
     }
 

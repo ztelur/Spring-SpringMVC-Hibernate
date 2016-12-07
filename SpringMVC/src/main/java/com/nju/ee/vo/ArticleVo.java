@@ -1,17 +1,15 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 import java.util.Date;
 
 /**
  * Created by homer on 16-10-31.
  */
-public class ArticlePo {
+public class ArticleVo {
     private String title;
-    private Date date;
     private String category;
-    private int readTimes;
     private String content;
-    public ArticlePo() {
+    public ArticleVo() {
 
     }
     public String getContent() {
@@ -30,13 +28,6 @@ public class ArticlePo {
         this.title = title;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
 
     public String getCategory() {
@@ -48,11 +39,5 @@ public class ArticlePo {
     }
 
 
-    public int getReadTimes() {
-        return readTimes;
-    }
 
-    public void setReadTimes(int readTimes) {
-        this.readTimes = readTimes;
-    }
 }

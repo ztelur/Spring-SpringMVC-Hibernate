@@ -1,7 +1,7 @@
 package com.nju.ee.service;
 
-import com.nju.ee.po.FileType;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.FileType;
+import com.nju.ee.vo.RestResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;

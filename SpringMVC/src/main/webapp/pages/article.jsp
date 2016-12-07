@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.nju.ee.po.ArticlePo" %><%--
+<%@ page import="com.nju.ee.vo.ArticleVo" %>
+<%--
   Created by IntelliJ IDEA.
   User: homer
   Date: 16-10-30
@@ -81,12 +82,12 @@
     <div class="rnd">
         <div class="article-list">
         <%
-            List<ArticlePo>  articlesList = new ArrayList<ArticlePo>();
-            ArticlePo articlePo = new ArticlePo();
-            articlePo.setTitle("第一篇文章在第一个场雪的下午进行");
+            List<ArticleVo>  articlesList = new ArrayList<ArticleVo>();
+            ArticleVo articleVo = new ArticleVo();
+            articleVo.setTitle("第一篇文章在第一个场雪的下午进行");
 
 
-            for(ArticlePo po : articlesList){
+            for(ArticleVo po : articlesList){
         %>
         <h1 class="article-list-title">
             <span style="font-size: 12pt;">

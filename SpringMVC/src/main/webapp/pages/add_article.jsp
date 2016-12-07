@@ -43,7 +43,7 @@
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
-  <form class="article_form" onsubmit="return checkForm()" method="post">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles">
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>
     <input type="text" class="title_input" placeholder="请输入类别" id="category" name="category"/>
@@ -100,18 +100,7 @@
 <!-- Initialize the editor. -->
 <script>
   $(function() {
-    $('#edit').froalaEditor(
-            {
-              // Set the image upload URL.
-              imageUploadURL: '/upload_image',
-              // Set request type.
-              imageUploadMethod: 'POST',
-              // Set max image size to 5MB.
-              imageMaxSize: 5 * 1024 * 1024,
-              // Allow to upload PNG and JPG.
-              imageAllowedTypes: ['jpeg', 'jpg', 'png']
-            }
-    )
+    $('#edit').froalaEditor()
   });
 </script>
 </body>

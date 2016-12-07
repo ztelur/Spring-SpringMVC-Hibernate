@@ -54,11 +54,21 @@ public class ArticleController {
         //TODO: 新增文章详情页
         return "article_detail";
     }
+
+    /**
+     * 跳转至添加文章的编辑页面
+     **/
+    @RequestMapping(value = "/manage/list")
+    public String manageArticles(){
+
+        return "manage_article";
+    }
     /**
      * 跳转至添加文章的编辑页面
      **/
     @RequestMapping(value = "/add")
     public String addArticle(){
+
         return "add_article";
     }
 
@@ -70,9 +80,11 @@ public class ArticleController {
      * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseBody
-    public RestResult post(ArticleVo article) {
-        return articleService.addArticle(article);
+    public String post(ArticleVo article) {
+
+
+        articleService.addArticle(article);
+        return  "redirect:/manage/list";
     }
 
     /**

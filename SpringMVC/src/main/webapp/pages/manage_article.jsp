@@ -71,7 +71,7 @@
 </div>
 <div class="wrapper manage-div">
     <div class="add-div">
-        <a  type="button" class="btn add-button">
+        <a  type="button"  href ="/articles/add" class="btn add-button">
             添加新闻
         </a>
     </div>

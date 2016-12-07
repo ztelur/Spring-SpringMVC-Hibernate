@@ -22,8 +22,6 @@ public class ArticleServiceImpl implements ArticleService {
         for (int i = 0; i < 3; i++) {
             ArticleVo po = new ArticleVo();
             po.setCategory("A类");
-            po.setDate(new Date());
-            po.setReadTimes(10);
             po.setTitle("标题"+i);
             po.setContent("内容"+i);
             list.add(po);
@@ -43,8 +41,6 @@ public class ArticleServiceImpl implements ArticleService {
     public RestResult getArticleDetail(Integer id) {
         ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);
@@ -54,8 +50,6 @@ public class ArticleServiceImpl implements ArticleService {
     public RestResult addArticle(ArticleVo article) {
         ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题");
         po.setContent("内容");
         RestResult result = RestResult.CreateResult(1, po);
@@ -65,8 +59,6 @@ public class ArticleServiceImpl implements ArticleService {
     public RestResult modifyArticle(Integer id, ArticleVo article) {
         ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);
@@ -76,8 +68,6 @@ public class ArticleServiceImpl implements ArticleService {
     public RestResult deleteArticle(Integer id) {
         ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);

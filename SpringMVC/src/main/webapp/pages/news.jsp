@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
-
+    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery-migrate-1.1.1.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
     <script src="<%=request.getContextPath()%>/js/script.js"></script>
@@ -31,11 +31,11 @@
     <script src="<%=request.getContextPath()%>/js/tmStickUp.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/news.js"></script>
 
-    
+
     <link rel="stylesheet" href="styles/news.css" type="text/css" />
 
     <!-- End Gallery Specific Elements -->
@@ -84,23 +84,7 @@
 <div class="wrapper row3">
     <div class="rnd">
         <div class="news_list2">
-            <ul>
-                <%
-                    List<ArticlePo>  articlesList = new ArrayList<ArticlePo>();
-                    ArticlePo articlePo = new ArticlePo();
-                    articlePo.setTitle("第一篇文章在第一个场雪的下午进行");
-                    articlesList.add(articlePo);
-                    articlesList.add(articlePo);
-                    articlesList.add(articlePo);
-                    articlesList.add(articlePo);
-
-                    for(ArticlePo po : articlesList){
-                %>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">团队成员获得重大科技突破奖</a></span><span class="hits">阅读次数：1487</span><br>
-                    <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span>
-                </li>
-
-                <% } %>
+            <ul class="news_list_container">
             </ul>
         </div>
     </div>

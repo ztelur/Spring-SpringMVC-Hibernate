@@ -30,7 +30,7 @@ public class ArticleController {
         //TODO: 封装page,并将页面信息存入model
         //model.addAttribute("");
 
-        return "article";
+        return "news";
     }
 
     @RequestMapping("edit")

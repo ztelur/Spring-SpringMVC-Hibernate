@@ -1,7 +1,7 @@
 package com.nju.ee.controller;
 
-import com.nju.ee.po.ArticlePo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.ArticleVo;
+import com.nju.ee.vo.RestResult;
 import com.nju.ee.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,11 +54,21 @@ public class ArticleController {
         //TODO: 新增文章详情页
         return "article_detail";
     }
+
+    /**
+     * 跳转至添加文章的编辑页面
+     **/
+    @RequestMapping(value = "/manage/list")
+    public String manageArticles(){
+
+        return "manage_article";
+    }
     /**
      * 跳转至添加文章的编辑页面
      **/
     @RequestMapping(value = "/add")
     public String addArticle(){
+
         return "add_article";
     }
 
@@ -70,9 +80,11 @@ public class ArticleController {
      * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseBody
-    public RestResult post(ArticlePo article) {
-        return articleService.addArticle(article);
+    public String post(ArticleVo article) {
+
+
+        articleService.addArticle(article);
+        return  "redirect:/manage/list";
     }
 
     /**
@@ -84,7 +96,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public RestResult put(@PathVariable("id") Integer id, ArticlePo article) {
+    public RestResult put(@PathVariable("id") Integer id, ArticleVo article) {
         return articleService.modifyArticle(id, article);
     }
 

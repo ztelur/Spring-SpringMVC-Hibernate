@@ -1,6 +1,6 @@
 package com.nju.ee.service;
 
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.RestResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;

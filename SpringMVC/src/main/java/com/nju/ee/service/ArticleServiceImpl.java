@@ -1,8 +1,8 @@
 package com.nju.ee.service;
 
 import com.nju.ee.DAO.ArticleDao;
-import com.nju.ee.po.ArticlePo;
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.ArticleVo;
+import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,10 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     public RestResult getArticles(Integer page, Integer num) {
-        ArrayList<ArticlePo> list = new ArrayList<ArticlePo>();
+        ArrayList<ArticleVo> list = new ArrayList<ArticleVo>();
         for (int i = 0; i < 3; i++) {
-            ArticlePo po = new ArticlePo();
+            ArticleVo po = new ArticleVo();
             po.setCategory("A类");
-            po.setDate(new Date());
-            po.setReadTimes(10);
             po.setTitle("标题"+i);
             po.setContent("内容"+i);
             list.add(po);
@@ -36,37 +34,31 @@ public class ArticleServiceImpl implements ArticleService {
 //        num = (num < 1) ? 10 : num;
 //        Sort sort = new Sort(new Sort.Order(Sort.Direction.DESC,"date"));
 //        Pageable request = new PageRequest(page - 1, num, sort);
-//        Page<ArticlePo> articles = articleDao.findAll(request);
+//        Page<ArticleVo> articles = articleDao.findAll(request);
 //        return RestResult.CreateResult(1,articles);
     }
 
     public RestResult getArticleDetail(Integer id) {
-        ArticlePo po = new ArticlePo();
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);
         return result;
     }
 
-    public RestResult addArticle(ArticlePo article) {
-        ArticlePo po = new ArticlePo();
+    public RestResult addArticle(ArticleVo article) {
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题");
         po.setContent("内容");
         RestResult result = RestResult.CreateResult(1, po);
         return result;
     }
 
-    public RestResult modifyArticle(Integer id, ArticlePo article) {
-        ArticlePo po = new ArticlePo();
+    public RestResult modifyArticle(Integer id, ArticleVo article) {
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);
@@ -74,10 +66,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public RestResult deleteArticle(Integer id) {
-        ArticlePo po = new ArticlePo();
+        ArticleVo po = new ArticleVo();
         po.setCategory("A类");
-        po.setDate(new Date());
-        po.setReadTimes(10);
         po.setTitle("标题" + id);
         po.setContent("内容" + id);
         RestResult result = RestResult.CreateResult(1, po);

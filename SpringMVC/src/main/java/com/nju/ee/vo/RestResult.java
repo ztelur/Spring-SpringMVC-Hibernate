@@ -1,4 +1,4 @@
-package com.nju.ee.po;
+package com.nju.ee.vo;
 
 /**
  * Created by 克崽兽 on 2016/12/2.
@@ -28,7 +28,7 @@ public class RestResult {
         if(result == 1){
             this.data = data;
         }else{
-            this.error = (com.nju.ee.po.Error) data;
+            this.error = (com.nju.ee.vo.Error) data;
         }
     }
     public static RestResult CreateResult(int result, Object data){

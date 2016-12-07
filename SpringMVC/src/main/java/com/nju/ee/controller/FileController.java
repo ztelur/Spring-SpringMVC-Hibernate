@@ -1,6 +1,6 @@
 package com.nju.ee.controller;
 
-import com.nju.ee.po.RestResult;
+import com.nju.ee.vo.RestResult;
 import com.nju.ee.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

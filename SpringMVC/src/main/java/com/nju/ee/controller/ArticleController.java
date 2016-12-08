@@ -61,8 +61,8 @@ public class ArticleController {
      * 跳转至添加文章的编辑页面
      **/
     @RequestMapping(value = "/manage/list")
-    public String manageArticles(){
-
+    public String manageArticles(Integer page, Integer num){
+        RestResult result = articleService.getArticles(page, num);
         return "manage_article";
     }
     /**

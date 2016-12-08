@@ -31,6 +31,7 @@ public class Article {
         this.title=av.getTitle();
         this.category=av.getCategory();
         this.content=av.getContent();
+        this.date=new Date();
     }
 
     public Article() {

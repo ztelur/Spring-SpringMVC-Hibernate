@@ -1,5 +1,6 @@
 package com.nju.ee.DAO;
 
+import com.nju.ee.Constant.Constant;
 import com.nju.ee.entity.Article;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -32,6 +33,22 @@ public class ArticleDaoImpl implements ArticleDao {
 
     }
 
+
+    @Override
+    public List<Article> getArticleWithPage(int page) {
+        if (page<1){
+            page=1;
+        }
+        int first=(page-1)* Constant.PAGE_COUNT;
+        Session session =baseDao.getSession();
+        Criteria criteria = session.createCriteria(Article.class);
+        criteria.setFirstResult(first);
+        criteria.setMaxResults(Constant.PAGE_COUNT);
+        List<Article> result = criteria.list();
+        session.flush();
+        session.close();
+        return result;
+    }
 
     public void update(Article article){
         baseDao.update(article);

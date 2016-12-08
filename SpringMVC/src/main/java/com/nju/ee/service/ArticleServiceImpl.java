@@ -7,12 +7,17 @@ import com.nju.ee.vo.ArticleVo;
 import com.nju.ee.vo.Error;
 import com.nju.ee.vo.RestResult;
 import com.nju.ee.vo.VoPage;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 克崽兽 on 2016/12/2.
@@ -26,18 +31,11 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleRepository articleRepo;
 
     public RestResult getArticles(Integer page, Integer num) {
-//        ArrayList<ArticleVo> list = new ArrayList<ArticleVo>();
-//        for (int i = 0; i < 3; i++) {
-//            ArticleVo po = new ArticleVo();
-//            po.setCategory("A类");
-//            po.setTitle("标题"+i);
-//            po.setContent("内容"+i);
-//            list.add(po);
-//        }
+        //使用dao
+//        List<Article> list=articleDao.getArticleWithPage(1);
+//        System.out.println("list size()"+list.size());
 //        RestResult result = RestResult.CreateResult(1,list);
-//
-//        return result;
-
+        //使用repository
         page = (page == null || page < 1) ? 1 : page;
         //TODO:需要指定默认每页数量
         num = (num == null || num < 1) ? 10 : num;

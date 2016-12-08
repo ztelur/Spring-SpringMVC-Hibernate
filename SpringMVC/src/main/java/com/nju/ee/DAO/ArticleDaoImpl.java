@@ -1,7 +1,6 @@
 package com.nju.ee.DAO;
 
 import com.nju.ee.entity.Article;
-import com.nju.ee.vo.ArticleVo;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -17,7 +16,7 @@ import java.util.List;
  * Created by zangxiaojie on 2016/12/2.
  */
 @Repository
-public class ArticleDaoImpl implements ArticleDao{
+public class ArticleDaoImpl implements ArticleDao {
     @Autowired
     private BaseDao baseDao;
 
@@ -33,9 +32,6 @@ public class ArticleDaoImpl implements ArticleDao{
 
     }
 
-    public void save(Article article){
-        baseDao.save(article);
-    }
 
     public void update(Article article){
         baseDao.update(article);
@@ -46,23 +42,28 @@ public class ArticleDaoImpl implements ArticleDao{
         baseDao.delete(article);
     }
 
-    public Iterable<ArticleVo> findAll(Sort sort) {
+    public Iterable<Article> findAll(Sort sort) {
         return null;
     }
 
-    public Page<ArticleVo> findAll(Pageable pageable) {
+    public Page<Article> findAll(Pageable pageable) {
         return null;
     }
 
-    public <S extends ArticleVo> Iterable<S> save(Iterable<S> iterable) {
+    public <S extends Article> Iterable<S> save(Iterable<S> iterable) {
         return null;
     }
 
-    public <S extends ArticleVo> S save(S s) {
+    public <S extends Article> S save(S s) {
         return null;
     }
 
-    public ArticleVo findOne(Integer integer) {
+    @Override
+    public String delete4Result(Integer integer) {
+        return null;
+    }
+
+    public Article findOne(Integer integer) {
         return null;
     }
 
@@ -70,11 +71,11 @@ public class ArticleDaoImpl implements ArticleDao{
         return false;
     }
 
-    public Iterable<ArticleVo> findAll() {
+    public Iterable<Article> findAll() {
         return null;
     }
 
-    public Iterable<ArticleVo> findAll(Iterable<Integer> iterable) {
+    public Iterable<Article> findAll(Iterable<Integer> iterable) {
         return null;
     }
 
@@ -86,11 +87,7 @@ public class ArticleDaoImpl implements ArticleDao{
 
     }
 
-    public void delete(ArticleVo articleVo) {
-
-    }
-
-    public void delete(Iterable<? extends ArticleVo> iterable) {
+    public void delete(Iterable<? extends Article> iterable) {
 
     }
 

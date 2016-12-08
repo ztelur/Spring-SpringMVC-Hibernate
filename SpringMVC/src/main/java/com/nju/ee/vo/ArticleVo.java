@@ -1,6 +1,6 @@
 package com.nju.ee.vo;
 
-import java.util.Date;
+import com.nju.ee.entity.Article;
 
 /**
  * Created by homer on 16-10-31.
@@ -9,8 +9,10 @@ public class ArticleVo {
     private String title;
     private String category;
     private String content;
-    public ArticleVo() {
-
+    public ArticleVo(Article article) {
+        this.title = article.getTitle();
+        this.category = article.getCategory();
+        this.content = article.getContent();
     }
     public String getContent() {
         return content;

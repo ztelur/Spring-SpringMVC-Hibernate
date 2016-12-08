@@ -30,9 +30,8 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public RestResult get(Integer page, Integer num){
-        RestResult result = articleService.getArticles(page, num);
-
+    public RestResult get(Integer pageNum, Integer pageSize){
+        RestResult result = articleService.getArticles(pageNum, pageSize);
         return result;
     }
 

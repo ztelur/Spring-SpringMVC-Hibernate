@@ -73,6 +73,21 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-jpamodelgen</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>1.0.0.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>4.3.8.Final</version>
+    </dependency>
 
     <dependency>
       <groupId>c3p0</groupId>
@@ -89,6 +104,17 @@
       <artifactId>spring-data-jpa</artifactId>
       <version>1.9.0.RELEASE</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>4.1.6.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>4.3.3.RELEASE</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>mark</finalName>
@@ -99,6 +125,9 @@
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
+          <compilerArguments>
+            <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
+          </compilerArguments>
         </configuration>
       </plugin>
     </plugins>

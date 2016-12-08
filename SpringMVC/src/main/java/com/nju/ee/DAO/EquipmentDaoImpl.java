@@ -1,6 +1,5 @@
 package com.nju.ee.DAO;
 
-import com.nju.ee.entity.Article;
 import com.nju.ee.entity.Equipment;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -33,17 +32,29 @@ public class EquipmentDaoImpl implements EquipmentDao {
 
     @Override
     public void save(Equipment e) {
-        baseDao.save(e);
+        try {
+            baseDao.save(e);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
 
     @Override
     public void update(Equipment e) {
-        baseDao.update(e);
+        try {
+            baseDao.update(e);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
 
     }
 
     @Override
     public void delete(Equipment e) {
-        baseDao.delete(e);
+        try {
+            baseDao.delete(e);
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
 }

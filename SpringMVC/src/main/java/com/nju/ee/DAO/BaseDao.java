@@ -22,11 +22,11 @@ public interface BaseDao {
 
     public Long getTotalCount(Class c);
 
-    public void save(Object bean);
+    public void save(Object bean) throws Exception;
 
-    public void update(Object bean);
+    public void update(Object bean) throws Exception;
 
-    public void delete(Object bean);
+    public void delete(Object bean) throws Exception;
 
     public void delete(Class c, String id);
 

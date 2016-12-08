@@ -12,11 +12,9 @@ public interface ArticleDao {
 
     List<Article> getArticleWithPage(int page);
 
-    /**
-     *
-     * @param integer 需要删除的新闻ID
-     * @return 返回删除的结果
-     */
-    String delete4Result(Integer integer);
+    Article update(Article article);
 
+    Article delete(Article article);
+
+    Article save(Article article);
 }

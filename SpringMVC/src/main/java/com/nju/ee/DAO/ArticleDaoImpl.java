@@ -6,9 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,26 +17,27 @@ import java.util.List;
 public class ArticleDaoImpl implements ArticleDao {
     @Autowired
     private BaseDao baseDao;
+
     @Override
-    public Article getArticleById(int id){
-        Session session=baseDao.getSession();
-        Criteria cri=session.createCriteria(Article.class);
-        cri.add(Restrictions.eq("id",id));
-        List<Article> list=cri.list();
-        if (list.size()>0){
-            return list.get(0);
+    public Article getArticleById(int id) {
+        Session session = baseDao.getSession();
+        Criteria cri = session.createCriteria(Article.class);
+        cri.add(Restrictions.eq("id", id));
+        List<Article> list = cri.list();
+        if (list.size() <= 0) {
+            return null;
         }
-        return null;
+        return list.get(0);
     }
 
 
     @Override
     public List<Article> getArticleWithPage(int page) {
-        if (page<1){
-            page=1;
+        if (page < 1) {
+            page = 1;
         }
-        int first=(page-1)* Constant.PAGE_COUNT;
-        Session session =baseDao.getSession();
+        int first = (page - 1) * Constant.PAGE_COUNT;
+        Session session = baseDao.getSession();
         Criteria criteria = session.createCriteria(Article.class);
         criteria.setFirstResult(first);
         criteria.setMaxResults(Constant.PAGE_COUNT);
@@ -48,24 +46,39 @@ public class ArticleDaoImpl implements ArticleDao {
         session.close();
         return result;
     }
-
-    public void update(Article article){
-        baseDao.update(article);
-
+    @Override
+    public Article update(Article article) {
+        Article updatedArticle;
+        try {
+            baseDao.update(article);
+            updatedArticle = article;
+        } catch (Exception e) {
+            updatedArticle=null;
+        }
+        return updatedArticle;
     }
-
-    public void delete(Article article){
-        baseDao.delete(article);
-    }
-
-
 
     @Override
-    public String delete4Result(Integer integer) {
-        return null;
+    public Article delete(Article article) {
+        Article deletedArticle;
+        try {
+            baseDao.delete(article);
+            deletedArticle = article;
+        } catch (Exception e) {
+            deletedArticle = null;
+        }
+        return deletedArticle;
     }
 
-    public void deleteAll() {
-
+    @Override
+    public Article save(Article article) {
+        Article savedArticle;
+        try {
+            baseDao.save(article);
+            savedArticle = article;
+        } catch (Exception e) {
+            savedArticle = null;
+        }
+        return savedArticle;
     }
 }

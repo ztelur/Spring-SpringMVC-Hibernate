@@ -1,6 +1,5 @@
 package com.nju.ee.DAO;
 
-import com.nju.ee.entity.Person;
 import com.nju.ee.entity.Team;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -33,19 +32,31 @@ public class TeamDaoImpl implements TeamDao {
 
     @Override
     public void save(Team t) {
-        baseDao.save(t);
+        try {
+            baseDao.save(t);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void update(Team t) {
-        baseDao.update(t);
+        try {
+            baseDao.update(t);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
 
     @Override
     public void delete(Team t) {
-        baseDao.delete(t);
+        try {
+            baseDao.delete(t);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

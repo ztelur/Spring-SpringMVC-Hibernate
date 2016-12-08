@@ -1,6 +1,7 @@
 package com.nju.ee.service;
 
 import com.nju.ee.DAO.ArticleDao;
+import com.nju.ee.entity.Article;
 import com.nju.ee.vo.ArticleVo;
 import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,12 +48,14 @@ public class ArticleServiceImpl implements ArticleService {
         return result;
     }
 
-    public RestResult addArticle(ArticleVo article) {
-        ArticleVo po = new ArticleVo();
-        po.setCategory("A类");
-        po.setTitle("标题");
-        po.setContent("内容");
-        RestResult result = RestResult.CreateResult(1, po);
+    public RestResult addArticle(ArticleVo articlevo) {
+//        ArticleVo po = new ArticleVo();
+//        po.setCategory("A类");
+//        po.setTitle("标题");
+//        po.setContent("内容");
+        Article article=new Article(articlevo);
+        articleDao.save(article);
+        RestResult result = RestResult.CreateResult(1, articlevo);
         return result;
     }
 

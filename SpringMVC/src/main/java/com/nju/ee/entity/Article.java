@@ -1,5 +1,7 @@
 package com.nju.ee.entity;
 
+import com.nju.ee.vo.ArticleVo;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,29 +15,31 @@ public class Article {
     @GeneratedValue
     private int id;
     private String title;
-    private Date date;
     private String category;
-    private String url;
-    private int readTimes;
-
     private String content;
 
-    @ManyToOne(targetEntity = Person.class)
-    @JoinColumn(name = "person_id",referencedColumnName = "id",nullable = false)
-    private Person person;
+//    @ManyToOne(targetEntity = Person.class)
+//    @JoinColumn(name = "person_id",referencedColumnName = "id",nullable = false)
+//    private Person person;
 
+
+    public Article(ArticleVo av) {
+        this.title=av.getTitle();
+        this.category=av.getCategory();
+        this.content=av.getContent();
+    }
 
     public Article() {
 
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
+//    public Person getPerson() {
+//        return person;
+//    }
+//
+//    public void setPerson(Person person) {
+//        this.person = person;
+//    }
 
     public String getContent() {
         return content;
@@ -62,27 +66,5 @@ public class Article {
         this.category = category;
     }
 
-    public String getUrl() {
-        return url;
-    }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getReadTimes() {
-        return readTimes;
-    }
-
-    public void setReadTimes(int readTimes) {
-        this.readTimes = readTimes;
-    }
 }

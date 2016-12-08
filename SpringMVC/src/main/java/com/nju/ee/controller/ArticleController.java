@@ -87,7 +87,7 @@ public class ArticleController {
 
 
         articleService.addArticle(article);
-        return  "redirect:/manage/list";
+        return  "redirect:/articles/manage/list";
     }
 
     /**

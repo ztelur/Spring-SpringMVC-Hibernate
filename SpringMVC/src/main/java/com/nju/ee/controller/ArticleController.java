@@ -28,16 +28,18 @@ public class ArticleController {
         return "article";
     }
 
+    /**
+     * 获取每页新闻列表及相关信息
+     * @param pageNum 页码
+     * @param pageSize 每页大小
+     * @return RestResult(其data属性为VoPage，包含分页信息和数据，
+     * result属性为是否成功，error属性为出错信息）
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public RestResult get(Integer pageNum, Integer pageSize){
         RestResult result = articleService.getArticles(pageNum, pageSize);
         return result;
-    }
-
-    @RequestMapping("edit")
-    public String articleEdit() {
-        return "article_edit";
     }
 
     /**
@@ -58,19 +60,26 @@ public class ArticleController {
     }
 
     /**
-     * 跳转至添加文章的编辑页面
-     **/
+     * 获取文章列表信息并跳转至管理界面,
+     * 将在model中存入属性：key为"articles",
+     * value为RestResult(其data属性为VoPage，包含分页信息和数据，
+     * result属性为是否成功，error属性为出错信息）
+     * @param page 页码
+     * @param num  每页大小
+     * @param model
+     * @return 跳转至管理文章的列表页面
+     */
     @RequestMapping(value = "/manage/list")
-    public String manageArticles(Integer page, Integer num){
+    public String manageArticles(Integer page, Integer num, Model model){
         RestResult result = articleService.getArticles(page, num);
+        model.addAttribute("articles",result);
         return "manage_article";
     }
     /**
      * 跳转至添加文章的编辑页面
      **/
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/manage/add")
     public String addArticle(){
-
         return "add_article";
     }
 
@@ -83,8 +92,6 @@ public class ArticleController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public String post(ArticleVo article) {
-
-
         articleService.addArticle(article);
         return  "redirect:/articles/manage/list";
     }

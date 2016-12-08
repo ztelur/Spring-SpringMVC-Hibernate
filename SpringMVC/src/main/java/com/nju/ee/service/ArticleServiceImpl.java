@@ -4,11 +4,13 @@ import com.nju.ee.DAO.ArticleDao;
 import com.nju.ee.entity.Article;
 import com.nju.ee.vo.ArticleVo;
 import com.nju.ee.vo.RestResult;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 克崽兽 on 2016/12/2.
@@ -19,14 +21,17 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     public RestResult getArticles(Integer page, Integer num) {
-        ArrayList<ArticleVo> list = new ArrayList<ArticleVo>();
-        for (int i = 0; i < 3; i++) {
-            ArticleVo po = new ArticleVo();
-            po.setCategory("A类");
-            po.setTitle("标题"+i);
-            po.setContent("内容"+i);
-            list.add(po);
-        }
+//        ArrayList<ArticleVo> list = new ArrayList<ArticleVo>();
+
+//        for (int i = 0; i < 3; i++) {
+//            ArticleVo po = new ArticleVo();
+//            po.setCategory("A类");
+//            po.setTitle("标题"+i);
+//            po.setContent("内容"+i);
+//            list.add(po);
+//        }
+        List<Article> list=articleDao.getArticleWithPage(1);
+        System.out.println("list size()"+list.size());
         RestResult result = RestResult.CreateResult(1,list);
 
         return result;

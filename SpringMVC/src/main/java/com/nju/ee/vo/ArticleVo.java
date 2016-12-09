@@ -8,6 +8,7 @@ import java.util.Date;
  * Created by homer on 16-10-31.
  */
 public class ArticleVo {
+    private Integer id;
     private String title;
     private String category;
     private String content;
@@ -16,11 +17,21 @@ public class ArticleVo {
 
     }
     public ArticleVo(Article article) {
+        this.id = article.getId();
         this.title = article.getTitle();
         this.category = article.getCategory();
         this.content = article.getContent();
         this.date = article.getDate();
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getContent() {
         return content;
     }
@@ -47,8 +58,8 @@ public class ArticleVo {
         this.category = category;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return (new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(this.date);
     }
 
     public void setDate(Date date) {

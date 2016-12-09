@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PersonServiceImpl implements PersonService {
-    public RestResult getPersons() {
+    public RestResult getPeople() {
         return null;
     }
 

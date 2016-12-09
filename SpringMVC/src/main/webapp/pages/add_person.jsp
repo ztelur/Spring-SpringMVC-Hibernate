@@ -10,11 +10,11 @@
 <head>
   <meta charset="utf-8">
   <!--my css-->
-  <link rel="stylesheet" href="../css/person.css">
+  <link rel="stylesheet" href="/css/person.css">
 </head>
 <body>
 <div class="container">
-  <form method="post" action="www.baidu.com">
+  <form method="post" action="/persons">
     <div class="input_wrapper">
       <input class="person_input" type="text" placeholder="姓名" name="name" required/>
     </div>

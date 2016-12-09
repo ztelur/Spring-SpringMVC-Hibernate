@@ -41,8 +41,13 @@ public class FileController {
     //TODO:将路径中的img修改为路径变量以适用于任何类型的文件
     @RequestMapping(value = "/img", method = RequestMethod.POST)
     @ResponseBody
-    public RestResult post(@RequestParam(value = "file") MultipartFile file) {
-        return fileService.saveFile(file, FileType.IMAGE);
+    public String post(@RequestParam(value = "file") MultipartFile file) {
+        RestResult result = fileService.saveFile(file, FileType.IMAGE);
+        if(result.getResult()==1) {
+            return (String) result.getData();
+        }else{
+            return null;
+        }
     }
 
     @RequestMapping(value = "/img/{file_name}.{extension_name}", method = RequestMethod.GET)

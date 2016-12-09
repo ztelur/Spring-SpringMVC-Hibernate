@@ -61,19 +61,16 @@ public class BaseDaoImpl implements BaseDao {
         return count != null ? count.longValue() : 0;
     }
 
-    public void save(Object bean) {
-        try {
+    public void save(Object bean) throws Exception{
+
             Session session = getSession();
             session.save(bean);
             session.flush();
             session.clear();
             session.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
-    public void update(Object bean) {
+    public void update(Object bean) throws Exception{
         Session session = getSession();
         session.update(bean);
         session.flush();
@@ -81,7 +78,7 @@ public class BaseDaoImpl implements BaseDao {
         session.close();
     }
 
-    public void delete(Object bean) {
+    public void delete(Object bean) throws Exception{
 
         Session session = getSession();
         session.delete(bean);

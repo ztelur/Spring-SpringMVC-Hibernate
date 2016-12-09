@@ -1,12 +1,20 @@
 package com.nju.ee.DAO;
 
 import com.nju.ee.entity.Article;
-import com.nju.ee.vo.ArticleVo;
-import org.springframework.data.repository.PagingAndSortingRepository;
+
+import java.util.List;
+
 /**
  * Created by 克崽兽 on 2016/12/3.
  */
-//TODO:保证与ID的类型一致（如果不是Integer记得改）
-public interface ArticleDao extends PagingAndSortingRepository<ArticleVo,Integer>{
-    public void save(Article article);
+public interface ArticleDao {
+    Article getArticleById(int id);
+
+    List<Article> getArticleWithPage(int page);
+
+    Article update(Article article);
+
+    Article delete(Article article);
+
+    Article save(Article article);
 }

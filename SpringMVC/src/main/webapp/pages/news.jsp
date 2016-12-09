@@ -91,7 +91,7 @@
             <ul>
                 <%
                     List<ArticleVo>  articlesList = new ArrayList<ArticleVo>();
-                    ArticleVo articleVo = new ArticleVo();
+                    ArticleVo articleVo = new ArticleVo(article);
                     articleVo.setTitle("第一篇文章在第一个场雪的下午进行");
                     articlesList.add(articleVo);
                     articlesList.add(articleVo);

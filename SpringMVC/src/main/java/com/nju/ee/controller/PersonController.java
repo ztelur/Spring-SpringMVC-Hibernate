@@ -32,7 +32,13 @@ public class PersonController {
         model.addAttribute("persons", result);
         return "person";
     }
-
+    /**
+     * 跳转至添加人员的编辑页面
+     **/
+    @RequestMapping(value = "/manage/list")
+    public String managePeople(Integer page, Integer num){
+        return "manage_people";
+    }
 
     /**
      * 将在model中存入属性：key为"person_detail"，

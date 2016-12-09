@@ -30,15 +30,27 @@ public class PersonDao {
     }
 
     public void save(Person p){
-        baseDao.save(p);
+        try {
+            baseDao.save(p);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void update(Person p){
-        baseDao.update(p);
+        try {
+            baseDao.update(p);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void delete(Person p){
-        baseDao.delete(p);
+        try {
+            baseDao.delete(p);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

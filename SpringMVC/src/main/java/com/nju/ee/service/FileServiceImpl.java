@@ -34,7 +34,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         String newFileName = String.valueOf(System.currentTimeMillis())
                 + "." + extensionName;
         //文件目录路径
-        //TODO:考虑后期添加链接指向磁盘固定位置，否则每一次装载都会清除原图片
+        //TODO:新增属性文件保存路径，方便读取修改
         String filePath =   "d:/fileUpload";
 
         try {

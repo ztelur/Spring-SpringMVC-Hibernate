@@ -32,9 +32,9 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            dataType: "text",
+            dataType: "json",
             url: url,
-            data: "pageNum=" + (page_index) + "&pageSize=" + pageSize,
+            data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
             success: function (data) {
                 //后台服务
                 // data = {
@@ -57,10 +57,13 @@ $(document).ready(function () {
                 //         }
                 //     ]
                 // };
-                var newsList = data.data;
+                var page = data.data;
+                var pageNum = page.pageSize;
+                var articles = page.articles;
+                console.log(" " + data);
                 $('.news_list_container').empty();
-                for (var i = 0; i < newsList.length; i++) {
-                    var news = newsList[i];
+                for (var i = 0; i <  articles.length; i++) {
+                    var news = articles[i];
                     $('.news_list_container').append('<li> <span class="title"><a href="' + news.id
                         + ' title="' + news.title + '">' + news.title + page_index + '</a></span><br> <span class="time">' +
                         news.date + '</span> <span class="class">分类：' + news.category  + ' </span> </li>');

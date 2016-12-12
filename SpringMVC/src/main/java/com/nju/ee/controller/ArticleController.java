@@ -113,6 +113,7 @@ public class ArticleController {
      */
     @RequestMapping(value = "/manage" , method = RequestMethod.POST)
     public String post(ArticleVo article) {
+        System.out.println(article.getContent()+"ddd");
         articleService.addArticle(article);
         return  "redirect:/articles/manage/list";
     }

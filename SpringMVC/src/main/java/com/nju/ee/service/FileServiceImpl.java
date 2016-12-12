@@ -40,12 +40,6 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         //文件目录路径
         //TODO:新增属性文件保存路径，方便读取修改
         Properties properties = PropertiesUtil.getProperties("file_save.properties");
-        //////test
-        String path = properties.getProperty("path");
-        if(path!=null) {
-            return RestResult.CreateResult(1, path);
-        }
-        //////test
         if(properties==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"文件保存出错（无法获取配置文件）"));
         }

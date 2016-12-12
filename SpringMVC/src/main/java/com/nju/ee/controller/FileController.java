@@ -44,12 +44,7 @@ public class FileController {
         if(result.getResult()==1) {
             return (String) result.getData();
         }else{
-            //test
-            return (String) result.getData();
-
-            //test
-
-            //return null;
+            return null;
         }
     }
 

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head profile="http://gmpg.org/xfn/11">
@@ -79,32 +80,44 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="news_list2">
-            <ul>
-                <li> 
-                    <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">团队成员获得重大科技突破奖</a></span>
-                    <span class="hits">
-                            <button>编辑</button>
-                            <button>删除</button>
-                    </span>
-                    <br>
-                    <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=194"  title="张海霞教授课题组在摩擦诱导静电放电的研究中取得重要进展">课题组在膜电子领域获得突破</a></span><span class="hits">阅读次数：1570</span><br>
-                    <span class="time">2016-06-05 21:02:50</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=193"  title="学校科学研究部周辉部长一行调研微纳电子学研究院">南京大学校领导一行调研微纳电子学研究院</a></span><span class="hits">阅读次数：1777</span><br>
-                    <span class="time">2016-05-31 09:46:45</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=192"  title="微电子工艺实验室参观走廊开放展示">微电子工艺实验室参观走廊开放展示</a></span><span class="hits">阅读次数：1958</span><br>
-                    <span class="time">2016-05-21 11:57:51</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=191"  title="微纳电子与集成系统协同创新中心2016年度战略研讨会暨青年科学家论坛成功举行">全国电子大会成功召开</a></span><span class="hits">阅读次数：2414</span><br>
-                    <span class="time">2016-05-13 11:21:24</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=188"  title="国际电工委员会第47技术委员会第6和第7工作组会议在北京大学举行">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</a></span><span class="hits">阅读次数：2420</span><br>
-                    <span class="time">2016-04-22 15:19:53</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid"></a></span> </li>
-                <li> <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=187"  title="日本电子株式会社执行副总裁渡边慎一先生一行 访问北京大学微纳电子学研究院">xxxxxxxxxxxxxxxxxx</a></span><span class="hits">阅读次数：3055</span><br>
 
+        <div class="news_list2">
+
+             <ul>
+                <c:forEach var="listValue" items="${articles.data.articles}">
+                   <li> 
+                        <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">${listValue.title}</a></span>
+                        <span class="hits">
+                                <button>编辑</button>
+                                <form method="delete" action="/articles/manage/${listValue.id}"><button>删除</button></form>
+                        </span>
+                        <br>
+                        <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid">${listValue.category}</a></span> 
+                    </li>
+                </c:forEach>
             </ul>
+            
         </div>
     </div>
 </div>
+
+<!-- ####################################################################################################### -->
+
+    <div class="page">
+         <span class="disabled"> < </span>
+         <span class="current">1</span>
+         <a href="http://www.111cn.net">2</a>
+         <a href="http://www.111cn.net">3</a>
+         <a href="http://www.111cn.net">4</a>
+         <a href="http://www.111cn.net">5</a>
+         <a href="http://www.111cn.net">6</a>
+         <a href="http://www.111cn.net">7</a>
+         ...
+         <a href="http://www.111cn.net">199</a>
+         <a href="http://www.111cn.net">200</a>
+         <a href="http://www.111cn.net"> > </a>
+</div>
+
 
 <!-- ####################################################################################################### -->
 <div class="wrapper">

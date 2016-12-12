@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-  <form method="post" action="/persons">
+  <form method="post" action="/people/manage">
     <div class="input_wrapper">
       <input class="person_input" type="text" placeholder="姓名" name="name" required/>
     </div>

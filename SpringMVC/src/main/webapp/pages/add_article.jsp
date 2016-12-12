@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.nju.ee.vo.RestResult" %>
 <!-- title date category content-->
 <!DOCTYPE html>
 <html>
@@ -43,7 +45,12 @@
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage">
+  <c:if test="${is_add_page == 0}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage/${article_detail.data.id}">
+  </c:if>
+  <c:if test="${is_add_page == 1}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles">
+  </c:if>
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>
     <input type="text" class="title_input" placeholder="请输入类别" id="category" name="category"/>
@@ -104,7 +111,7 @@
       charCounterMax:10000,
       heightMin:400,
       // Set the image upload URL.
-      imageUploadURL: '/files/img',
+      imageUploadURL: '/files',
       // Set request type.
       imageUploadMethod: 'POST',
       imageUploadParam:'file',
@@ -113,7 +120,19 @@
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png']
     });
+    <c:if test="${is_add_page == 0}">
+    <!--进入编辑，需要对表单进行赋值-->
+      $('#edit').froalaEditor('html.set', '<c:out value="${article_detail.data.content}"/>');
+      $('#title').attr("value",'${article_detail.data.title}');
+      $('#category').attr("value",'${article_detail.data.category}');
+    </c:if>
   });
+  function reset(){
+    $('#edit').froalaEditor('html.set', '');
+  };
+  function checkForm(){
+    return true;
+  }
 </script>
 </body>
 </html>

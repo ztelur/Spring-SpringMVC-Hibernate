@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form name="uploadForm" id="uploadForm" method="post" action="<%= request.getContextPath() %>/files/img"
+    <form name="uploadForm" id="uploadForm" method="post" action="<%= request.getContextPath() %>/files"
       enctype="multipart/form-data">
     <input type="file" name="file"/><br/>
     <input type="submit" value="上传" class="btn4"/>

@@ -1,7 +1,8 @@
 package com.nju.ee.service;
 
-import com.nju.ee.vo.FileType;
-
+import com.nju.ee.Constant.Extension;
+import com.nju.ee.Constant.FileType;
+import com.nju.ee.Constant.PropertiesUtil;
 import com.nju.ee.vo.Error;
 import com.nju.ee.vo.RestResult;
 import org.springframework.context.support.ApplicationObjectSupport;
@@ -10,13 +11,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.io.*;
+import java.util.Properties;
 
 /**
  * Created by 克崽兽 on 2016/12/5.
  */
 @Service
 public class FileServiceImpl extends ApplicationObjectSupport implements FileService {
-    public RestResult saveFile(MultipartFile file, FileType fileType) {
+    public RestResult saveFile(MultipartFile file) {
         if (file == null || file.isEmpty()) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "文件不能为空"));
         }
@@ -30,12 +32,24 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         // 获取扩展名
         String extensionName = fileName
                 .substring(fileName.lastIndexOf(".") + 1);
+        //根据扩展名获取文件类型
+        FileType fileType = Extension.extension2FileType(extensionName) ;
         // 新的文件名 = 获取时间戳+"."+扩展名
         String newFileName = String.valueOf(System.currentTimeMillis())
                 + "." + extensionName;
         //文件目录路径
         //TODO:新增属性文件保存路径，方便读取修改
-        String filePath =   "d:/fileUpload";
+        Properties properties = PropertiesUtil.getProperties("file_save.properties");
+        //////test
+        String path = properties.getProperty("path");
+        if(path!=null) {
+            return RestResult.CreateResult(1, path);
+        }
+        //////test
+        if(properties==null){
+            return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"文件保存出错（无法获取配置文件）"));
+        }
+        String filePath = properties.getProperty("fileRoot");
 
         try {
             InputStream input = file.getInputStream();
@@ -49,6 +63,9 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
                         "文件保存出错（成功存储的文件大小不符合实际大小)"));
             }
             String fileUrl = filePath2Url(filePath + "/" + newFileName, fileType);
+            if(fileUrl==null){
+                return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"文件保存出错（无法获取配置文件）"));
+            }
             return RestResult.CreateResult(1, fileUrl);
         } catch (IOException e) {
 //            e.printStackTrace();
@@ -59,6 +76,9 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
 
     public FileInputStream getFile(String fileName) {
         String filePath = fileName2FilePath(fileName);
+        if(filePath==null){
+            return null;
+        }
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(filePath);
@@ -67,6 +87,7 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
                 fis = new FileInputStream( filePath.substring(0,filePath.lastIndexOf("/")+1)+"default.png");
             } catch (FileNotFoundException e1) {
 //                e1.printStackTrace();
+                return null;
             }
         }
         return fis;
@@ -75,8 +96,11 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
     private String filePath2Url(String filePath, FileType fileType) {
         String fileName = filePath
                 .substring(filePath.lastIndexOf("/") + 1);
-        //TODO:新增属性文件保存路径，方便读取修改
-        String contextRoot = "http://localhost:8080/ee/files";
+        Properties properties = PropertiesUtil.getProperties("file_save.properties");
+        if(properties==null){
+            return null;
+        }
+        String contextRoot = properties.getProperty("contextRoot");
         switch (fileType) {
             case DEFAULT:
                 contextRoot += "";
@@ -92,8 +116,11 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
     }
 
     private String fileName2FilePath(String fileName) {
-        //TODO:新增属性文件保存路径，方便读取修改
-        String fileRoot = "d:/fileUpload";
+        Properties properties = PropertiesUtil.getProperties("file_save.properties");
+        if(properties==null){
+            return null;
+        }
+        String fileRoot = properties.getProperty("fileRoot");
         return fileRoot + "/" + fileName;
     }
 
@@ -111,4 +138,5 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         input.close();
         return byteSum;
     }
+
 }

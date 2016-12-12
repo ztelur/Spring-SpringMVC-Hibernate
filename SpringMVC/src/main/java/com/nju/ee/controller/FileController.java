@@ -1,9 +1,8 @@
 package com.nju.ee.controller;
 
 import com.nju.ee.service.FileService;
-import com.nju.ee.vo.FileType;
 import com.nju.ee.vo.RestResult;
-import com.nju.ee.vo.contentType;
+import com.nju.ee.Constant.Extension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -32,21 +31,25 @@ public class FileController {
     }
 
     /**
-     * 上传图像
+     * 上传文件
      *
      * @param file
      * @return json格式的RestResult对象（其data属性为图像url，
      * result属性为是否成功，error属性为出错信息）
      */
-    //TODO:将路径中的img修改为路径变量以适用于任何类型的文件
-    @RequestMapping(value = "/img", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String post(@RequestParam(value = "file") MultipartFile file) {
-        RestResult result = fileService.saveFile(file, FileType.IMAGE);
+        RestResult result = fileService.saveFile(file);
         if(result.getResult()==1) {
             return (String) result.getData();
         }else{
-            return null;
+            //test
+            return (String) result.getData();
+
+            //test
+
+            //return null;
         }
     }
 
@@ -55,12 +58,10 @@ public class FileController {
                     @PathVariable(value = "extension_name") String extensionName
             , HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
-        response.setContentType(contentType.extension2ContentType(extensionName));
+        response.setContentType(Extension.extension2ContentType(extensionName));
+        try (FileInputStream fis = fileService.getFile(fileName+"."+extensionName);
+             OutputStream os = response.getOutputStream()){
 
-        FileInputStream fis = fileService.getFile(fileName+"."+extensionName);
-        OutputStream os = null;
-        try {
-            os = response.getOutputStream();
             int count = 0;
             byte[] buffer = new byte[1024 * 1024];
             while ((count = fis.read(buffer)) != -1) {
@@ -69,22 +70,6 @@ public class FileController {
             }
         } catch (IOException e) {
 //            e.printStackTrace();
-        } finally {
-            if (os != null) {
-                try {
-                    os.close();
-                } catch (IOException e) {
-//                    e.printStackTrace();
-                }
-            }
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e) {
-//                    e.printStackTrace();
-                }
-            }
         }
-
     }
 }

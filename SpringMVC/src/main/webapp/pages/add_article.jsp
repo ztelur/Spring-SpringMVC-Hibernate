@@ -43,7 +43,7 @@
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage">
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>
     <input type="text" class="title_input" placeholder="请输入类别" id="category" name="category"/>

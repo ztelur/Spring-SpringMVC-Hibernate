@@ -114,7 +114,7 @@ public class ArticleController {
      * @return json格式的RestResult对象（其data属性为ArticlePo，
      * result属性为是否成功，error属性为出错信息）
      */
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/manage" , method = RequestMethod.POST)
     public String post(ArticleVo article) {
         articleService.addArticle(article);
         return  "redirect:/articles/manage/list";
@@ -127,7 +127,7 @@ public class ArticleController {
      * @return json格式的RestResult对象（其data属性为ArticlePo，
      * result属性为是否成功，error属性为出错信息）
      */
-    @RequestMapping(value = "/manage/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
     @ResponseBody
     public RestResult put(@PathVariable("id") Integer id, ArticleVo article) {
         return articleService.modifyArticle(id, article);
@@ -140,7 +140,7 @@ public class ArticleController {
      * @return json格式的RestResult对象（其data属性为ArticlePo，
      * result属性为是否成功，error属性为出错信息）
      */
-    @RequestMapping(value = "/manage/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/manage/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public RestResult delete(@PathVariable("id") Integer id) {
         return articleService.deleteArticle(id);

@@ -20,34 +20,43 @@ $(document).ready(function () {
     }();
     function pageselectCallback(page_index, jq){
         console.log(page_index + " " + jq);
+        var currentUrl = window.location.href;
+        console.log(currentUrl);
         var pageSize = 10;
+
+        var pathName = document.location.pathname;
+        var index = pathName.indexOf("/");
+        var pathContext = pathName.substring(0, index);
+        var url = pathContext + "/articles";
+
+
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "",
-            data: "pageIndex=" + (page_index) + "&pageSize=" + pageSize,
+            url: url,
+            data: "pageNum=" + (page_index) + "&pageSize=" + pageSize,
             success: function (data) {
                 //后台服务
-                data = {
-                    "pageIndex": 1,
-                    "pageSize": 10,
-                    "data": [
-                        {
-                            "id": "1",
-                            "title": "第一个新闻",
-                            "date": "2016.2.2",
-                            "category": "新闻",
-                            "readTime":"23"
-                        },
-                        {
-                            "id": "2",
-                            "title": "第二个新闻",
-                            "date": "2016.2.2",
-                            "category": "新闻",
-                            "readTime":"23"
-                        }
-                    ]
-                };
+                // data = {
+                //     "pageIndex": 1,
+                //     "pageSize": 10,
+                //     "data": [
+                //         {
+                //             "id": "1",
+                //             "title": "第一个新闻",
+                //             "date": "2016.2.2",
+                //             "category": "新闻",
+                //             "readTime":"23"
+                //         },
+                //         {
+                //             "id": "2",
+                //             "title": "第二个新闻",
+                //             "date": "2016.2.2",
+                //             "category": "新闻",
+                //             "readTime":"23"
+                //         }
+                //     ]
+                // };
                 var newsList = data.data;
                 $('.news_list_container').empty();
                 for (var i = 0; i < newsList.length; i++) {

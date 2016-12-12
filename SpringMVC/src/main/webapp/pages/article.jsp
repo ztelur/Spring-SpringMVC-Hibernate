@@ -15,28 +15,35 @@
     <title>文章</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
 
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="/styles/touchTouch.css">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/images/favicon.ico" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/touchTouch.css"/>
 
-    <link rel="stylesheet" href="/styles/style.css">
-    <script src="/js/jquery.js"></script>
-    <script src="/js/jquery-migrate-1.1.1.js"></script>
-    <script src="/js/jquery.easing.1.3.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/superfish.js"></script>
-    <script src="/js/jquery.equalheights.js"></script>
-    <script src="/js/jquery.mobilemenu.js"></script>
-    <script src="/js/tmStickUp.js"></script>
-    <script src="/js/jquery.ui.totop.js"></script>
-    <script src="/js/touchTouch.jquery.js"></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
+    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery-migrate-1.1.1.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
+    <script src="<%=request.getContextPath()%>/js/script.js"></script>
+    <script src="<%=request.getContextPath()%>/js/superfish.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.equalheights.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.mobilemenu.js"></script>
+    <script src="<%=request.getContextPath()%>/js/tmStickUp.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
+    <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
+
+    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <script src="<%=request.getContextPath()%>/js/news.js"></script>
 
 
-    <link rel="stylesheet" href="/styles/articles-list.css" type="text/css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />
+
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
+
+
 <div class="wrapper row1">
     <div id="header" class="clear">
         <div class="fl_left">
@@ -51,7 +58,7 @@
                 <fieldset>
                     <strong>Search:</strong>
                     <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="images/search.gif" id="search" alt="Search" />
+                    <input type="image" src="/images/search.gif" id="search" alt="Search" />
                 </fieldset>
             </form>
         </div>
@@ -74,39 +81,19 @@
         <!-- ###### -->
     </div>
 </div>
-
-
-
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="article-list">
-        <%
-            List<ArticleVo>  articlesList = new ArrayList<ArticleVo>();
-            ArticleVo articleVo = new ArticleVo(article);
-            articleVo.setTitle("第一篇文章在第一个场雪的下午进行");
-
-
-            for(ArticleVo po : articlesList){
-        %>
-        <h1 class="article-list-title">
-            <span style="font-size: 12pt;">
-                <%=po.getTitle() %><br>
-            </span>
-        </h1>
-        <p>11/05/2016 - Le 17 mai prochain, à 11h, une cérémonie aura lieu à l’ISEP afin de déposer une plaque dans ses locaux, honorant les différentes collaborations entre la grande école d’ingénieurs et Texas Instruments...
-            <br>
-            <a href="/images/ISEP/Communication/Presse/cp_ceremonie_TI_ISEP.pdf">
-                Lire la suite...
-            </a>
-            <a href="/images/ISEP/Communication/Presse/CP_2015_Isep_qualification_EESPIG.pdf">
-                <img src="/images/pdf_button.png" border="0">
-            </a>
-        </p>
-        <%}
-        %>
+        <div class="news_list2">
+            <ul class="news_list_container">
+            </ul>
         </div>
     </div>
+    <!-- ####################################################################################################### -->
+    <div  id="Pagination" class="pagination">
+
+    </div>
+    <!-- ####################################################################################################### -->
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper row4">
@@ -152,12 +139,7 @@
     </div>
 </div>
 <!-- ####################################################################################################### -->
-<div class="wrapper">
-    <div id="copyright" class="clear">
-        <p class="fl_left">Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></p>
-        <p class="fl_right">Template from <a href="http://www.cssmoban.com/" title="模板之家">网站模板</a></p>
-    </div>
-</div>
+
 
 </body>
 </html>

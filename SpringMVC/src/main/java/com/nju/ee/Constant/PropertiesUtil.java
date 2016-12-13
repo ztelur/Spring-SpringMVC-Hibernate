@@ -17,13 +17,7 @@ public class PropertiesUtil {
             pro.load(in);
             in.close();
         }catch (IOException e){
-            ////test
-            e.printStackTrace();
-            Properties p = new Properties();
-            p .setProperty("path",e.getMessage());
-            return p;
-            ////test
-            //return null;
+            return null;
         }
         return pro;
     }

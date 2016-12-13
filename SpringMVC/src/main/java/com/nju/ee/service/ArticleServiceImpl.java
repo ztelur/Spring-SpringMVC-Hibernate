@@ -71,12 +71,13 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public RestResult modifyArticle(Integer id, ArticleVo article) {
-        RestResult searchResult = getArticleDetail(id);
-        Article modifiedArticle = null;
-        if (searchResult.getResult() != 1) {
-            return searchResult;
+        if (id == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少新闻编号"));
         }
-        modifiedArticle = (Article) searchResult.getData();
+        Article modifiedArticle = articleDao.getArticleById(id);
+        if (modifiedArticle == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的新闻"));
+        }
         modifiedArticle.setCategory(article.getCategory());
         modifiedArticle.setTitle(article.getTitle());
         modifiedArticle.setContent(article.getContent());
@@ -89,12 +90,13 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public RestResult deleteArticle(Integer id) {
-        RestResult searchResult = getArticleDetail(id);
-        Article uselessArticle = null;
-        if (searchResult.getResult() != 1) {
-            return searchResult;
+        if (id == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少新闻编号"));
         }
-        uselessArticle = (Article) searchResult.getData();
+        Article uselessArticle = articleDao.getArticleById(id);
+        if (uselessArticle == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的新闻"));
+        }
         Article deletedArticle = articleDao.delete(uselessArticle);
         if(deletedArticle==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"删除过程出错"));

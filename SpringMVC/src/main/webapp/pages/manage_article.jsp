@@ -88,8 +88,8 @@
                    <li> 
                         <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">${listValue.title}</a></span>
                         <span class="hits">
-                                <button>编辑</button>
-                                <form method="delete" action="/articles/manage/${listValue.id}"><button>删除</button></form>
+                                <a href="/articles/manage/${listValue.id}">编辑</button>
+                                <a href="/articles/manage/delete/${listValue.id}">删除</button>
                         </span>
                         <br>
                         <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid">${listValue.category}</a></span> 

@@ -22,7 +22,7 @@ public class Article {
     private int id;
     private String title;
     private String category;
-    private Blob content;
+    private String content;
     private Date date;
 
 //    @ManyToOne(targetEntity = Person.class)
@@ -34,10 +34,9 @@ public class Article {
         try {
             this.title = av.getTitle();
             this.category = av.getCategory();
-            byte[] buff = av.getContent().getBytes();
-            this.content = new SerialBlob(buff);
+            this.content = av.getContent();
             this.date = new Date();
-        }catch(SQLException e){
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
@@ -63,24 +62,13 @@ public class Article {
     }
 
     public String getContent() {
-        try {
-            byte[] data = content.getBytes(1, (int) content.length());
-            String s = new String(data);
-            return s;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
+
+        return this.content;
     }
 
     public void setContent(String content) {
 
-        try {
-            byte[] buff = content.getBytes();
-            this.content = new SerialBlob(buff);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+       this.content=content;
     }
 
     public String getTitle() {

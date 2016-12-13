@@ -34,15 +34,14 @@ public class FileController {
      * 上传文件
      *
      * @param file
-     * @return json格式的RestResult对象（其data属性为图像url，
-     * result属性为是否成功，error属性为出错信息）
+     * @return json:{"link":"url"}
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String post(@RequestParam(value = "file") MultipartFile file) {
         RestResult result = fileService.saveFile(file);
         if(result.getResult()==1) {
-            return (String) result.getData();
+            return "{\"link\":\""+(String) result.getData()+"\"}";
         }else{
             return null;
         }

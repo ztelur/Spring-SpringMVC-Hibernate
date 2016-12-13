@@ -49,7 +49,7 @@ public class ArticleController {
      * @return 跳转到详情页面
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String articleDetail(@PathVariable("id") Integer id, Model model) {
+    public  String articleDetail(@PathVariable("id") Integer id, Model model) {
         RestResult result = articleService.getArticleDetail(id);
         model.addAttribute("article", result);
         //TODO: 新增新闻详情页

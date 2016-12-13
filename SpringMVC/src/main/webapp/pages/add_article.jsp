@@ -49,7 +49,7 @@
   <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage/${article_detail.data.id}">
   </c:if>
   <c:if test="${is_add_page == 1}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/">
   </c:if>
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>

@@ -64,8 +64,7 @@ $(document).ready(function () {
                 $('.news_list_container').empty();
                 for (var i = 0; i <  articles.length; i++) {
                     var news = articles[i];
-                    $('.news_list_container').append('<li> <span class="title"><a href="' + news.id
-                        + ' title="' + news.title + '">' + news.title + page_index + '</a></span><br> <span class="time">' +
+                    $('.news_list_container').append('<li> <span class="title"><a href=' + url + '/' +news.id + '>' + news.title + page_index + '</a></span><br> <span class="time">' +
                         news.date + '</span> <span class="class">分类：' + news.category  + ' </span> </li>');
                 }
             }

@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -22,7 +21,7 @@ public class Article {
     private int id;
     private String title;
     private String category;
-    private String content;
+    private Blob content;
     private Date date;
 
 //    @ManyToOne(targetEntity = Person.class)
@@ -34,9 +33,12 @@ public class Article {
         try {
             this.title = av.getTitle();
             this.category = av.getCategory();
-            this.content = av.getContent();
+//            byte[] buff = av.getContent().getBytes(); 
+            byte[] buff = av.getContent().getBytes();
+            this.content = new SerialBlob(buff);
             this.date = new Date();
-        }catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -63,12 +65,30 @@ public class Article {
 
     public String getContent() {
 
-        return this.content;
+        try {
+//         byte[] data = content.getBytes(1, (int) content.length());
+            byte[] data = content.getBytes(1, (int) content.length());
+            String s = new String(data);
+            return s;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public void setContent(String content) {
 
-       this.content=content;
+//        try { byte[] buff = content.getBytes(); this.content = new SerialBlob(buff); } catch (Exception e) { 
+//            e.printStackTrace(); }
+        try {
+            byte[] buff = content.getBytes();
+            this.content = new SerialBlob(buff);
+
+        } catch
+                (Exception e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     public String getTitle() {

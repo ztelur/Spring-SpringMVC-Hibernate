@@ -2,6 +2,7 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jee="http://www.springframework.org/schema/jee"
@@ -13,6 +14,17 @@
     <context:component-scan base-package="com.nju.ee.service"/>
     <context:component-scan base-package="com.nju.ee.entity"/>
     <context:component-scan base-package="com.nju.ee.DAO"/>
+
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/ee?UseUnicode=true&amp;autoReconnect=true&amp;useSSL=false&amp;characterEncoding=UTF-8" />
+        <property name="username" value="root" />
+        <property name="password" value="webgoat..." />
+
+    </bean>
 
 
     <bean id="sessionFactory"
@@ -50,6 +62,8 @@
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
 
     <bean id="baseDao" class="com.nju.ee.DAO.BaseDaoImpl"/>
 

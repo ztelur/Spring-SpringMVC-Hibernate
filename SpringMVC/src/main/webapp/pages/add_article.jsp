@@ -122,7 +122,7 @@
     });
     <c:if test="${is_add_page == 0}">
     <!--进入编辑，需要对表单进行赋值-->
-      $('#edit').froalaEditor('html.set', '<c:out value="${article_detail.data.content}"/>');
+      $('#edit').froalaEditor('html.set', '<c:out value="${article_detail.data.content}" escapeXml="false"/>');
       $('#title').attr("value",'${article_detail.data.title}');
       $('#category').attr("value",'${article_detail.data.category}');
     </c:if>

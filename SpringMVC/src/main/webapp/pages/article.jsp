@@ -34,7 +34,7 @@
     <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
 
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
-    <script src="<%=request.getContextPath()%>/js/news.js"></script>
+    <script src="<%=request.getContextPath()%>/js/article.js"></script>
 
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />

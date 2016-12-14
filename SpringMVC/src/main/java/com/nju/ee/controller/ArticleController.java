@@ -34,7 +34,7 @@ public class ArticleController {
      */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public RestResult get(@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize){
+    public RestResult get(Integer pageNum, Integer pageSize){
         RestResult result = articleService.getArticles(pageNum, pageSize);
         return result;
     }

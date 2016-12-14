@@ -1,6 +1,7 @@
 package com.nju.ee.entity;
 
 import com.nju.ee.vo.ArticleVo;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -22,6 +22,8 @@ public class Article {
     private int id;
     private String title;
     private String category;
+
+    @Type(type="text")
     private String content;
     private Date date;
 
@@ -31,27 +33,15 @@ public class Article {
 
 
     public Article(ArticleVo av) {
-        try {
             this.title = av.getTitle();
             this.category = av.getCategory();
-            this.content = av.getContent();
+            this.content=av.getContent();
             this.date = new Date();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
     }
 
     public Article() {
 
     }
-
-//    public Person getPerson() {
-//        return person;
-//    }
-//
-//    public void setPerson(Person person) {
-//        this.person = person;
-//    }
 
     public int getId() {
         return id;
@@ -62,13 +52,12 @@ public class Article {
     }
 
     public String getContent() {
-
-        return this.content;
+        return  content;
     }
 
     public void setContent(String content) {
 
-       this.content=content;
+        this.content=content;
     }
 
     public String getTitle() {

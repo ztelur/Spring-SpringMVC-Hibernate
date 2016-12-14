@@ -1,12 +1,13 @@
 package com.nju.ee.controller;
 
+import com.nju.ee.service.ArticleService;
 import com.nju.ee.vo.ArticleVo;
 import com.nju.ee.vo.RestResult;
-import com.nju.ee.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Created by homer on 16-12-1.
@@ -34,14 +35,14 @@ public class ArticleController {
      */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public RestResult get(Integer pageNum, Integer pageSize){
+    public RestResult get( Integer pageNum,  Integer pageSize){
         RestResult result = articleService.getArticles(pageNum, pageSize);
         return result;
     }
 
     /**
      * 获取具体新闻,将在model中存入属性：key为"article",
-     * value为RestResult(其data属性为ArticlePo，
+     * value为RestResult(其data属性为ArticleVo，
      * result属性为是否成功，error属性为出错信息）
      *
      * @param id    新闻编号
@@ -52,7 +53,6 @@ public class ArticleController {
     public  String articleDetail(@PathVariable("id") Integer id, Model model) {
         RestResult result = articleService.getArticleDetail(id);
         model.addAttribute("article", result);
-        //TODO: 新增新闻详情页
         return "article_detail";
     }
 
@@ -108,34 +108,44 @@ public class ArticleController {
      * 新增新闻。
      *
      * @param article 完整的新闻对象（需传入与其属性相对应的参数）
-     * @return json格式的RestResult对象（其data属性为ArticlePo，
+     * @return json格式的RestResult对象（其data属性为ArticleVo，
      * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(value = "/manage" , method = RequestMethod.POST)
-    public String post(ArticleVo article) {
+    public String post(ArticleVo article,Model model) {
         System.out.println(article.getContent()+"ddd");
-        articleService.addArticle(article);
+        RestResult result = articleService.addArticle(article);
+        model.addAttribute("result",result);
         return  "redirect:/articles/manage/list";
     }
 
     /**
      * 在服务器更新资源（客户端提供改变后的完整资源)
      *
+     * @param id 新闻编号
      * @param article 新闻对象（需传入与其属性相对应的参数）
-     * @return json格式的RestResult对象（其data属性为ArticlePo，
-     * result属性为是否成功，error属性为出错信息）
+     * @return 若修改成功则重定向至新闻详情界面,同时存入属性：
+     * key为“update_success”,value为“1”；
+     * 若修改失败则重定向至新闻编辑界面，同时存入属性：
+     * key为“fail_result",value为出错原因
      */
     @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public RestResult put(@PathVariable("id") Integer id, ArticleVo article) {
-        return articleService.modifyArticle(id, article);
+    public String put(@PathVariable("id") Integer id, ArticleVo article, RedirectAttributes ra) {
+        RestResult result = articleService.modifyArticle(id, article);
+        if(result.getResult() == 1){//修改成功跳转至新闻详情界面
+            ra.addFlashAttribute("update_success","1");
+            return "redirect:/articles/"+((ArticleVo) result.getData()).getId();
+        }else{//修改失败跳转至编辑界面
+            ra.addFlashAttribute("fail_result",result.getError().getMessage());
+            return "redirect:/articles/manage/"+article.getId();
+        }
     }
 
     /**
      * 删除新闻
      *
      * @param id 新闻编号
-     * @return json格式的RestResult对象（其data属性为ArticlePo，
+     * @return json格式的RestResult对象（其data属性为ArticleVo，
      * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(value = "/manage/delete/{id}", method = RequestMethod.GET)

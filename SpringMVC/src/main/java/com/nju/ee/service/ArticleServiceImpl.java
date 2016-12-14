@@ -16,7 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-
+//TODO 将dao层异常抛出至service，获取其根源原因以构造出错时的RestResult
 /**
  * Created by 克崽兽 on 2016/12/2.
  */

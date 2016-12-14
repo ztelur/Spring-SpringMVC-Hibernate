@@ -57,19 +57,10 @@ public class ArticleController {
     }
 
     /**
-     * 获取新闻列表信息并跳转至管理界面,
-     * 将在model中存入属性：key为"articles",
-     * value为RestResult(其data属性为VoPage，包含分页信息和数据，
-     * result属性为是否成功，error属性为出错信息）
-     * @param page 页码
-     * @param num  每页大小
-     * @param model
      * @return 跳转至管理新闻的列表页面
      */
     @RequestMapping(value = "/manage/list")
-    public String manageArticles(Integer page, Integer num, Model model){
-        RestResult result = articleService.getArticles(page, num);
-        model.addAttribute("articles",result);
+    public String manageArticles(){
         return "manage_article";
     }
 
@@ -105,11 +96,12 @@ public class ArticleController {
     
     
     /**
-     * 新增新闻。
+     * 新增新闻,将在model中存入属性：key为"result",
+     * value为RestResult(其data属性为ArticleVo，
+     * result属性为是否成功，error属性为出错信息）
      *
      * @param article 完整的新闻对象（需传入与其属性相对应的参数）
-     * @return json格式的RestResult对象（其data属性为ArticleVo，
-     * result属性为是否成功，error属性为出错信息）
+     * @return 重定向至新闻管理列表
      */
     @RequestMapping(value = "/manage" , method = RequestMethod.POST)
     public String post(ArticleVo article,Model model) {

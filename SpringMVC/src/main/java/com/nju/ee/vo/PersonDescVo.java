@@ -6,6 +6,7 @@ import java.util.List;
  * Created by homer on 16-10-31.
  */
 public class PersonDescVo {
+    private int id;
     private String name;
     private String title; //称为　博导，博士生导师
     private String avatar;
@@ -14,6 +15,14 @@ public class PersonDescVo {
     private String introduction;
     private List<String> researchList;
     private List<String> paperList;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

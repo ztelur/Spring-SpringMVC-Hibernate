@@ -1,8 +1,8 @@
 package com.nju.ee.controller;
 
-import com.nju.ee.vo.PersonVo;
-import com.nju.ee.vo.RestResult;
 import com.nju.ee.service.PersonService;
+import com.nju.ee.vo.PersonDescVo;
+import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Created by homer on 16-12-1.
@@ -88,7 +89,7 @@ public class PersonController {
 
     /**
      * 获取具体人员信息,将在model中存入属性：key为"person_detail",
-     * value为RestResult(其data属性为personPo，
+     * value为RestResult(其data属性为PersonDescVo，
      * result属性为是否成功，error属性为出错信息）
      *
      * @param id    人员编号
@@ -104,37 +105,50 @@ public class PersonController {
 
 
     /**
-     * 新增人员
+     * 新增人员,将在model中存入属性：key为"result",
+     * value为RestResult(其data属性为PersonDescVo，
+     * result属性为是否成功，error属性为出错信息）
      *
      * @param person 完整的人员对象（需传入与其属性相对应的参数）
-     * @return json格式的RestResult对象（其data属性为PersonPo，
-     * result属性为是否成功，error属性为出错信息）
+     * @return 重定向至人员管理列表
      */
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
-    @ResponseBody
-    public RestResult post(PersonVo person) {
-        return personService.addPerson(person);
+    public String post(PersonDescVo person, Model model) {
+        RestResult result = personService.addPerson(person);
+        model.addAttribute("result",result);
+        return "redirect:/people/manage/list";
     }
 
     /**
      * 在服务器更新资源（客户端提供改变后的完整资源)
      *
      * @param person 人员对象（需传入与其属性相对应的参数）
-     * @return
+     * @return 若修改成功则重定向至人员详情界面,同时存入属性：
+     * key为“update_success”,value为“1”；
+     * 若修改失败则重定向至人员编辑界面，同时存入属性：
+     * key为“fail_result",value为出错原因
      */
     @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public RestResult put(@PathVariable("id") Integer id, PersonVo person) {
-        return personService.modifyPerson(id, person);
+    public String put(@PathVariable("id") Integer id, PersonDescVo person, RedirectAttributes ra) {
+        RestResult result =  personService.modifyPerson(id, person);
+        if(result.getResult() == 1){//修改成功跳转至新闻详情界面
+            ra.addFlashAttribute("update_success","1");
+            return "redirect:/people/"+((PersonDescVo) result.getData()).getId();
+        }else{//修改失败跳转至编辑界面
+            ra.addFlashAttribute("fail_result",result.getError().getMessage());
+            return "redirect:/articles/manage/"+person.getId();
+        }
     }
 
     /**
      * 删除人员
      *
      * @param id 人员编号
-     * @return
+     * @return json格式的RestResult对象（其data属性为PersonDescVo，
+     * result属性为是否成功，error属性为出错信息）
      */
-    @RequestMapping(value = "/manage/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/manage/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public RestResult delete(@PathVariable("id") Integer id) {
         return personService.deletePerson(id);

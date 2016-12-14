@@ -1,6 +1,6 @@
 package com.nju.ee.service;
 
-import com.nju.ee.vo.PersonVo;
+import com.nju.ee.vo.PersonDescVo;
 import com.nju.ee.vo.RestResult;
 
 /**
@@ -11,9 +11,9 @@ public interface PersonService {
 
     public RestResult getPersonDetail(Integer id);
     
-    public RestResult addPerson(PersonVo person);
+    public RestResult addPerson(PersonDescVo person);
 
-    public RestResult modifyPerson(Integer id, PersonVo person);
+    public RestResult modifyPerson(Integer id, PersonDescVo person);
 
     public RestResult deletePerson(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.nju.ee.entity;
 
 import com.nju.ee.vo.ArticleVo;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,9 @@ public class Article {
     private int id;
     private String title;
     private String category;
-    private Blob content;
+
+    @Type(type="text")
+    private String content;
     private Date date;
 
 //    @ManyToOne(targetEntity = Person.class)
@@ -30,30 +33,15 @@ public class Article {
 
 
     public Article(ArticleVo av) {
-        try {
             this.title = av.getTitle();
             this.category = av.getCategory();
-//            byte[] buff = av.getContent().getBytes(); 
-            byte[] buff = av.getContent().getBytes();
-            this.content = new SerialBlob(buff);
+            this.content=av.getContent();
             this.date = new Date();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public Article() {
 
     }
-
-//    public Person getPerson() {
-//        return person;
-//    }
-//
-//    public void setPerson(Person person) {
-//        this.person = person;
-//    }
 
     public int getId() {
         return id;
@@ -64,31 +52,12 @@ public class Article {
     }
 
     public String getContent() {
-
-        try {
-//         byte[] data = content.getBytes(1, (int) content.length());
-            byte[] data = content.getBytes(1, (int) content.length());
-            String s = new String(data);
-            return s;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
+        return  content;
     }
 
     public void setContent(String content) {
 
-//        try { byte[] buff = content.getBytes(); this.content = new SerialBlob(buff); } catch (Exception e) { 
-//            e.printStackTrace(); }
-        try {
-            byte[] buff = content.getBytes();
-            this.content = new SerialBlob(buff);
-
-        } catch
-                (Exception e) {
-            e.printStackTrace();
-        }
-        return;
+        this.content=content;
     }
 
     public String getTitle() {

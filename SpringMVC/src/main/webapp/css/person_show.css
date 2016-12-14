@@ -1,0 +1,62 @@
+.title-hr {
+    background-color: #0D407A;
+    height: 2px;
+}
+
+.title-hr-main {
+    width: 80px;
+    height: 2px;
+    background-color: #940606;
+    border-right: 5px solid #fff;
+}
+
+.section-block .section-block-inner .sec-title {
+    display: block;
+    width: 80px;
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+.section-block .sec-img-div-inner {
+    margin-right: 10px;
+    text-align: center;
+}
+
+.ss-article .article-content img {
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.teacher-name {
+    font-size: 2em;
+    font-family: "楷体","Microsoft YaHei";
+}
+
+.ss-article .article-content .a_photo ul {
+    margin: 10px 0 0 0;
+}
+
+.ss-article .article-content .a_photo ul li {
+    margin: 5px 0;
+    line-height: 1.8em;
+    font-size: 0.9em;
+}
+
+body {
+    font: 10px 'Source Sans Pro',Arial,Helvetica,sans-serif;
+    font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif,TrueType;
+}
+
+div {
+    font-size: 14px;
+}
+
+.inline {
+    margin: 10px 10px 10px 10px;
+}

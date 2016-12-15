@@ -1,5 +1,7 @@
 package com.nju.ee.vo;
 
+import com.nju.ee.entity.Person;
+
 import java.util.List;
 
 /**
@@ -13,8 +15,23 @@ public class PersonDescVo {
     private String department;
     private String position; //职位 　长江学者,ｘｘｘ主任
     private String introduction;
+    //TODO 是否建立论文数据实体以及与人员的关系？
     private List<String> researchList;
     private List<String> paperList;
+
+    public PersonDescVo() {
+    }
+
+    public PersonDescVo(Person person) {
+        this.id = person.getId();
+        this.name = person.getName();
+        this.title = person.getLevel();
+        this.avatar = person.getAvatar();
+        this.department = person.getDepartment();
+        this.position = person.getPosition();
+        this.introduction = person.getIntroduction();
+
+    }
 
     public int getId() {
         return id;

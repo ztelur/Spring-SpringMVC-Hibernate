@@ -23,9 +23,9 @@ public class PersonController {
 
     /**
      * 将在model中存入属性：key为"people"，
-     * value为RestResult对象（其data属性为人员列表，
+     * value为RestResult对象（其data属性为根据学历（title）分类的
+     * 人员列表，result属性为是否成功，error属性为出错信息）
      * //TODO：是否按学历或职位分类，以何种结构组织？
-     * result属性为是否成功，error属性为出错信息）
      *
      * @return 跳转到人员介绍主页
      */
@@ -34,6 +34,18 @@ public class PersonController {
         RestResult result = personService.getPeople();
         model.addAttribute("people", result);
         return "person";
+    }
+
+    /**
+     *
+     * @return estResult对象（其data属性为根据学历（title）分类的
+     * 人员列表，result属性为是否成功，error属性为出错信息）
+     */
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public RestResult get(){
+        RestResult result =personService.getPeople();
+        return result;
     }
 
     /**

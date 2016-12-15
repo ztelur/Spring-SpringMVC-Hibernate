@@ -36,30 +36,39 @@ public class PersonDaoImpl implements PersonDao{
     }
 
     public Person save(Person p){
+        Person savedPerson;
         try {
             baseDao.save(p);
+            savedPerson = p ;
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            savedPerson = null;
         }
-        return p;
+        return savedPerson;
     }
 
     public Person update(Person p){
+        Person updatedPerson;
         try {
             baseDao.update(p);
+            updatedPerson = p;
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            updatedPerson = null;
         }
 
-        return p;
+        return updatedPerson;
     }
 
     public Person delete(Person p){
+        Person deletedPerson;
         try {
             baseDao.delete(p);
+            deletedPerson = p;
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            deletedPerson = null;
         }
-        return p;
+        return deletedPerson;
     }
 }

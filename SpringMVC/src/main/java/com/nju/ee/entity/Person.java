@@ -1,5 +1,7 @@
 package com.nju.ee.entity;
 
+import com.nju.ee.vo.PersonDescVo;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -26,6 +28,16 @@ public class Person {
     public Person(){
 
     }
+    public Person (PersonDescVo vo){
+        this.name = vo.getName();
+        this.level = vo.getTitle();
+        this.avatar = vo.getAvatar();
+        this.department = vo.getDepartment();
+        this.position = vo.getPosition();
+        this.introduction = vo.getIntroduction();
+        //TODO url是指个人主页URL？
+    }
+
     public int getId() {
         return id;
     }

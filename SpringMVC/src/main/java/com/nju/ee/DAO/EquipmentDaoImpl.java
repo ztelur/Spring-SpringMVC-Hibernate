@@ -1,5 +1,6 @@
 package com.nju.ee.DAO;
 
+import com.nju.ee.Constant.Constant;
 import com.nju.ee.entity.Equipment;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -31,30 +32,48 @@ public class EquipmentDaoImpl implements EquipmentDao {
     }
 
     @Override
-    public void save(Equipment e) {
+    public List<Equipment> getEquipmentWithPage(int page) {
+        if (page < 1) {
+            page = 1;
+        }
+        int first = (page - 1) * Constant.PAGE_COUNT;
+        Session session = baseDao.getSession();
+        Criteria criteria = session.createCriteria(Equipment.class);
+        criteria.setFirstResult(first);
+        criteria.setMaxResults(Constant.PAGE_COUNT);
+        List<Equipment> result = criteria.list();
+        session.flush();
+        session.close();
+        return result;
+    }
+
+    @Override
+    public Equipment save(Equipment e) {
         try {
             baseDao.save(e);
         } catch (Exception e1) {
             e1.printStackTrace();
         }
+        return e;
     }
 
     @Override
-    public void update(Equipment e) {
+    public Equipment update(Equipment e) {
         try {
             baseDao.update(e);
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-
+        return e;
     }
 
     @Override
-    public void delete(Equipment e) {
+    public Equipment delete(Equipment e) {
         try {
             baseDao.delete(e);
         } catch (Exception e1) {
-            e1.printStackTrace();
+            e=null;
         }
+        return e;
     }
 }

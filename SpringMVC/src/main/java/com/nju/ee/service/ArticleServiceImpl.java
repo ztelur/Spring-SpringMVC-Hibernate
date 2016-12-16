@@ -16,7 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-
+//TODO 将dao层异常抛出至service，获取其根源原因以构造出错时的RestResult
 /**
  * Created by 克崽兽 on 2016/12/2.
  */
@@ -59,8 +59,8 @@ public class ArticleServiceImpl implements ArticleService {
         return RestResult.CreateResult(1, vo);
     }
 
-    public RestResult addArticle(ArticleVo articlevo) {
-        Article article = new Article(articlevo);
+    public RestResult addArticle(ArticleVo articleVo) {
+        Article article = new Article(articleVo);
         article.setDate(new Date());
         Article savedArticle = articleDao.save(article);
         if (savedArticle == null) {
@@ -81,6 +81,7 @@ public class ArticleServiceImpl implements ArticleService {
         modifiedArticle.setCategory(article.getCategory());
         modifiedArticle.setTitle(article.getTitle());
         modifiedArticle.setContent(article.getContent());
+
         Article updatedArticle = articleDao.update(modifiedArticle);
         if(updatedArticle==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"修改过程出错"));

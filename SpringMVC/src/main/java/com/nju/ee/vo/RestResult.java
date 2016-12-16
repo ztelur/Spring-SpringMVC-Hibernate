@@ -31,6 +31,7 @@ public class RestResult {
             this.error = (com.nju.ee.vo.Error) data;
         }
     }
+    public RestResult(){}
     public static RestResult CreateResult(int result, Object data){
         return new RestResult(result,data);
     }

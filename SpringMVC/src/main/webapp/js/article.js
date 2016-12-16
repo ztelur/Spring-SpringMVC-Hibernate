@@ -62,7 +62,7 @@ $(document).ready(function () {
 
                 var page = data.data;
                 var pageNum = page.pageSize;
-                var articles = page.articles;
+                var articles = page.data;
                 console.log(" " + data);
                 $('.news_list_container').empty();
                 for (var i = 0; i <  articles.length; i++) {

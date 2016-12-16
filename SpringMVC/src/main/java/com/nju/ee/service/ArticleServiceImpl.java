@@ -4,10 +4,8 @@ import com.nju.ee.Constant.Constant;
 import com.nju.ee.DAO.ArticleDao;
 import com.nju.ee.DAO.ArticleRepository;
 import com.nju.ee.entity.Article;
-import com.nju.ee.vo.ArticleVo;
+import com.nju.ee.vo.*;
 import com.nju.ee.vo.Error;
-import com.nju.ee.vo.RestResult;
-import com.nju.ee.vo.VoPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -39,10 +37,10 @@ public class ArticleServiceImpl implements ArticleService {
         Sort sort = new Sort(new Sort.Order(Sort.Direction.DESC, "date"));
         Pageable request = new PageRequest(page - 1, num, sort);
         Page<Article> articles = articleRepo.findAll(request);
-        VoPage voPage = new VoPage(articles.getSize(), articles.getNumber(), articles.getTotalPages());
+        GenericVoPage<ArticleVo> voPage = new GenericVoPage(articles.getSize(), articles.getNumber(), articles.getTotalPages());
         for (Article article : articles.getContent()) {
             ArticleVo vo = new ArticleVo(article);
-            voPage.getArticles().add(vo);
+            voPage.getData().add(vo);
         }
         return RestResult.CreateResult(1, voPage);
     }

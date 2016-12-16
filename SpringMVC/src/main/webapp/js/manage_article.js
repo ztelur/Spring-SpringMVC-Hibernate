@@ -61,7 +61,7 @@ function pageselectCallback(page_index, jq){
         success: function (data) {
             var page = data.data;
             var pageNum = page.pageSize;
-            var articles = page.articles;
+            var articles = page.data;
             $('.news_list_container').empty();
             for (var i = 0; i <  articles.length; i++) {
                 var news = articles[i];

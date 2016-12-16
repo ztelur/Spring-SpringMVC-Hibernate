@@ -21,11 +21,11 @@ $(document).ready(function () {
 
 });
 
-function delete_person(id){
+function delete_article(id){
   var pathName = document.location.pathname;
   var index = pathName.indexOf("/");
   var pathContext = pathName.substring(0, index);
-  var url = pathContext + "/people/manage/delete/"+id;
+  var url = pathContext + "/equipments/manage/delete/"+id;
   console.log($('#Pagination').children('span.current').not('.current.prev'));
   console.log($('#Pagination').children('span.current').not('.current.prev').eq(0).html());
   console.log($('#Pagination').children('.prev').not('.current.prev'));
@@ -50,7 +50,7 @@ function pageselectCallback(page_index, jq){
     var pathName = document.location.pathname;
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/people";
+    var url = pathContext + "/equipments";
 
 
     $.ajax({
@@ -59,30 +59,23 @@ function pageselectCallback(page_index, jq){
         url: url,
         data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
         success: function (data) {
-          console.log('show data');
+          console.log('data is :');
           console.log(data);
-            var level_people_list = data.data;
-            // var pageNum = page.pageSize;
-            // var people = page.people;
+            var page = data.data;
+            var pageNum = page.pageSize;
+            var articles = page.articles;
             $('.news_list_container').empty();
-            for(var key in level_people_list ){
-              console.log(key);
-              var people_list=level_people_list[key];
-              for(var num in people_list){
-
-                var person=people_list[num];
+            for (var i = 0; i <  articles.length; i++) {
+                var news = articles[i];
                 $('.news_list_container').append(
-                        '<li> <span class="title"> <a href=' + url + '/' +person.id + '>' + person.name  + '</a> ' +
-                        '</span><br>' +
-                        '<span class="hits">'+
-                        '<a type="button" class="edit_button" href="/people/manage/'+person.id+'">编辑</a>&nbsp&nbsp&nbsp'+
-                        '<a type="button" class="delete_button" id="'+person.id+'" value="'+person.id+'" onclick="delete_person('+person.id+')">删除</a>'+
-                        '</span>'+
-                        '<span class="class">职别：' + person.level  + ' </span> </li>');
-              }
-
+                    '<li> <span class="title"> <a href=' + url + '/' +news.id + '>' + news.title  + '</a> ' +
+                    '</span><br>' +
+                    '<span class="hits">'+
+                    '<a type="button" class="edit_button" href="/articles/manage/'+news.id+'">编辑</a>&nbsp&nbsp&nbsp'+
+                    '<a type="button" class="delete_button" id="'+news.id+'" value="'+news.id+'" onclick="delete_article('+news.id+')">删除</a>'+
+                    '</span>'+
+                    '<span class="time">' +news.date + '</span> <span class="class">分类：' + news.category  + ' </span> </li>');
             }
-
         }
     });
     return true;

@@ -45,13 +45,13 @@
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/devices/manage/${device_detail.data.id}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/${equipment_detail.data.id}">
   </c:if>
   <c:if test="${is_add_page == 1}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/devices">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage">
   </c:if>
-    <input type="text" class="title_input" placeholder="设备名称" id="title" name="title" required/>
-    <textarea id="edit" name="content"></textarea>
+    <input type="text" class="title_input" placeholder="设备名称" id="title" name="name" required/>
+    <textarea id="edit" name="description"></textarea>
     <div class="form_footer">
       <button type="button" onclick="reset()" class="form_button reset">清空</button>
       <button type="submit" class="form_button submit">提交</button>

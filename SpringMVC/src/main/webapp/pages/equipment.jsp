@@ -58,7 +58,7 @@
         <div id="topnav">
             <ul>
                 <li class="active"><a href="/">主页</a></li>
-                <li><a href="/devices">设备</a></li>
+                <li><a href="/equipments">设备</a></li>
                 <li><a href="/articles">文章</a></li>
                 <li><a href="/teams">团队</a></li>
                 <li><a href="/news">新闻</a></li>

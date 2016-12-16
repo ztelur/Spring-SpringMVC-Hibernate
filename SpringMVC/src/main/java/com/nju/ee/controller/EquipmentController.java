@@ -24,7 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/equipments")
-public class DeviceController {
+public class EquipmentController {
     @Autowired
     private EquipmentService equipmentService;
 
@@ -62,7 +62,7 @@ public class DeviceController {
      * @return 跳转到详情页面
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public  String articleDetail(@PathVariable("id") Integer id, Model model) {
+    public  String equipmentDetail(@PathVariable("id") Integer id, Model model) {
         EquipmentVo vo= equipmentService.findById(id);
         RestResult result=null;
         if(vo==null) {
@@ -79,7 +79,7 @@ public class DeviceController {
      * @return 跳转至管理设备的列表页面
      */
     @RequestMapping(value = "/manage/list")
-    public String manageArticles(){
+    public String manageEquipments(){
         return "manage_equipment";
     }
 
@@ -93,7 +93,7 @@ public class DeviceController {
      * @return 跳转至具体设备信息编辑界面
      */
     @RequestMapping(value = "/manage/{id}", method = RequestMethod.GET)
-    public String editArticle(@PathVariable("id")  Integer id, Model model) {
+    public String editEquipment(@PathVariable("id")  Integer id, Model model) {
         EquipmentVo vo = equipmentService.findById(id);
         if(vo==null)
             ;//跳转到错误页面;
@@ -121,7 +121,7 @@ public class DeviceController {
 
     /**
      * 新增设备,将在model中存入属性：key为"result",
-     * value为RestResult(其data属性为ArticleVo，
+     * value为RestResult(其data属性为EquipmentVo，
      * result属性为是否成功，error属性为出错信息）
      *
      * @param equipmentForm 完整的新闻对象（需传入与其属性相对应的参数）
@@ -132,7 +132,7 @@ public class DeviceController {
         EquipmentVo vo=equipmentService.addEquipment(equipmentForm);
         RestResult result = new RestResult(1,vo);
         model.addAttribute("result",result);
-        return  "redirect:/articles/manage/list";
+        return  "redirect:/equipments/manage/list";
     }
 
     /**
@@ -161,7 +161,7 @@ public class DeviceController {
      * 删除新闻
      *
      * @param id 新闻编号
-     * @return json格式的RestResult对象（其data属性为ArticleVo，
+     * @return json格式的RestResult对象（其data属性为EquipmentVo，
      * result属性为是否成功，error属性为出错信息）
      */
     @RequestMapping(value = "/manage/delete/{id}", method = RequestMethod.GET)

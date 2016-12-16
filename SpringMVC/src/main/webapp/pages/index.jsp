@@ -49,7 +49,7 @@
             <ul>
                 <li class="active"><a href="/">主页</a></li>
                 <li><a href="/devices">设备</a></li>
-                <li><a href="/articles">文章</a></li>
+                <li><a href="/papers/main">论文</a></li>
                 <li><a href="/teams">团队</a></li>
                 <li><a href="/news">新闻</a></li>
                 <li><a href="/contact">联系我们</a></li>

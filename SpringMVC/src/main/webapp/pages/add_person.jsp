@@ -37,7 +37,6 @@
       </select>
     </div>
     <textarea class="introduction" required name="introduction" placeholder="个人简介" rows="5" id="introduction"></textarea>
-    <input type="text" hidden id="image" name="image"/>
     <input type="file" name="image" id="image" accept="image/gif, image/jpeg" style="display: none;">
     <button type="button" onclick="image.click()" class="upload_button">上传头像</button>
     <div class="form_footer">
@@ -54,7 +53,6 @@
     //头像暂不处理;
     $('#introduction').attr("value",'${person_detail.data.introduction}');
     </c:if>
-  });
   function reset(){
     $('#edit').froalaEditor('html.set', '');
   };

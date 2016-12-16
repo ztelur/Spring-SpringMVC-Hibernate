@@ -11,6 +11,7 @@ public interface BaseDao {
 
     public Session getSession();
 
+    public Session getCurrentSession();
     public void flush();
 
     public void clear();

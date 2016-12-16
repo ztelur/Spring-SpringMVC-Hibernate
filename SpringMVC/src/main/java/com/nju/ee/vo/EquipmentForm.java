@@ -1,28 +1,18 @@
 package com.nju.ee.vo;
 
 /**
- * Created by homer on 16-10-31.
+ * Created by 张韶阳 on 16/12/14.
  */
-public class EquipmentVo {
-    private int id;
-    private String name;
-    private String description;
+public class EquipmentForm {
+    String name;
+    String description;
 
-    public EquipmentVo() {
+    public EquipmentForm() {
     }
 
-    public EquipmentVo(int id, String name, String description) {
-        this.id = id;
+    public EquipmentForm(String name, String description) {
         this.name = name;
         this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

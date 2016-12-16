@@ -17,6 +17,7 @@
     <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/touchTouch.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
     <script src="<%=request.getContextPath() %>/js/jquery-migrate-1.1.1.js"></script>
@@ -28,6 +29,9 @@
     <script src="<%=request.getContextPath() %>/js/tmStickUp.js"></script>
     <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <script src="<%=request.getContextPath()%>/js/manage_article.js"></script>
+
 
 
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css" />
@@ -48,7 +52,6 @@
                 <fieldset>
                     <strong>Search:</strong>
                     <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="images/search.gif" id="search" alt="Search" />
                 </fieldset>
             </form>
         </div>
@@ -64,7 +67,7 @@
                 <li><a href="/manage/articles">文章</a></li>
                 <li><a href="/manage/teams">团队</a></li>
                 <li class="active"><a href="/manage/news">新闻</a></li>
-                
+
             </ul>
         </div>
         <!-- ###### -->
@@ -78,45 +81,25 @@
     </div>
 </div>
 <!-- ####################################################################################################### -->
+
+
 <div class="wrapper row3">
     <div class="rnd">
-
         <div class="news_list2">
-
-             <ul>
-                <c:forEach var="listValue" items="${articles.data.articles}">
-                   <li> 
-                        <span class="title"><a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid=197"  title="武常岐教授受聘微纳电子与集成系统协同创新中心顾问委员会委员">${listValue.title}</a></span>
-                        <span class="hits">
-                                <a href="/articles/manage/${listValue.id}">编辑</button>
-                                <a href="/articles/manage/delete/${listValue.id}">删除</button>
-                        </span>
-                        <br>
-                        <span class="time">2016-07-14 13:14:28</span> <span class="class">分类：<a href="http://www.ime.pku.edu.cn/newsshow.php?id=7&amp;cid">${listValue.category}</a></span> 
-                    </li>
-                </c:forEach>
+            <ul class="news_list_container">
             </ul>
-            
         </div>
     </div>
+    <!-- ####################################################################################################### -->
+    <div  id="Pagination" class="pagination">
+
+    </div>
+    <!-- ####################################################################################################### -->
 </div>
 
 <!-- ####################################################################################################### -->
 
-    <div class="page">
-         <span class="disabled"> < </span>
-         <span class="current">1</span>
-         <a href="http://www.111cn.net">2</a>
-         <a href="http://www.111cn.net">3</a>
-         <a href="http://www.111cn.net">4</a>
-         <a href="http://www.111cn.net">5</a>
-         <a href="http://www.111cn.net">6</a>
-         <a href="http://www.111cn.net">7</a>
-         ...
-         <a href="http://www.111cn.net">199</a>
-         <a href="http://www.111cn.net">200</a>
-         <a href="http://www.111cn.net"> > </a>
-</div>
+
 
 
 <!-- ####################################################################################################### -->

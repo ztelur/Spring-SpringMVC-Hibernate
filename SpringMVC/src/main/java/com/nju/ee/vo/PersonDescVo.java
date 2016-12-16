@@ -10,10 +10,8 @@ import java.util.List;
 public class PersonDescVo {
     private int id;
     private String name;
-    private String title; //称为　博导，博士生导师
-    private String avatar;
-    private String department;
-    private String position; //职位 　长江学者,ｘｘｘ主任
+    private String level; //称为　博导，博士生导师
+    private String image;
     private String introduction;
     //TODO 是否建立论文数据实体以及与人员的关系？
     private List<String> researchList;
@@ -25,10 +23,8 @@ public class PersonDescVo {
     public PersonDescVo(Person person) {
         this.id = person.getId();
         this.name = person.getName();
-        this.title = person.getLevel();
-        this.avatar = person.getAvatar();
-        this.department = person.getDepartment();
-        this.position = person.getPosition();
+        this.level = person.getLevel();
+        this.image = person.getImage();
         this.introduction = person.getIntroduction();
 
     }
@@ -49,37 +45,22 @@ public class PersonDescVo {
         this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getLevel() {
+        return level;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getImage() {
+        return image;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 
     public String getIntroduction() {
         return introduction;

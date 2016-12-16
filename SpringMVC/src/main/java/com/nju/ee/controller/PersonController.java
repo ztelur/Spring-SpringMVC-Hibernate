@@ -44,6 +44,7 @@ public class PersonController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public RestResult get(){
+        System.out.println("in the get");
         RestResult result =personService.getPeople();
         return result;
     }
@@ -61,8 +62,7 @@ public class PersonController {
      */
     @RequestMapping(value = "/manage/list")
     public String managePeople(Integer page, Integer num, Model model) {
-        RestResult result = personService.getPeople();
-        model.addAttribute("people", result);
+
         return "manage_person";
     }
 

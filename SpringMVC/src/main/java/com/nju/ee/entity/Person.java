@@ -30,7 +30,6 @@ public class Person {
         this.level = vo.getLevel();
         this.image = vo.getImage();
         this.introduction = vo.getIntroduction();
-        //TODO url是指个人主页URL？
     }
 
     public int getId() {
@@ -57,7 +56,6 @@ public class Person {
         this.image = image;
     }
 
-
     public String getIntroduction() {
         return introduction;
     }
@@ -73,7 +71,6 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-
 
 //    public Set<Team> getTeams() {
 //        return teams;

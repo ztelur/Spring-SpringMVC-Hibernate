@@ -26,7 +26,21 @@ public class PersonDaoImpl implements PersonDao{
             return null;
         }
         return list.get(0);
+    }
 
+    @Override
+    public Person getDetachedPersonById(int id){
+        Session session=baseDao.getSession();
+        Criteria cri=session.createCriteria(Person.class);
+        cri.add(Restrictions.eq("id",id));
+        List<Person> list=cri.list();
+        if (list.size()<=0){
+            return null;
+        }
+        session.flush();
+        session.clear();
+        session.close();
+        return list.get(0);
     }
 
     @Override
@@ -59,12 +73,12 @@ public class PersonDaoImpl implements PersonDao{
 
         return updatedPerson;
     }
-
-    public Person delete(Person p){
+    @Override
+    public Person delete(Person person){
         Person deletedPerson;
         try {
-            baseDao.delete(p);
-            deletedPerson = p;
+            baseDao.delete(person);
+            deletedPerson = person;
         } catch (Exception e) {
 //            e.printStackTrace();
             deletedPerson = null;

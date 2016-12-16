@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -38,16 +39,16 @@ public class FileController {
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public String post(@RequestParam(value = "file") MultipartFile file) {
+    public String post(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) {
         RestResult result = fileService.saveFile(file);
         if(result.getResult()==1) {
-            return "{\"link\":\""+(String) result.getData()+"\"}";
+            return "{\"link\":\""+request.getContextPath()+(String) result.getData()+"\"}";
         }else{
             return null;
         }
     }
 
-    @RequestMapping(value = "/img/{file_name}.{extension_name}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{file_type}/{file_name}.{extension_name}", method = RequestMethod.GET)
     public void get(@PathVariable(value = "file_name") String fileName,
                     @PathVariable(value = "extension_name") String extensionName
             , HttpServletResponse response) {

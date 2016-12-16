@@ -21,7 +21,7 @@ public class Extension {
             put("jpeg",FileType.IMAGE);
             put("jpg",FileType.IMAGE);
             put("png",FileType.IMAGE);
-            put("application/pdf",FileType.PDF);
+            put("pdf",FileType.FILE);
         }
     };
     public static String extension2ContentType(String extensionName){

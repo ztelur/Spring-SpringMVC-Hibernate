@@ -1,8 +1,6 @@
 package com.nju.ee.service;
 
-import com.nju.ee.Constant.Extension;
-import com.nju.ee.Constant.FileType;
-import com.nju.ee.Constant.PropertiesUtil;
+import com.nju.ee.Constant.*;
 import com.nju.ee.vo.Error;
 import com.nju.ee.vo.RestResult;
 import org.springframework.context.support.ApplicationObjectSupport;
@@ -42,7 +40,8 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         if(properties==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"文件保存出错（无法获取配置文件）"));
         }
-        String filePath = properties.getProperty("fileRoot");
+        String fileRootProperty=PropertiesUtil.getFileRootProperty();
+        String filePath = properties.getProperty(fileRootProperty);
 
         try {
             InputStream input = file.getInputStream();
@@ -96,13 +95,13 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         String contextRoot = properties.getProperty("contextRoot");
         switch (fileType) {
             case DEFAULT:
-                contextRoot += "";
+                contextRoot += "/default";
                 break;
             case IMAGE:
                 contextRoot += "/img";
                 break;
-            case PDF:
-                contextRoot += "/pdf";
+            case FILE:
+                contextRoot += "/file";
                 break;
         }
         return contextRoot + "/" + fileName;
@@ -113,7 +112,8 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
         if(properties==null){
             return null;
         }
-        String fileRoot = properties.getProperty("fileRoot");
+        String fileRootProperty=PropertiesUtil.getFileRootProperty();
+        String fileRoot = properties.getProperty(fileRootProperty);
         return fileRoot + "/" + fileName;
     }
 

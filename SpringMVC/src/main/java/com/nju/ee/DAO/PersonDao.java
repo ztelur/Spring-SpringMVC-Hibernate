@@ -10,6 +10,8 @@ import java.util.List;
 public interface PersonDao {
     Person getPersonById(int id);
 
+    Person getDetachedPersonById(int id);
+
     List<Person> getPeople();
 
     Person update(Person person);

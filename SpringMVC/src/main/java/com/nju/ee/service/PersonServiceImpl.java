@@ -60,15 +60,14 @@ public class PersonServiceImpl implements PersonService {
         if (id == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少人员编号"));
         }
+        //如果存在外键，需要使用getDetachedPersonById(id)获取处于detached状态的对象以进行更新
         Person modifiedPerson = personDao.getPersonById(id);
         if (modifiedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的人员"));
         }
         modifiedPerson.setName(person.getName());
-        modifiedPerson.setLevel(person.getTitle());
-        modifiedPerson.setAvatar(person.getAvatar());
-        modifiedPerson.setDepartment(person.getDepartment());
-        modifiedPerson.setPosition(person.getPosition());
+        modifiedPerson.setLevel(person.getLevel());
+        modifiedPerson.setImage(person.getImage());
         modifiedPerson.setIntroduction(person.getIntroduction());
 
         Person updatedPerson = personDao.update(modifiedPerson);
@@ -87,8 +86,12 @@ public class PersonServiceImpl implements PersonService {
         if (uselessPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的人员"));
         }
+//        for (Team team:uselessPerson.getTeams()) {
+//            team.getPeople().remove(uselessPerson);
+//        }
+//        uselessPerson.setTeams(null);
         Person deletedPerson = personDao.delete(uselessPerson);
-        if (uselessPerson == null) {
+        if (deletedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "删除过程出错"));
         }
         PersonDescVo vo = new PersonDescVo(deletedPerson);

@@ -6,5 +6,5 @@ package com.nju.ee.Constant;
 public enum FileType {
     DEFAULT,
     IMAGE,
-    PDF
+    FILE
 }

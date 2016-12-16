@@ -28,6 +28,10 @@ public class BaseDaoImpl implements BaseDao {
 
         return sessionFactory.openSession();
     }
+    public Session getCurrentSession(){
+        return sessionFactory.getCurrentSession();
+    }
+
     public void flush() {
         getSession().flush();
     }

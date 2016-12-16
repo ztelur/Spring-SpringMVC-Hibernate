@@ -52,7 +52,7 @@ public class PersonController {
     /**
      * 将在model中存入属性：key为"people"，
      * value为RestResult对象（其data属性为VoPage，包含分页信息和数据，
-     * //TODO：是否按学历或职位分类，以何种结构组织？
+     * //TODO：是否按学历或职位分类，以何种结构组织？是否需要分页？
      * result属性为是否成功，error属性为出错信息）
      *
      * @param page  页码

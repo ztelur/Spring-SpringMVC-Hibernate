@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head profile="http://gmpg.org/xfn/11">
-    <title> 文章管理</title>
+    <title>论文管理</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
@@ -64,9 +64,9 @@
         <div id="topnav">
             <ul>
                 <li><a href="/manage/equipments">设备</a></li>
-                <li><a href="/manage/papers">论文</a></li>
+                <li class="active"><a href="/manage/papers">论文</a></li>
                 <li><a href="/manage/teams">团队</a></li>
-                <li class="active"><a href="/manage/articles">新闻</a></li>
+                <li><a href="/manage/news">新闻</a></li>
                 <li><a href="/manage/people">人员</a></li>
 
             </ul>
@@ -76,8 +76,8 @@
 </div>
 <div class="wrapper manage-div">
     <div class="add-div">
-        <a  type="button"  href ="/articles/manage/add" class="btn add-button">
-            添加新闻
+        <a  type="button"  href ="/papers/manage/add" class="btn add-button">
+            添加论文
         </a>
     </div>
 </div>

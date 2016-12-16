@@ -62,9 +62,9 @@
         <div id="topnav">
             <ul>
                 <li class="active"><a href="/manage/equipments">设备</a></li>
-                <li><a href="/manage/articles">文章</a></li>
+                <li><a href="/manage/papers">论文</a></li>
                 <li><a href="/manage/teams">团队</a></li>
-                <li><a href="/manage/news">新闻</a></li>
+                <li><a href="/manage/articles">新闻</a></li>
                 <li><a href="/manage/people">人员</a></li>
 
             </ul>

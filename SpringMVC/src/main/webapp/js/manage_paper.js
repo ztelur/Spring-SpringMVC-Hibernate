@@ -21,11 +21,11 @@ $(document).ready(function () {
 
 });
 
-function delete_article(id){
+function delete_paper(id){
   var pathName = document.location.pathname;
   var index = pathName.indexOf("/");
   var pathContext = pathName.substring(0, index);
-  var url = pathContext + "/equipments/manage/delete/"+id;
+  var url = pathContext + "/papers/manage/delete/"+id;
   console.log($('#Pagination').children('span.current').not('.current.prev'));
   console.log($('#Pagination').children('span.current').not('.current.prev').eq(0).html());
   console.log($('#Pagination').children('.prev').not('.current.prev'));
@@ -50,30 +50,28 @@ function pageselectCallback(page_index, jq){
     var pathName = document.location.pathname;
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/equipments";
+    var url = pathContext + "/papers";
 
 
     $.ajax({
         type: "GET",
         dataType: "json",
         url: url,
-        data: "pageNum=" + page_index + "&pageSize=" + pageSize,
+        data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
         success: function (data) {
-          console.log('data is :');
-          console.log(data);
-            var data = data.data;
-            var content=data.content;
+            console.log(data);
+            var papers = data.data.data;
             $('.news_list_container').empty();
-            for (var i = 0; i <  content.length; i++) {
-                var equipment = content[i];
+            for (var i = 0; i <  papers.length; i++) {
+                var paper = papers[i];
                 $('.news_list_container').append(
-                    '<li> <span class="title"> <a href=' + url + '/' +equipment.id + '>' + equipment.name  + '</a> ' +
-                    '</span>' +
+                    '<li> <span class="title"> <a href=' + url + '/' +paper.id + '>' + paper.title  + '</a> ' +
+                    '</span><br>' +
                     '<span class="hits">'+
-                    '<a type="button" class="edit_button" href="/equipments/manage/'+equipment.id+'">编辑</a>&nbsp&nbsp&nbsp'+
-                    '<a type="button" class="delete_button" id="'+equipment.id+'" value="'+equipment.id+'" onclick="delete_article('+equipment.id+')">删除</a>'+
+                    '<a type="button" class="edit_button" href="/papers/manage/'+paper.id+'">编辑</a>&nbsp&nbsp&nbsp'+
+                    '<a type="button" class="delete_button" id="'+paper.id+'" value="'+paper.id+'" onclick="delete_paper('+paper.id+')">删除</a>'+
                     '</span>'+
-                    ' </li>');
+                    '<span class="time">' +paper.date + '</span>  </li>');
             }
         }
     });

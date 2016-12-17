@@ -145,10 +145,10 @@ public class EquipmentController {
      * 若修改失败则重定向至新闻编辑界面，同时存入属性：
      * key为“fail_result",value为出错原因
      */
-    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.POST)
     public String put(@PathVariable("id") Integer id, EquipmentForm equipmentForm, RedirectAttributes ra) {
         EquipmentVo vo=equipmentService.modifyEquipment(equipmentForm,id);
-        if(vo!=null){//修改成功跳转至新闻详情界面
+        if(vo!=null){
             ra.addFlashAttribute("update_success","1");
             return "redirect:/equipments/"+vo.getId();
         }else{//修改失败跳转至编辑界面

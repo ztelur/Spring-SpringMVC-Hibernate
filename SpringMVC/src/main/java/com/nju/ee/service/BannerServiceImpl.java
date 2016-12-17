@@ -65,8 +65,8 @@ public class BannerServiceImpl  implements  BannerService{
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该位置的banner"));
         }
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
-        if(bannerVo.getImage()!=null){
-            RestResult result = fileService.saveFile(bannerVo.getImage());
+        if(bannerVo.getPicture()!=null){
+            RestResult result = fileService.saveFile(bannerVo.getPicture());
             if(result.getResult()==1){
                 bannerVo.setImageUrl((String) result.getData());
             }else{
@@ -78,6 +78,7 @@ public class BannerServiceImpl  implements  BannerService{
 
         modifiedBanner.setImageUrl(bannerVo.getImageUrl());
         modifiedBanner.setInfoUrl(bannerVo.getInfoUrl());
+        modifiedBanner.setBrief(bannerVo.getBrief());
         modifiedBanner.setEnabled(bannerVo.isEnabled());
 
         Banner updatedBanner = bannerDao.update(modifiedBanner);

@@ -45,6 +45,9 @@ public class ArticleController {
      * value为RestResult(其data属性为ArticleVo，
      * result属性为是否成功，error属性为出错信息）
      *
+     * 若存在属性：key为"update_success",
+     * value为"1",则表示上一步成功更新新闻
+     *
      * @param id    新闻编号
      * @param model 该参数无需传入
      * @return 跳转到详情页面
@@ -69,14 +72,21 @@ public class ArticleController {
      * value为RestResult对象（其data属性为新闻对象，
      * result属性为是否成功，error属性为出错信息）
      *
+     * 若存在属性：key为"update_fail_result"，
+     * value为出错原因,表示上一步更新新闻出错；
+     *
      * @param id    新闻编号
+     * @param updateResult 上一步更新新闻时的出错信息
      * @param model
      * @return 跳转至具体新闻信息编辑界面
      */
     @RequestMapping(value = "/manage/{id}", method = RequestMethod.GET)
-    public String editArticle(@PathVariable("id")  Integer id, Model model) {
-        RestResult result = articleService.getArticleDetail(id);
-        model.addAttribute("article_detail", result);
+    public String editArticle(@PathVariable("id")  Integer id,
+                              @ModelAttribute(value = "update_fail_result")String updateResult, Model model) {
+        if(updateResult.equals("")) { //若不是从更新新闻页面跳转而来的，无需恢复未成功更新的新闻信息
+            RestResult result = articleService.getArticleDetail(id);
+            model.addAttribute("article_detail", result);
+        }
         model.addAttribute("is_add_page","0");
         return "add_article";
     }
@@ -118,8 +128,11 @@ public class ArticleController {
      * @param article 新闻对象（需传入与其属性相对应的参数）
      * @return 若修改成功则重定向至新闻详情界面,同时存入属性：
      * key为“update_success”,value为“1”；
-     * 若修改失败则重定向至新闻编辑界面，同时存入属性：
-     * key为“fail_result",value为出错原因
+     *
+     * 若修改失败则重定向至新闻编辑界面，同时存入属性1：
+     * key为“update_fail_result",value为出错原因
+     * 属性2：key为“article_detail”，value为RestResult对象
+     * (data为ArticleVo，包含编辑过的新闻信息）
      */
     @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
     public String put(@PathVariable("id") Integer id, ArticleVo article, RedirectAttributes ra) {
@@ -128,7 +141,9 @@ public class ArticleController {
             ra.addFlashAttribute("update_success","1");
             return "redirect:/articles/"+((ArticleVo) result.getData()).getId();
         }else{//修改失败跳转至编辑界面
-            ra.addFlashAttribute("fail_result",result.getError().getMessage());
+            ra.addFlashAttribute("update_fail_result","result："+result.getError().getMessage());
+            article.setId(id);
+            ra.addFlashAttribute("article_detail",RestResult.CreateResult(1,article));
             return "redirect:/articles/manage/"+article.getId();
         }
     }

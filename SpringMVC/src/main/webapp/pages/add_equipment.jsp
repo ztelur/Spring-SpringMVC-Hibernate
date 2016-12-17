@@ -45,12 +45,12 @@
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/${equipment_detail.data.id}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/update/${equipment_detail.data.id}">
   </c:if>
   <c:if test="${is_add_page == 1}">
   <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage">
   </c:if>
-    <input type="text" class="title_input" placeholder="设备名称" id="title" name="name" required/>
+    <input type="text" class="title_input" placeholder="设备名称" id="name" name="name" required/>
     <textarea id="edit" name="description"></textarea>
     <div class="form_footer">
       <button type="button" onclick="reset()" class="form_button reset">清空</button>
@@ -99,7 +99,6 @@
 
 <!-- Include Language file if we want to use it. -->
 <script type="text/javascript" src="/node_modules/froala-editor/js/languages/ro.js"></script>
-
 <!-- Initialize the editor. -->
 <script>
   $(function() {
@@ -107,7 +106,7 @@
       charCounterMax:10000,
       heightMin:400,
       // Set the image upload URL.
-      imageUploadURL: '/files/img',
+      imageUploadURL: '/files',
       // Set request type.
       imageUploadMethod: 'POST',
       imageUploadParam:'file',
@@ -116,12 +115,11 @@
       // Allow to upload PNG and JPG.
       imageAllowedTypes: ['jpeg', 'jpg', 'png']
     });
-  });
-  <c:if test="${is_add_page == 0}">
-  <!--进入编辑，需要对表单进行赋值-->
-  $('#edit').froalaEditor('html.set', '<c:out value="${article_detail.data.content}" escapeXml="false"/>');
-  $('#title').attr("value",'${article_detail.data.title}');
-  </c:if>
+    <c:if test="${is_add_page == 0}">
+    <!--进入编辑，需要对表单进行赋值-->
+    $('#edit').froalaEditor('html.set', '<c:out value="${equipment_detail.data.description}" escapeXml="false"/>');
+    $('#name').attr("value",'${equipment_detail.data.name}');
+    </c:if>
   });
   function reset(){
     $('#edit').froalaEditor('html.set', '');

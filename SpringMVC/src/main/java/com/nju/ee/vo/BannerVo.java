@@ -8,17 +8,29 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class BannerVo {
     private int position;
+    private String brief;//简介
     private String imageUrl;
-    private MultipartFile image;
+    private MultipartFile picture;
     private String infoUrl; //banner跳转到的url
     private boolean enabled;
 
-    public BannerVo(){}
-    public BannerVo(Banner banner){
+    public BannerVo() {
+    }
+
+    public BannerVo(Banner banner) {
         this.position = banner.getPosition();
+        this.brief = banner.getBrief();
         this.imageUrl = banner.getImageUrl();
         this.infoUrl = banner.getInfoUrl();
-        this.enabled =banner.isEnabled();
+        this.enabled = banner.isEnabled();
+    }
+
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
     }
 
     public int getPosition() {
@@ -37,12 +49,12 @@ public class BannerVo {
         this.imageUrl = imageUrl;
     }
 
-    public MultipartFile getImage() {
-        return image;
+    public MultipartFile getPicture() {
+        return picture;
     }
 
-    public void setImage(MultipartFile image) {
-        this.image = image;
+    public void setPicture(MultipartFile picture) {
+        this.picture = picture;
     }
 
     public String getInfoUrl() {

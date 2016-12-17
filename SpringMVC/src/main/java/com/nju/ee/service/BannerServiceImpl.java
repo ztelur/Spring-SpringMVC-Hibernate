@@ -25,6 +25,8 @@ public class BannerServiceImpl  implements  BannerService{
         List<Banner> banners = bannerDao.getBanners();
         List<BannerVo> bannersVo = new ArrayList<>();
         for (Banner banner:banners) {
+            System.out.println("soiceini");
+            System.out.println(banner.getBrief());
             bannersVo.add(new BannerVo(banner));
         }
         return RestResult.CreateResult(1,bannersVo);
@@ -55,7 +57,8 @@ public class BannerServiceImpl  implements  BannerService{
     }
 
     @Override
-    public RestResult modifyBanner(Integer position, BannerVo bannerVo) {
+    public RestResult modifyBanner( BannerVo bannerVo) {
+        Integer position = bannerVo.getPosition();
         if (position == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner位置"));
         }
@@ -64,8 +67,8 @@ public class BannerServiceImpl  implements  BannerService{
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该位置的banner"));
         }
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
-        if(bannerVo.getImage()!=null){
-            RestResult result = fileService.saveFile(bannerVo.getImage());
+        if(bannerVo.getPicture()!=null){
+            RestResult result = fileService.saveFile(bannerVo.getPicture());
             if(result.getResult()==1){
                 bannerVo.setImageUrl((String) result.getData());
             }else{
@@ -77,6 +80,7 @@ public class BannerServiceImpl  implements  BannerService{
 
         modifiedBanner.setImageUrl(bannerVo.getImageUrl());
         modifiedBanner.setInfoUrl(bannerVo.getInfoUrl());
+        modifiedBanner.setBrief(bannerVo.getBrief());
         modifiedBanner.setEnabled(bannerVo.isEnabled());
 
         Banner updatedBanner = bannerDao.update(modifiedBanner);

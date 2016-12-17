@@ -6,10 +6,7 @@ import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -55,14 +52,13 @@ public class PersonController {
      * //TODO：是否按学历或职位分类，以何种结构组织？是否需要分页？
      * result属性为是否成功，error属性为出错信息）
      *
-     * @param page  页码
-     * @param num   每页大小
      * @param model
      * @return 跳转至人员管理的页面
      */
     @RequestMapping(value = "/manage/list")
-    public String managePeople(Integer page, Integer num, Model model) {
-
+    public String managePeople(Model model) {
+        RestResult result = personService.getPeople();
+        model.addAttribute("people", result);
         return "manage_person";
     }
 
@@ -73,14 +69,21 @@ public class PersonController {
      * result属性为是否成功，error属性为出错信息）
      * 属性2：表示其不是新增人员页，key为"is_add_page",value为"0"
      *
+     * 若存在属性：key为"update_fail_result"，
+     * value为出错原因,表示上一步更新人员出错；
+     *
      * @param id    人员编号
+     * @param updateResult 上一步更新人员时的出错信息
      * @param model
      * @return 跳转至具体人员信息编辑界面
      */
     @RequestMapping(value = "/manage/{id}", method = RequestMethod.GET)
-    public String editPerson(@PathVariable("id") Integer id, Model model) {
-        RestResult result = personService.getPersonDetail(id);
-        model.addAttribute("person_detail", result);
+    public String editPerson(@PathVariable("id") Integer id,
+                             @ModelAttribute(value = "update_fail_result")String updateResult, Model model) {
+        if(updateResult.equals("")) { //若不是从更新人员页面跳转而来的，无需恢复未成功更新的人员信息
+            RestResult result = personService.getPersonDetail(id);
+            model.addAttribute("person_detail", result);
+        }
         model.addAttribute("is_add_page", "0");
         return "add_person";
     }
@@ -103,6 +106,9 @@ public class PersonController {
      * 获取具体人员信息,将在model中存入属性：key为"person_detail",
      * value为RestResult(其data属性为PersonDescVo，
      * result属性为是否成功，error属性为出错信息）
+     *
+     * 若存在属性：key为"update_success",
+     * value为"1",则表示上一步成功更新人员
      *
      * @param id    人员编号
      * @param model 该参数无需传入
@@ -137,19 +143,23 @@ public class PersonController {
      * @param person 人员对象（需传入与其属性相对应的参数）
      * @return 若修改成功则重定向至人员详情界面,同时存入属性：
      * key为“update_success”,value为“1”；
-     * 若修改失败则重定向至人员编辑界面，同时存入属性：
-     * key为“fail_result",value为出错原因
+     *
+     * 若修改失败则重定向至人员编辑界面，同时存入属性1：
+     * key为“update_fail_result",value为出错原因
+     * 属性2：key为“person_detail”，value为RestResult对象
+     * (data为PersonDescVo，包含编辑过的人员信息）
      */
     @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public String put(@PathVariable("id") Integer id, PersonDescVo person, RedirectAttributes ra) {
         RestResult result =  personService.modifyPerson(id, person);
         if(result.getResult() == 1){//修改成功跳转至新闻详情界面
             ra.addFlashAttribute("update_success","1");
             return "redirect:/people/"+((PersonDescVo) result.getData()).getId();
         }else{//修改失败跳转至编辑界面
-            ra.addFlashAttribute("fail_result",result.getError().getMessage());
-            return "redirect:/articles/manage/"+person.getId();
+            ra.addFlashAttribute("update_fail_result","result："+result.getError().getMessage());
+            person.setId(id);
+            ra.addFlashAttribute("person_detail", RestResult.CreateResult(1,person));//保留编辑的内容
+            return "redirect:/people/manage/"+person.getId();
         }
     }
 

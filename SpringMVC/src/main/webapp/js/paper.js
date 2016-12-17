@@ -65,6 +65,7 @@ $(document).ready(function () {
                 $('.news_list_container').empty();
                 for (var i = 0; i <  papers.length; i++) {
                     var paper = papers[i];
+                    console.log("the url is " + paper.url);
                     $('.news_list_container').append('<h1 class="paper-title"><span style="font-size: 12pt;">' +
                                     paper.title + '<br></span></h1> <p class="paper-desc">' +
                                     paper.date +

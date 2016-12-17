@@ -65,7 +65,7 @@ public class PaperServiceImpl implements PaperService {
         RestResult urlResult = fileService.saveFile(paperVo.getPdf());
         String url;
         if(urlResult.getResult()==1) {
-            url = "{\"link\":\""+(String) urlResult.getData()+"\"}";
+            url = (String) urlResult.getData();
             System.out.println("add paper url is " + url);
         }else{
             url = null;

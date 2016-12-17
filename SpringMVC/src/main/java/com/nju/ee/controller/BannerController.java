@@ -4,7 +4,6 @@ import com.nju.ee.service.BannerService;
 import com.nju.ee.vo.BannerListForm;
 import com.nju.ee.vo.BannerVo;
 import com.nju.ee.vo.RestResult;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,6 +73,9 @@ public class BannerController {
     public String put(@RequestParam(value = "banners") BannerListForm banners, RedirectAttributes ra){
         String errorMessage = "";
         for (BannerVo bannerVo:banners.getBanners()) {
+            if(bannerVo== null){
+                continue;
+            }
             RestResult result = bannerService.modifyBanner(bannerVo);
             if(result.getResult()!=1){
                 errorMessage+= bannerVo.getPosition()+"位置的banner未成功存储，原因："

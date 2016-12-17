@@ -7,7 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
  * Created by 克崽兽 on 2016/12/16.
  */
 public class BannerVo {
-    private int position;
+    private Integer id;
+    private Integer position;
+    private String title;
     private String brief;//简介
     private String imageUrl;
     private MultipartFile picture;
@@ -18,11 +20,37 @@ public class BannerVo {
     }
 
     public BannerVo(Banner banner) {
+        this.id = banner.getId();
         this.position = banner.getPosition();
+        this.title = banner.getTitle();
         this.brief = banner.getBrief();
         this.imageUrl = banner.getImageUrl();
         this.infoUrl = banner.getInfoUrl();
         this.enabled = banner.isEnabled();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getBrief() {
@@ -33,13 +61,7 @@ public class BannerVo {
         this.brief = brief;
     }
 
-    public int getPosition() {
-        return position;
-    }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
 
     public String getImageUrl() {
         return imageUrl;

@@ -9,11 +9,11 @@ import com.nju.ee.vo.RestResult;
 public interface BannerService {
     public RestResult getBanners();
 
-    public RestResult getBannerDetail(Integer position);
+    public RestResult getBannerDetail(Integer id);
 
     public RestResult addBanner(BannerVo bannerVo);
 
     public RestResult modifyBanner(BannerVo bannerVo);
 
-    public RestResult deleteBanner(Integer position);
+    public RestResult deleteBanner(Integer id);
 }

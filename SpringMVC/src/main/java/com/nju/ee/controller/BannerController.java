@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+
 /**
  * Created by 克崽兽 on 2016/12/17.
  */
 @Controller
-@RequestMapping("/banner")
+@RequestMapping("/banners")
 public class BannerController {
     @Autowired
     private BannerService bannerService;
@@ -32,6 +34,9 @@ public class BannerController {
     public String manageBanner(@ModelAttribute(value = "update_fail_result")String updateResult, Model model) {
         if(updateResult.equals("")) { //若未发生更新失败，无需恢复未成功更新的banner信息
             RestResult result = bannerService.getBanners();
+            System.out.println(result);
+            System.out.println(result.getData());
+            System.out.println(((ArrayList<BannerVo>)result.getData()));
             model.addAttribute("banners", result);
         }
         return "manage_banner";
@@ -68,6 +73,9 @@ public class BannerController {
     public String put(@RequestParam(value = "banners") BannerListForm banners, RedirectAttributes ra){
         String errorMessage = "";
         for (BannerVo bannerVo:banners.getBanners()) {
+            if(bannerVo== null){
+                continue;
+            }
             RestResult result = bannerService.modifyBanner(bannerVo);
             if(result.getResult()!=1){
                 errorMessage+= bannerVo.getPosition()+"位置的banner未成功存储，原因："

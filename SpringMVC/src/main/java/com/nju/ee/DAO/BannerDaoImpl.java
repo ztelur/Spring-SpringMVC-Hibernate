@@ -18,10 +18,10 @@ public class BannerDaoImpl implements BannerDao{
     private BaseDao baseDao;
 
     @Override
-    public Banner getBannerByPosition(int position) {
+    public Banner getBannerById(int id) {
         Session session=baseDao.getSession();
         Criteria cri=session.createCriteria(Banner.class);
-        cri.add(Restrictions.eq("position",position));
+        cri.add(Restrictions.eq("id",id));
         List<Banner> list=cri.list();
         if (list.size()<=0){
             return null;

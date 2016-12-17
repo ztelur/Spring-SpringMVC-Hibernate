@@ -13,7 +13,7 @@ public interface BannerService {
 
     public RestResult addBanner(BannerVo bannerVo);
 
-    public RestResult modifyBanner(Integer position, BannerVo bannerVo);
+    public RestResult modifyBanner(BannerVo bannerVo);
 
     public RestResult deleteBanner(Integer position);
 }

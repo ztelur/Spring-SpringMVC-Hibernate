@@ -55,7 +55,8 @@ public class BannerServiceImpl  implements  BannerService{
     }
 
     @Override
-    public RestResult modifyBanner(Integer position, BannerVo bannerVo) {
+    public RestResult modifyBanner( BannerVo bannerVo) {
+        Integer position = bannerVo.getPosition();
         if (position == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner位置"));
         }

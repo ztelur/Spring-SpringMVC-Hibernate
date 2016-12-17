@@ -16,6 +16,7 @@ public class Banner {
     @Id
     @GeneratedValue
     private int position;
+    private String brief; //简介
     private String imageUrl;
     private String infoUrl; //banner跳转到的url
     private boolean enabled;
@@ -23,11 +24,19 @@ public class Banner {
     public Banner() {
     }
     public Banner(BannerVo bannerVo){
+        this.brief = bannerVo.getBrief();
         this.imageUrl = bannerVo.getImageUrl();
         this.infoUrl = bannerVo.getInfoUrl();
         this.enabled = bannerVo.isEnabled();
     }
 
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
 
     public int getPosition() {
         return position;

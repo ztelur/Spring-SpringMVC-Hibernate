@@ -2,10 +2,7 @@ package com.nju.ee.entity;
 
 import com.nju.ee.vo.BannerVo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by 克崽兽 on 2016/12/16.
@@ -13,8 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Banner")
 public class Banner {
-    @Id
-    @GeneratedValue
+    private int id;
     private int position;
     private String brief; //简介
     private String imageUrl;
@@ -30,6 +26,15 @@ public class Banner {
         this.enabled = bannerVo.isEnabled();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getBrief() {
         return brief;
     }

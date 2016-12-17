@@ -25,6 +25,8 @@ public class BannerServiceImpl  implements  BannerService{
         List<Banner> banners = bannerDao.getBanners();
         List<BannerVo> bannersVo = new ArrayList<>();
         for (Banner banner:banners) {
+            System.out.println("soiceini");
+            System.out.println(banner.getBrief());
             bannersVo.add(new BannerVo(banner));
         }
         return RestResult.CreateResult(1,bannersVo);

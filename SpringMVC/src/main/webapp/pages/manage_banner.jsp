@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.nju.ee.vo.RestResult" %>
 <!DOCTYPE html>
 <html>
 <head profile="http://gmpg.org/xfn/11">
@@ -89,16 +90,21 @@
     <div class="rnd">
         <div class="news_list2">
             <ul class="news_list_container">
-              <c:foreach items="${banner_list}" var="banner">
+              <c:forEach items="${banners.data}" var="banner">
                 <li>
+
+
+
                   <span class="title">
-                    <a href=' + url + '/' +person.id + '> </a>
+                    <input id="banner_set" name="banner_set" type="checkbox" value=""/>nn
+                    <a href='/banners/${banner.brief}'> ${banner.brief}</a>
+
                   </span><br>
                   <span class="hits">
-                      <a type="button" class="delete_button" id="'+person.id+'" value="'+person.id+'" onclick="delete_person('+person.id+')">删除</a>
+                      <a type="button" class="delete_button" onclick="delete_banner(${banner.brief})">删除</a>
                 </span>
               </li>
-              </c:foreach>
+            </c:forEach>
             </ul>
         </div>
     </div>

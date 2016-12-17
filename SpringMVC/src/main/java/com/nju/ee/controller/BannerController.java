@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+
 /**
  * Created by 克崽兽 on 2016/12/17.
  */
@@ -34,6 +36,8 @@ public class BannerController {
         if(updateResult.equals("")) { //若未发生更新失败，无需恢复未成功更新的banner信息
             RestResult result = bannerService.getBanners();
             System.out.println(result);
+            System.out.println(result.getData());
+            System.out.println(((ArrayList<BannerVo>)result.getData()));
             model.addAttribute("banners", result);
         }
         return "manage_banner";

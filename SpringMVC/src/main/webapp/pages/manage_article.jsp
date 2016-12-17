@@ -30,7 +30,7 @@
     <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
-    <script src="<%=request.getContextPath()%>/js/manage_paper.js"></script>
+    <script src="<%=request.getContextPath()%>/js/manage_article.js"></script>
 
 
 

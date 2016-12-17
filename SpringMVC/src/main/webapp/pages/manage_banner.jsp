@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head profile="http://gmpg.org/xfn/11">
-    <title>论文管理</title>
+    <title> 轮播页管理</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
@@ -30,7 +30,7 @@
     <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
-    <script src="<%=request.getContextPath()%>/js/manage_paper.js"></script>
+    <script src="<%=request.getContextPath()%>/js/manage_banner.js"></script>
 
 
 
@@ -64,11 +64,11 @@
         <div id="topnav">
             <ul>
                 <li><a href="/manage/equipments/list">设备</a></li>
-                <li class="active"><a href="/manage/papers/list">论文</a></li>
+                <li><a href="/manage/papers/list">论文</a></li>
                 <li><a href="/manage/teams/list">团队</a></li>
-                <li><a href="/manage/news/list">新闻</a></li>
+                <li ><a href="/manage/articles/list">新闻</a></li>
                 <li><a href="/manage/people/list">人员</a></li>
-                <li><a href="/manage/banners/list">轮播页</a></li>
+                <li class="active"><a href="/manage/banners/list">轮播页</a></li>
 
             </ul>
         </div>
@@ -77,8 +77,8 @@
 </div>
 <div class="wrapper manage-div">
     <div class="add-div">
-        <a  type="button"  href ="/papers/manage/add" class="btn add-button">
-            添加论文
+        <a  type="button"  href ="/banners/manage/add" class="btn add-button">
+            添加轮播页
         </a>
     </div>
 </div>
@@ -89,14 +89,20 @@
     <div class="rnd">
         <div class="news_list2">
             <ul class="news_list_container">
+              <c:foreach items="${banner_list}" var="banner">
+                <li>
+                  <span class="title">
+                    <a href=' + url + '/' +person.id + '> </a>
+                  </span><br>
+                  <span class="hits">
+                      <a type="button" class="delete_button" id="'+person.id+'" value="'+person.id+'" onclick="delete_person('+person.id+')">删除</a>
+                </span>
+              </li>
+              </c:foreach>
             </ul>
         </div>
     </div>
-    <!-- ####################################################################################################### -->
-    <div  id="Pagination" class="pagination">
 
-    </div>
-    <!-- ####################################################################################################### -->
 </div>
 
 <!-- ####################################################################################################### -->

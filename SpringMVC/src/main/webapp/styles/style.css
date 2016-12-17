@@ -1,6 +1,6 @@
 @import '../css/grid.css';
 @import '../css/font-awesome.css';
-@import url(http://fonts.useso.com/css?family=Open+Sans:400);
+/*@import url(http://fonts.useso.com/css?family=Open+Sans:400);*/
 
 .navigation {
   z-index: 999;

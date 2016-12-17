@@ -63,11 +63,12 @@
         <!-- ###### -->
         <div id="topnav">
             <ul>
-                <li><a href="/manage/equipments">设备</a></li>
-                <li><a href="/manage/papers">论文</a></li>
-                <li><a href="/manage/teams">团队</a></li>
-                <li class="active"><a href="/manage/articles">新闻</a></li>
-                <li><a href="/manage/people">人员</a></li>
+                <li><a href="/manage/equipments/list">设备</a></li>
+                <li><a href="/manage/papers/list">论文</a></li>
+                <li><a href="/manage/teams/list">团队</a></li>
+                <li class="active"><a href="/manage/articles/list">新闻</a></li>
+                <li><a href="/manage/people/list">人员</a></li>
+                <li><a href="/manage/banners/list">轮播页</a></li>
 
             </ul>
         </div>

@@ -4,6 +4,7 @@ import com.nju.ee.service.BannerService;
 import com.nju.ee.vo.BannerListForm;
 import com.nju.ee.vo.BannerVo;
 import com.nju.ee.vo.RestResult;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Created by 克崽兽 on 2016/12/17.
  */
 @Controller
-@RequestMapping("/banner")
+@RequestMapping("/banners")
 public class BannerController {
     @Autowired
     private BannerService bannerService;
@@ -32,6 +33,7 @@ public class BannerController {
     public String manageBanner(@ModelAttribute(value = "update_fail_result")String updateResult, Model model) {
         if(updateResult.equals("")) { //若未发生更新失败，无需恢复未成功更新的banner信息
             RestResult result = bannerService.getBanners();
+            System.out.println(result);
             model.addAttribute("banners", result);
         }
         return "manage_banner";

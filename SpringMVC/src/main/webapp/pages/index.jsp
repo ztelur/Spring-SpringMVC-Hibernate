@@ -13,9 +13,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/unslider.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/featured_slide.css" type="text/css" />
 
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.slidepanel.setup.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.cycle.min.js"></script>
+
 
     <!-- Homepage Specific Elements -->
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
@@ -57,7 +60,7 @@
                 <li><a href="/equipments/main">设备</a></li>
                 <li><a href="/papers/main">论文</a></li>
                 <li><a href="/teams">团队</a></li>
-                <li><a href="/news">新闻</a></li>
+                <li><a href="/articles/main">新闻</a></li>
                 <li><a href="/contact">联系我们</a></li>
 
             </ul>
@@ -67,20 +70,9 @@
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper">
-    <div id="featured_slide" class="clear">
-        <!-- ###### -->
-        <div class="overlay_left"></div>
-        <div id="featured_content">
-                <ul id="banner_container">
+    <div id="featured_slide">
 
-                </ul>
-            <div class="floater">
-                <h2>新闻２</h2>
-                <p>banner.brief </p><p class="readmore"><a href="">Continue Reading &raquo;</a></p>
-            </div>
-        </div>
 
-        <!-- ###### -->
     </div>
 </div>
 <!-- ####################################################################################################### -->
@@ -141,7 +133,6 @@
 <!-- ####################################################################################################### -->
 
 
-<script src="<%=request.getContextPath()%>/js/unslider-min.js"></script> <!-- but with the right path! -->
 
 
 </body>

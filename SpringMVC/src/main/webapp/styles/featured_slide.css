@@ -9,10 +9,10 @@ Licence: <a href="#">Website Template Licence</a>
 #featured_slide{
 	display:block;
 	position:relative;
-	width:950px;
+	width: 960px;
 	height:300px;
 	margin:0;
-	padding:5px;
+	border-radius: 10px;
 	overflow:hidden;
 	color:#666666;
 	background-color:#FFFFFF;
@@ -35,7 +35,7 @@ Licence: <a href="#">Website Template Licence</a>
 
 #featured_content, .featured_box, .featured_box img{
 	display:block;
-	width:950px;
+	width:960px;
 	height:100%;
 	overflow:hidden;
 	}
@@ -130,3 +130,49 @@ Licence: <a href="#">Website Template Licence</a>
 	left:945px;
 	background-image:url("../images/featured_slide_right.png");
 	}
+
+
+
+#fsn{
+	position:relative;
+	margin:10px auto -5px;
+	display:block;
+	width:960px;
+	height:25px;
+	text-align:center;
+	z-index:1000;
+}
+
+#fsn ul{
+	position:relative;
+	margin:0 auto 0;
+	display:block;
+	width:125px;
+	height:20px;
+	padding:5px 0 0 0;
+	overflow:hidden;
+	list-style:none;
+}
+
+#fsn ul li, #fsn ul li a{
+	display:block;
+	float:left;
+	width:15px;
+	height:15px;
+	margin:0 10px 0 0;
+	padding:0;
+}
+
+#fsn ul li a{
+	float:none;
+	border:none;
+	margin:0;
+	outline:none;
+	text-indent:-5000px;
+	text-decoration:none;
+	background:url("/images/slide.png") 50% 50% no-repeat;
+}
+
+#fsn .activeSlide{
+	background:url("/images/slide.png") 0% 50% no-repeat;
+}

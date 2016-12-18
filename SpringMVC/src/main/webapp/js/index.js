@@ -25,35 +25,42 @@ $(document).ready(function () {
                     "data":[
                         {
                             "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客",
+                            "brief":"博客2",
                             "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
                         },
                         {
                             "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客",
+                            "brief":"博客3",
                             "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
                         },
                         {
                             "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客",
+                            "brief":"博客4",
                             "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
                         }
                     ]
                 }
                 var banners = data.data;
+                $('#featured_slide').empty();
                 for (var i = 0; i <  banners.length; i++) {
                     var banner = banners[i];
-                    $('#banner_container').append('<li><div class="featured_box" id="fc' + (i + 1) + '">' +
-                                '<img src="' + banner.imageUrl + '" alt="" /></div></li>');
+                    $('#featured_slide').append(
+                    '<div class="featured_box"><a href="#"><img src="' +
+                    banner.imageUrl + '" alt="" /></a> <div class="floater"><h2>' +
+                        banner.title + '</h2> <p>' +
+                        banner.brief + '</p> <p class="readmore"><a href="'  +
+                    banner.infoUrl +  '">Continue Reading &raquo;</a></p> </div> </div>');
                 }
-                var slider = $('#featured_content').unslider({ autoplay: true, delay: 1000, nav: false });
-                slider.on('unslider.change', function(event, index, slide) {
 
+                $('#featured_slide').after('<div id="fsn"><ul id="fs_pagination">').cycle({
+                    timeout: 5000, // milliseconds between slide transitions (0 to disable auto advance)
+                    fx: 'fade', // choose a transition type, ex: fade, scrollUp, shuffle, etc...
+                    pager: '#fs_pagination', // selector for element to use as pager container
+                    pause: 0, // true to enable "pause on hover"
+                    pauseOnPagerHover: 0 // true to pause when hovering over pager link
                 });
-                // <div class="floater"><h2>' +
-                // '新闻1' + '</h2><p>' + banner.brief + '</p><p class="readmore"><a href="'+
-                // banner.infoUrl + '">Continue Reading &raquo;</a></p></div>
             }
+
         });
 
     }();

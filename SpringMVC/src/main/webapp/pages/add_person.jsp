@@ -11,7 +11,8 @@
 <head>
   <meta charset="utf-8">
   <!--my css-->
-  <link rel="stylesheet" href="/css/person.css">
+    <link rel="stylesheet" href="/css/person.css">
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -21,6 +22,11 @@
 <c:if test="${is_add_page == 1}">
   <form method="post" action="/people/manage">
 </c:if>
+    <div class="head_wrapper">
+        <input type="file" name="image" id="image" accept="image/gif, image/jpeg" style="display: none;">
+        <img id="img_head" src="../img/head.png" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload()"/>
+        <span type="button" onclick="click_upload()" class="upload_button">点击上传头像</span>
+    </div>
     <div class="input_wrapper">
       <input class="person_input" type="text" placeholder="姓名" name="name" id="name" required/>
     </div>
@@ -36,9 +42,7 @@
         <option value="无">无</option>
       </select>
     </div>
-    <textarea class="introduction" required name="introduction" placeholder="个人简介" rows="5" id="introduction"></textarea>
-    <input type="file" name="image" id="image" accept="image/gif, image/jpeg" style="display: none;">
-    <button type="button" onclick="image.click()" class="upload_button">上传头像</button>
+    <textarea class="introduction" required name="introduction" placeholder="个人简介" rows="8" id="introduction"></textarea>
     <div class="form_footer">
       <button type="submit" class="form_button submit">提交</button>
     </div>
@@ -53,12 +57,22 @@
     //头像暂不处理;
     $('#introduction').attr("value",'${person_detail.data.introduction}');
     </c:if>
-  function reset(){
-    $('#edit').froalaEditor('html.set', '');
-  };
-  function checkForm(){
-    return true;
-  }
+</script>
+<script>
+    $("#image").change(function(e) {
+        for (var i = 0; i < e.target.files.length; i++) {
+            var file = e.target.files.item(i);
+            var freader = new FileReader();
+            freader.readAsDataURL(file);
+            freader.onload = function(e) {
+                var src = e.target.result;
+                $("#img_head").attr("src",src);
+            }
+        }
+    });
+    function click_upload(){
+        $("#image").click();
+    }
 </script>
 </body>
 </html>

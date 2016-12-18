@@ -49,3 +49,14 @@
 .submit{
     float:right;
 }
+.head_wrapper{
+    width:100%;
+}
+.head_wrapper>img{
+    display: block;
+    margin: auto;
+}
+.head_wrapper>span{
+    display: block;
+    margin: 5px auto 5px;
+}

@@ -34,9 +34,6 @@ public class BannerController {
     public String manageBanner(@ModelAttribute(value = "update_fail_result")String updateResult, Model model) {
         if(updateResult.equals("")) { //若未发生更新失败，无需恢复未成功更新的banner信息
             RestResult result = bannerService.getBanners();
-            System.out.println(result);
-            System.out.println(result.getData());
-            System.out.println(((ArrayList<BannerVo>)result.getData()));
             model.addAttribute("banners", result);
         }
         return "manage_banner";
@@ -69,8 +66,9 @@ public class BannerController {
      * 属性2：key为“banners”，value为RestResult对象
      * (data为BannerVo列表，包含编辑过的banner信息）
      */
-    @RequestMapping(value = "/manage/update", method =  RequestMethod.GET)
-    public String put(@RequestParam(value = "banners") BannerListForm banners, RedirectAttributes ra){
+    @RequestMapping(value = "/manage/update", method =  RequestMethod.POST)
+    public String put(BannerListForm banners, RedirectAttributes ra){
+        System.out.println("sssbsfsjfsfbsjjd");
         String errorMessage = "";
         for (BannerVo bannerVo:banners.getBanners()) {
             if(bannerVo== null){
@@ -88,6 +86,6 @@ public class BannerController {
         }else{
             ra.addFlashAttribute("update_success","1");
         }
-        return "redirect:/banner/manage/list";
+        return "redirect:/banners/manage/list";
     }
 }

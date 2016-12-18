@@ -67,16 +67,16 @@ public class BannerServiceImpl  implements  BannerService{
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的banner"));
         }
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
-        if(bannerVo.getPicture()!=null){
-            RestResult result = fileService.saveFile(bannerVo.getPicture());
-            if(result.getResult()==1){
-                bannerVo.setImageUrl((String) result.getData());
-            }else{
-                bannerVo.setImageUrl(null);
-            }
-        }else{
-            bannerVo.setImageUrl(null);
-        }
+//        if(bannerVo.getPicture()!=null){
+//            RestResult result = fileService.saveFile(null);
+//            if(result.getResult()==1){
+//                bannerVo.setImageUrl((String) result.getData());
+//            }else{
+//                bannerVo.setImageUrl(null);
+//            }
+//        }else{
+//            bannerVo.setImageUrl(null);
+//        }
         //修改所有（可修改的）属性
         modifiedBanner.setTitle(bannerVo.getTitle());
         modifiedBanner.setImageUrl(bannerVo.getImageUrl());

@@ -23,8 +23,8 @@
   <form method="post" action="/people/manage">
 </c:if>
     <div class="head_wrapper">
-        <input type="file" name="image" id="image" accept="image/gif, image/jpeg" style="display: none;">
-        <img id="img_head" src="../img/head.png" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload()"/>
+        <input type="file" name="image" id="image" accept="image/gif, image/jpeg,image/png" style="display: none;">
+        <img id="img_head" src="/images/head.png" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload()"/>
         <span type="button" onclick="click_upload()" class="upload_button">点击上传头像</span>
     </div>
     <div class="input_wrapper">

@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/css/person.css"/>
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-    <%-- <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script> --%>
     <script src="<%=request.getContextPath()%>/js/manage_banner.js"></script>
 
 
@@ -90,7 +89,7 @@
                     </div>
                     <div class="head_wrapper">
                         <input type="file" name="banners[${loop.index}].picture" id="image${banner.id}" accept="image/gif, image/jpeg" style="display: none;">
-                        <img id="img_head${banner.id}" src="" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload(${banner.id})"/>
+                        <img id="img_head${banner.id}" src="" style="width: 500px;height: 200px;text-align: center;border-radius: 50%" onclick="click_upload(${banner.id})"/>
                         <span type="button" class="upload_button" onclick="click_upload(${banner.id})">点击上传图片</span>
                     </div>
                     <%-- <input type="file" name="banners[0].picture" id="image" accept="image/gif, image/jpeg" style="display: none;">

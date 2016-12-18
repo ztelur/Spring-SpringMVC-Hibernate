@@ -149,7 +149,7 @@ public class PersonController {
      * 属性2：key为“person_detail”，value为RestResult对象
      * (data为PersonDescVo，包含编辑过的人员信息）
      */
-    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.POST)
     public String put(@PathVariable("id") Integer id, PersonDescVo person, RedirectAttributes ra) {
         RestResult result =  personService.modifyPerson(id, person);
         if(result.getResult() == 1){//修改成功跳转至新闻详情界面

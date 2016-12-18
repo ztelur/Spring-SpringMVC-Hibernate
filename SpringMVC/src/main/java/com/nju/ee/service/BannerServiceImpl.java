@@ -67,25 +67,31 @@ public class BannerServiceImpl implements BannerService {
         if (modifiedBanner == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的banner"));
         }
-        //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
+
+        String useLessImageUrl = modifiedBanner.getImageUrl();
+        //修改所有（可修改的）属性
+        //判断是否有图片上传，若有，调用FileService接口上传文件并将url进行替换，否则无需修改
         if (bannerVo.getPicture() != null) {
             RestResult result = fileService.saveFile(bannerVo.getPicture());
-            bannerVo.setImageUrl((String) result.getData());
-        } else {
-            bannerVo.setImageUrl(null);
+            if(result.getResult()!=1) {
+                return result;
+            }
+            modifiedBanner.setImageUrl((String) result.getData());
         }
-        //修改所有（可修改的）属性
-        //TODO 若修改成功，删除原banner图片
         modifiedBanner.setTitle(bannerVo.getTitle());
-        modifiedBanner.setImageUrl(bannerVo.getImageUrl());
         modifiedBanner.setInfoUrl(bannerVo.getInfoUrl());
         modifiedBanner.setBrief(bannerVo.getBrief());
         modifiedBanner.setEnabled(bannerVo.isEnabled());
 
         Banner updatedBanner = bannerDao.update(modifiedBanner);
+
         if (updatedBanner == null) {
+            //修改失败，删除新的banner图片
+            fileService.deleteFile(modifiedBanner.getImageUrl());
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "修改过程出错"));
         }
+        //若修改成功，删除原banner图片
+        fileService.deleteFile(useLessImageUrl);
         BannerVo vo = new BannerVo(updatedBanner);
         return RestResult.CreateResult(1, vo);
     }

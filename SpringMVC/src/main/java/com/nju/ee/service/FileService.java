@@ -12,4 +12,6 @@ public interface FileService {
     public RestResult saveFile(MultipartFile file);
 
     public FileInputStream getFile(String fileName);
+
+    public RestResult deleteFile(String fileUrl);
 }

@@ -17,7 +17,7 @@
 <body>
 <div class="container">
 <c:if test="${is_add_page == 0}">
-  <form method="post" action="/people/manage/${person_detail.data.id}" enctype="multipart/form-data">
+  <form method="post" action="/people/manage/update/${person_detail.data.id}" enctype="multipart/form-data">
 </c:if>
 <c:if test="${is_add_page == 1}">
   <form method="post" action="/people/manage" enctype="multipart/form-data">
@@ -55,7 +55,7 @@
     $('#name').attr("value",'${person_detail.data.name}');
     //level 赋值
     //头像暂不处理;
-    $('#introduction').attr("value",'${person_detail.data.introduction}');
+    $('#introduction').html('${person_detail.data.introduction}');
     </c:if>
 </script>
 <script>

@@ -74,16 +74,26 @@ public class PersonServiceImpl implements PersonService {
         if (modifiedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的人员"));
         }
+        String useLessImageUrl = modifiedPerson.getImage();
+        if (person.getImage() != null) {
+            RestResult result = fileService.saveFile(person.getImage());
+            if(result.getResult()!=1) {
+                return result;
+            }
+            modifiedPerson.setImage((String) result.getData());
+        }
         modifiedPerson.setName(person.getName());
         modifiedPerson.setLevel(person.getLevel());
-        //TODO 保存新头像(并删除原头像）
-        modifiedPerson.setImage(person.getImageUrl());
         modifiedPerson.setIntroduction(person.getIntroduction());
 
         Person updatedPerson = personDao.update(modifiedPerson);
         if (updatedPerson == null) {
+            //修改失败，删除新的头像图片
+            fileService.deleteFile(modifiedPerson.getImage());
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "修改过程出错"));
         }
+        //若修改成功，删除原头像图片
+        fileService.deleteFile(useLessImageUrl);
         PersonDescVo vo = new PersonDescVo(updatedPerson);
         return RestResult.CreateResult(1, vo);
     }

@@ -13,6 +13,7 @@ public class Equipment {
     private int id;
     private String name;
     private String description;
+    private String url;
     public Equipment(){
     }
     @Id
@@ -39,5 +40,13 @@ public class Equipment {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

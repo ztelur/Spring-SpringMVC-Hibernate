@@ -191,7 +191,7 @@ input,
 textarea {
   border-radius: 0 !important;
   outline: none !important;
-  -webkit-appearance: none;
+  /*-webkit-appearance: none;*/
 }
 img {
   max-width: 100%;

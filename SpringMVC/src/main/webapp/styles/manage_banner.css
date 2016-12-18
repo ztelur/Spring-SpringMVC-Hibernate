@@ -1,0 +1,23 @@
+.banner_r{
+  float:left;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+}
+
+.banner_a{
+  float:left;
+  margin-left: 6px;
+  margin-right: 2px;
+  margin-top: -4px;
+}
+.banner_display_div{
+  font-size:18px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:black;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.banner_radio{
+  margin-left: 8px;
+}

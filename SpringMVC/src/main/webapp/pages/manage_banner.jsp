@@ -19,23 +19,16 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/touchTouch.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/person.css"/>
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery-migrate-1.1.1.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.js"></script>
-    <script src="<%=request.getContextPath() %>/js/script.js"></script>
-    <script src="<%=request.getContextPath() %>/js/superfish.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.equalheights.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.mobilemenu.js"></script>
-    <script src="<%=request.getContextPath() %>/js/tmStickUp.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
-    <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <%-- <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script> --%>
     <script src="<%=request.getContextPath()%>/js/manage_banner.js"></script>
 
 
 
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage_banner.css" type="text/css" />
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -64,55 +57,59 @@
         <!-- ###### -->
         <div id="topnav">
             <ul>
-                <li><a href="/manage/equipments/list">设备</a></li>
-                <li><a href="/manage/papers/list">论文</a></li>
-                <li><a href="/manage/teams/list">团队</a></li>
-                <li ><a href="/manage/articles/list">新闻</a></li>
-                <li><a href="/manage/people/list">人员</a></li>
-                <li class="active"><a href="/manage/banners/list">轮播页</a></li>
+                <li><a href="/equipments/manage/list">设备</a></li>
+                <li><a href="/papers/manage/list">论文</a></li>
+                <li><a href="/teams/manage/list">团队</a></li>
+                <li ><a href="/articles/manage/list">新闻</a></li>
+                <li><a href="/people/manage/list">人员</a></li>
+                <li class="active"><a href="/banners/manage/list">轮播页</a></li>
 
             </ul>
         </div>
         <!-- ###### -->
     </div>
 </div>
-<div class="wrapper manage-div">
-    <div class="add-div">
-        <a  type="button"  href ="/banners/manage/add" class="btn add-button">
-            添加轮播页
-        </a>
-    </div>
-</div>
-<!-- ####################################################################################################### -->
+
 
 
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="news_list2">
             <ul class="news_list_container">
-              <c:forEach items="${banners.data}" var="banner">
-                <li>
-
-
-
-                  <span class="title">
-                    <input id="banner_set" name="banner_set" type="checkbox" value=""/>nn
-                    <a href='/banners/${banner.brief}'> ${banner.brief}</a>
-
-                  </span><br>
-                  <span class="hits">
-                      <a type="button" class="delete_button" onclick="delete_banner(${banner.brief})">删除</a>
-                </span>
-              </li>
+              <form method="post" action="/banners/manage/update">
+              <c:forEach items="${banners.data}" var="banner" varStatus="loop">
+                  <div class="container banner_manager_div">
+                    <h1 >轮播页${banner.id}</h1>
+                    <div class="input_wrapper">
+                      <input class="person_input" type="text" placeholder="标题" name="banners[${loop.index}].username" id="name" />
+                    </div>
+                    <textarea class="introduction"  name="banners[${loop.index}].brief" placeholder="简介" rows="5" id="introduction"></textarea>
+                    <div class="input_wrapper">
+                      <input class="person_input" type="text" placeholder="详情链接" name="banners[${loop.index}].infoUrl" id="name" />
+                    </div>
+                    <div class="head_wrapper">
+                        <input type="file" name="banners[${loop.index}].picture" id="image${banner.id}" accept="image/gif, image/jpeg" style="display: none;">
+                        <img id="img_head${banner.id}" src="" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload(${banner.id})"/>
+                        <span type="button" class="upload_button" onclick="click_upload(${banner.id})">点击上传图片</span>
+                    </div>
+                    <%-- <input type="file" name="banners[0].picture" id="image" accept="image/gif, image/jpeg" style="display: none;">
+                    <button type="button" onclick="image.click()" class="upload_button">上传图片</button> --%>
+                    <div class="input_wrapper banner_display_div">
+                    <label >是否展示：
+                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enable" value="true">是</input>
+                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enable" value="false">否</input>
+                    </label>
+                    </div>
+                  </div>
             </c:forEach>
+            <div class="form_footer">
+              <button type="submit" class="form_button submit">提交</button>
+            </div>
+          </form>
             </ul>
         </div>
     </div>
 
 </div>
-
-<!-- ####################################################################################################### -->
-
 
 
 
@@ -123,6 +120,7 @@
         <p class="fl_right">Template from <a href="http://www.cssmoban.com/" title="模板之家">网站模板</a></p>
     </div>
 </div>
+
 
 </body>
 </html>

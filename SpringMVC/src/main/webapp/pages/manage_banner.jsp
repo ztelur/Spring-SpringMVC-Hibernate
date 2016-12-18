@@ -80,6 +80,8 @@
                   <div class="container banner_manager_div">
                     <h1 >轮播页${banner.id}</h1>
                     <div class="input_wrapper">
+                      <input name="banners[${loop.index}].id" value="${banner.id}" style="display:none"/>
+                      <input name="banners[${loop.index}].position" value="1" style="display:none"/>
                       <input class="person_input" type="text" placeholder="标题" name="banners[${loop.index}].title" id="name" />
                     </div>
                     <textarea class="introduction"  name="banners[${loop.index}].brief" placeholder="简介" rows="5" id="introduction"></textarea>
@@ -95,8 +97,8 @@
                     <button type="button" onclick="image.click()" class="upload_button">上传图片</button> --%>
                     <div class="input_wrapper banner_display_div">
                     <label >是否展示：
-                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enable" value="true">是</input>
-                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enable" value="false">否</input>
+                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enabled" value="true">是</input>
+                      <input class="banner_radio" type="radio" name="banners[${loop.index}].enabled" value="false">否</input>
                     </label>
                     </div>
                   </div>

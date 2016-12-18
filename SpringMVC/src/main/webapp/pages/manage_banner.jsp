@@ -80,7 +80,7 @@
                   <div class="container banner_manager_div">
                     <h1 >轮播页${banner.id}</h1>
                     <div class="input_wrapper">
-                      <input class="person_input" type="text" placeholder="标题" name="banners[${loop.index}].username" id="name" />
+                      <input class="person_input" type="text" placeholder="标题" name="banners[${loop.index}].title" id="name" />
                     </div>
                     <textarea class="introduction"  name="banners[${loop.index}].brief" placeholder="简介" rows="5" id="introduction"></textarea>
                     <div class="input_wrapper">

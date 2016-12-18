@@ -29,3 +29,5 @@ SpringMVC/src/main/resources/META-INF/properties/hibernate.properties
 SpringMVC/mark.iml
 
 doc/~$接口文档.docx
+
+SpringMVC/src/main/resources/META-INF/applicationContext.xml

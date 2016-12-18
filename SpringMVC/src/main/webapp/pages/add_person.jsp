@@ -17,10 +17,10 @@
 <body>
 <div class="container">
 <c:if test="${is_add_page == 0}">
-  <form method="post" action="/people/manage/${person_detail.data.id}">
+  <form method="post" action="/people/manage/${person_detail.data.id}" enctype="multipart/form-data">
 </c:if>
 <c:if test="${is_add_page == 1}">
-  <form method="post" action="/people/manage">
+  <form method="post" action="/people/manage" enctype="multipart/form-data">
 </c:if>
     <div class="head_wrapper">
         <input type="file" name="image" id="image" accept="image/gif, image/jpeg,image/png" style="display: none;">

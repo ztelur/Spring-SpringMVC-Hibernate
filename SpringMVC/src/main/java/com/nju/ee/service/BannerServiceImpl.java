@@ -15,31 +15,32 @@ import java.util.List;
  * Created by 克崽兽 on 2016/12/16.
  */
 @Service
-public class BannerServiceImpl  implements  BannerService{
+public class BannerServiceImpl implements BannerService {
     @Autowired
     private BannerDao bannerDao;
     @Autowired
     private FileService fileService;
+
     @Override
     public RestResult getBanners() {
         List<Banner> banners = bannerDao.getBanners();
         List<BannerVo> bannersVo = new ArrayList<>();
-        for (Banner banner:banners) {
+        for (Banner banner : banners) {
             System.out.println("soiceini");
             System.out.println(banner.getBrief());
             bannersVo.add(new BannerVo(banner));
         }
-        return RestResult.CreateResult(1,bannersVo);
+        return RestResult.CreateResult(1, bannersVo);
     }
 
     @Override
-    public RestResult getBannerDetail(Integer position) {
-        if (position == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner位置"));
+    public RestResult getBannerDetail(Integer id) {
+        if (id == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner编号"));
         }
-        Banner banner = bannerDao.getBannerByPosition(position);
+        Banner banner = bannerDao.getBannerById(id);
         if (banner == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该位置的banner"));
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该的banner"));
         }
         BannerVo vo = new BannerVo(banner);
         return RestResult.CreateResult(1, vo);
@@ -57,27 +58,25 @@ public class BannerServiceImpl  implements  BannerService{
     }
 
     @Override
-    public RestResult modifyBanner( BannerVo bannerVo) {
-        Integer position = bannerVo.getPosition();
-        if (position == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner位置"));
+    public RestResult modifyBanner(BannerVo bannerVo) {
+        Integer id = bannerVo.getId();
+        if (id == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner编号"));
         }
-        Banner modifiedBanner = bannerDao.getBannerByPosition(position);
+        Banner modifiedBanner = bannerDao.getBannerById(id);
         if (modifiedBanner == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该位置的banner"));
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的banner"));
         }
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
-        if(bannerVo.getPicture()!=null){
+        if (bannerVo.getPicture() != null) {
             RestResult result = fileService.saveFile(bannerVo.getPicture());
-            if(result.getResult()==1){
-                bannerVo.setImageUrl((String) result.getData());
-            }else{
-                bannerVo.setImageUrl(null);
-            }
-        }else{
+            bannerVo.setImageUrl((String) result.getData());
+        } else {
             bannerVo.setImageUrl(null);
         }
-
+        //修改所有（可修改的）属性
+        //TODO 若修改成功，删除原banner图片
+        modifiedBanner.setTitle(bannerVo.getTitle());
         modifiedBanner.setImageUrl(bannerVo.getImageUrl());
         modifiedBanner.setInfoUrl(bannerVo.getInfoUrl());
         modifiedBanner.setBrief(bannerVo.getBrief());
@@ -92,13 +91,13 @@ public class BannerServiceImpl  implements  BannerService{
     }
 
     @Override
-    public RestResult deleteBanner(Integer position) {
-        if (position == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少Banner位置"));
+    public RestResult deleteBanner(Integer id) {
+        if (id == null) {
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少Banner编号"));
         }
-        Banner uselessBanner = bannerDao.getBannerByPosition(position);
+        Banner uselessBanner = bannerDao.getBannerById(id);
         if (uselessBanner == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该位置的Banner"));
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的Banner"));
         }
         Banner deletedBanner = bannerDao.delete(uselessBanner);
         if (deletedBanner == null) {

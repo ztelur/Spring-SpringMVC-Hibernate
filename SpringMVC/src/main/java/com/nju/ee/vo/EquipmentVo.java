@@ -7,14 +7,15 @@ public class EquipmentVo {
     private int id;
     private String name;
     private String description;
-
+    private String url;
     public EquipmentVo() {
     }
 
-    public EquipmentVo(int id, String name, String description) {
+    public EquipmentVo(int id, String name, String description,String url) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.url=url;
     }
 
     public int getId() {
@@ -39,5 +40,13 @@ public class EquipmentVo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

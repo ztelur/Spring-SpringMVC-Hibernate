@@ -8,7 +8,7 @@ import java.util.List;
  * Created by 克崽兽 on 2016/12/16.
  */
 public interface BannerDao {
-    Banner getBannerByPosition(int position);
+    Banner getBannerById(int id);
 
     List<Banner> getBanners();
 

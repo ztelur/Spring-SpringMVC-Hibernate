@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Banner {
     private int id;
     private int position;
+    private String title;
     private String brief; //简介
     private String imageUrl;
     private String infoUrl; //banner跳转到的url
@@ -20,6 +21,8 @@ public class Banner {
     public Banner() {
     }
     public Banner(BannerVo bannerVo){
+        this.position = bannerVo.getPosition();
+        this.title = bannerVo.getTitle();
         this.brief = bannerVo.getBrief();
         this.imageUrl = bannerVo.getImageUrl();
         this.infoUrl = bannerVo.getInfoUrl();
@@ -49,6 +52,14 @@ public class Banner {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImageUrl() {

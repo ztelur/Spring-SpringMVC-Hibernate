@@ -2,8 +2,10 @@ package com.nju.ee.entity;
 
 import com.nju.ee.vo.PersonDescVo;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by zangxiaojie on 2016/11/3.
@@ -28,7 +30,7 @@ public class Person {
     public Person (PersonDescVo vo){
         this.name = vo.getName();
         this.level = vo.getLevel();
-        this.image = vo.getImage();
+        this.image = vo.getImageUrl();
         this.introduction = vo.getIntroduction();
     }
 

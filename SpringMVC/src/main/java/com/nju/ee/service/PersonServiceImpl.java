@@ -20,18 +20,20 @@ import java.util.Map;
 public class PersonServiceImpl implements PersonService {
     @Autowired
     private PersonDao personDao;
+    @Autowired
+    private FileService fileService;
 
     public RestResult getPeople() {
         List<Person> people = personDao.getPeople();
         Map<String, List<PersonDescVo>> classifiedPeople = new HashMap<>();
         for (Person person : people) {
             String level = person.getLevel();
-            if(!classifiedPeople.containsKey(level)){
+            if (!classifiedPeople.containsKey(level)) {
                 classifiedPeople.put(level, new ArrayList<PersonDescVo>());
             }
             classifiedPeople.get(level).add(new PersonDescVo(person));
         }
-        return RestResult.CreateResult(1,classifiedPeople);
+        return RestResult.CreateResult(1, classifiedPeople);
     }
 
     public RestResult getPersonDetail(Integer id) {
@@ -47,6 +49,13 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public RestResult addPerson(PersonDescVo personDescVo) {
+        if (personDescVo.getImage() != null) {
+            RestResult result = fileService.saveFile(personDescVo.getImage());
+            personDescVo.setImageUrl((String) result.getData());
+        } else {
+            personDescVo.setImageUrl(null);
+        }
+
         Person person = new Person(personDescVo);
         Person savedPerson = personDao.save(person);
         if (savedPerson == null) {
@@ -67,7 +76,8 @@ public class PersonServiceImpl implements PersonService {
         }
         modifiedPerson.setName(person.getName());
         modifiedPerson.setLevel(person.getLevel());
-        modifiedPerson.setImage(person.getImage());
+        //TODO 保存新头像(并删除原头像）
+        modifiedPerson.setImage(person.getImageUrl());
         modifiedPerson.setIntroduction(person.getIntroduction());
 
         Person updatedPerson = personDao.update(modifiedPerson);

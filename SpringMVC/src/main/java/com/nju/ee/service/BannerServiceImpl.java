@@ -15,21 +15,22 @@ import java.util.List;
  * Created by 克崽兽 on 2016/12/16.
  */
 @Service
-public class BannerServiceImpl  implements  BannerService{
+public class BannerServiceImpl implements BannerService {
     @Autowired
     private BannerDao bannerDao;
     @Autowired
     private FileService fileService;
+
     @Override
     public RestResult getBanners() {
         List<Banner> banners = bannerDao.getBanners();
         List<BannerVo> bannersVo = new ArrayList<>();
-        for (Banner banner:banners) {
+        for (Banner banner : banners) {
             System.out.println("soiceini");
             System.out.println(banner.getBrief());
             bannersVo.add(new BannerVo(banner));
         }
-        return RestResult.CreateResult(1,bannersVo);
+        return RestResult.CreateResult(1, bannersVo);
     }
 
     @Override
@@ -57,7 +58,7 @@ public class BannerServiceImpl  implements  BannerService{
     }
 
     @Override
-    public RestResult modifyBanner( BannerVo bannerVo) {
+    public RestResult modifyBanner(BannerVo bannerVo) {
         Integer id = bannerVo.getId();
         if (id == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少banner编号"));
@@ -67,17 +68,14 @@ public class BannerServiceImpl  implements  BannerService{
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的banner"));
         }
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url存入bannerVo
-//        if(bannerVo.getPicture()!=null){
-//            RestResult result = fileService.saveFile(null);
-//            if(result.getResult()==1){
-//                bannerVo.setImageUrl((String) result.getData());
-//            }else{
-//                bannerVo.setImageUrl(null);
-//            }
-//        }else{
-//            bannerVo.setImageUrl(null);
-//        }
+        if (bannerVo.getPicture() != null) {
+            RestResult result = fileService.saveFile(bannerVo.getPicture());
+            bannerVo.setImageUrl((String) result.getData());
+        } else {
+            bannerVo.setImageUrl(null);
+        }
         //修改所有（可修改的）属性
+        //TODO 若修改成功，删除原banner图片
         modifiedBanner.setTitle(bannerVo.getTitle());
         modifiedBanner.setImageUrl(bannerVo.getImageUrl());
         modifiedBanner.setInfoUrl(bannerVo.getInfoUrl());

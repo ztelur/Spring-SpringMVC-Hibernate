@@ -12,7 +12,7 @@ public class BannerVo {
     private String title;
     private String brief;//简介
     private String imageUrl;
-    private String picture;
+    private MultipartFile picture;
     private String infoUrl; //banner跳转到的url
     private boolean enabled;
 
@@ -71,11 +71,11 @@ public class BannerVo {
         this.imageUrl = imageUrl;
     }
 
-    public String getPicture() {
+    public MultipartFile getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(MultipartFile picture) {
         this.picture = picture;
     }
 

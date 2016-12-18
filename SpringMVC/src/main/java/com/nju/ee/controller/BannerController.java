@@ -7,10 +7,11 @@ import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.ArrayList;
 
 /**
  * Created by 克崽兽 on 2016/12/17.
@@ -55,7 +56,7 @@ public class BannerController {
     /**
      * 更新服务器资源
      *
-     * @param banners
+     * @param bannerListForm
      * @param ra
      * @return 重定向至banner管理界面，
      * 若修改成功则存入属性：
@@ -67,10 +68,9 @@ public class BannerController {
      * (data为BannerVo列表，包含编辑过的banner信息）
      */
     @RequestMapping(value = "/manage/update", method =  RequestMethod.POST)
-    public String put(BannerListForm banners, RedirectAttributes ra){
-        System.out.println("sssbsfsjfsfbsjjd");
+    public String put(BannerListForm bannerListForm, RedirectAttributes ra){
         String errorMessage = "";
-        for (BannerVo bannerVo:banners.getBanners()) {
+        for (BannerVo bannerVo:bannerListForm.getBanners()) {
             if(bannerVo== null){
                 continue;
             }
@@ -82,7 +82,7 @@ public class BannerController {
         }
         if(!errorMessage.equals("")){//若在存储过程中出错
             ra.addFlashAttribute("update_fail_result", errorMessage);
-            ra.addFlashAttribute("banners", RestResult.CreateResult(1,banners.getBanners()));
+            ra.addFlashAttribute("banners", RestResult.CreateResult(1,bannerListForm.getBanners()));
         }else{
             ra.addFlashAttribute("update_success","1");
         }

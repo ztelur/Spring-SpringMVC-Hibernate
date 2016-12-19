@@ -84,13 +84,25 @@ public class ArticleServiceImpl implements ArticleService {
         if (modifiedArticle == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的新闻"));
         }
+        String uselessContent=modifiedArticle.getContent();
+
         modifiedArticle.setCategory(article.getCategory());
         modifiedArticle.setTitle(article.getTitle());
         modifiedArticle.setContent(article.getContent());
 
         Article updatedArticle = articleDao.update(modifiedArticle);
         if(updatedArticle==null){
+            //修改失败，删除新的图片
+            List<String> images = getImageUrlsFromContent(modifiedArticle.getContent());
+            for (String url: images) {
+                fileService.deleteFile(url);
+            }
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"修改过程出错"));
+        }
+        //修改成功，删除旧的图片
+        List<String> images = getImageUrlsFromContent(uselessContent);
+        for (String url: images) {
+            fileService.deleteFile(url);
         }
         ArticleVo vo =new ArticleVo(updatedArticle);
         return RestResult.CreateResult(1,vo);

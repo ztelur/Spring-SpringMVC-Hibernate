@@ -5,6 +5,7 @@ import com.nju.ee.DAO.EquipmentRepository;
 import com.nju.ee.entity.Equipment;
 import com.nju.ee.vo.EquipmentForm;
 import com.nju.ee.vo.EquipmentVo;
+import com.nju.ee.vo.RestResult;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
@@ -30,12 +31,19 @@ public class EquipmentServiceImpl implements EquipmentService{
     EquipmentRepository repository;
     @Autowired
     EquipmentDao dao;
+    @Autowired
+    FileService fileService;
     @Override
     public EquipmentVo addEquipment(EquipmentForm form) {
         Equipment equipment=new Equipment();
         equipment.setName(form.getName());
         equipment.setDescription(form.getDescription());
-        String url=this.getImageUrl(form);
+        String url=null;
+        if(form.getImage()!=null) {
+            RestResult result = fileService.saveFile(form.getImage());
+            if (result.getResult() == 1)
+                url = result.getData().toString();
+        }
         equipment.setUrl(url);
         equipment=dao.save(equipment);
         EquipmentVo vo=new EquipmentVo();
@@ -62,7 +70,13 @@ public class EquipmentServiceImpl implements EquipmentService{
             return null;
         equipment.setName(vo.getName());
         equipment.setDescription(vo.getDescription());
-        equipment.setUrl(this.getImageUrl(vo));
+        String url=equipment.getUrl();
+        if(vo.getImage()!=null) {
+            RestResult result = fileService.saveFile(vo.getImage());
+            if (result.getResult() == 1)
+                url = result.getData().toString();
+            equipment.setUrl(url);
+        }
         dao.update(equipment);
         EquipmentVo equipmentVo=new EquipmentVo(id,vo.getName(),vo.getDescription(),equipment.getUrl());
         return equipmentVo;

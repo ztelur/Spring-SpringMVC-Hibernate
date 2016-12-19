@@ -38,18 +38,23 @@
   <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/video.css">
 
   <!--my css-->
-  <link rel="stylesheet" href="/css/article.css">
+  <link rel="stylesheet" href="/css/equipment.css">
 </head>
 <body>
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/update/${equipment_detail.data.id}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/update/${equipment_detail.data.id}" enctype="multipart/form-data">
   </c:if>
   <c:if test="${is_add_page == 1}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage" enctype="multipart/form-data">
   </c:if>
+    <div class="head_wrapper">
+      <input type="file" name="image" id="image" accept="image/gif, image/jpeg,image/png" style="display: none;">
+      <img id="img_head" src="/images/img_nopic.png" class="equipment_pic" onclick="click_upload()"/>
+      <span onclick="click_upload()" class="upload_button">上传展示图片</span>
+    </div>
     <input type="text" class="title_input" placeholder="设备名称" id="name" name="name" required/>
     <textarea id="edit" name="description"></textarea>
     <div class="form_footer">
@@ -101,6 +106,21 @@
 <script type="text/javascript" src="/node_modules/froala-editor/js/languages/ro.js"></script>
 <!-- Initialize the editor. -->
 <script>
+  $("#image").change(function(e) {
+    for (var i = 0; i < e.target.files.length; i++) {
+      var file = e.target.files.item(i);
+      var freader = new FileReader();
+      freader.readAsDataURL(file);
+      freader.onload = function(e) {
+        var src = e.target.result;
+        $("#img_head").attr("src",src);
+      }
+    }
+  });
+  function click_upload(){
+    $("#image").click();
+  }
+
   $(function() {
     $('#edit').froalaEditor({
       charCounterMax:10000,
@@ -119,6 +139,7 @@
     <!--进入编辑，需要对表单进行赋值-->
     $('#edit').froalaEditor('html.set', '<c:out value="${equipment_detail.data.description}" escapeXml="false"/>');
     $('#name').attr("value",'${equipment_detail.data.name}');
+    $("#img_head").attr("src",'${equipment_detail.data.url}');
     </c:if>
   });
   function reset(){

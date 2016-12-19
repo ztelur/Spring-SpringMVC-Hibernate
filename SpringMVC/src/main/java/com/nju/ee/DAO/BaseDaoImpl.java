@@ -24,7 +24,6 @@ public class BaseDaoImpl implements BaseDao {
     }
 
     public Session getSession() {
-        // TODO Auto-generated method stub
 
         return sessionFactory.openSession();
     }

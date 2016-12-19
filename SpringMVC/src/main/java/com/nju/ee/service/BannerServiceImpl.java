@@ -107,6 +107,9 @@ public class BannerServiceImpl implements BannerService {
         if (deletedBanner == null) {
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "删除过程出错"));
         }
+        //若删除成功，删除原banner图片
+        fileService.deleteFile(deletedBanner.getImageUrl());
+
         BannerVo vo = new BannerVo(deletedBanner);
         return RestResult.CreateResult(1, vo);
     }

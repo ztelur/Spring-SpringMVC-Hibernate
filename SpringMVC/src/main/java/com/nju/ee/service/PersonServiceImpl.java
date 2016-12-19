@@ -114,6 +114,9 @@ public class PersonServiceImpl implements PersonService {
         if (deletedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "删除过程出错"));
         }
+        //若修改成功，删除原头像图片
+        fileService.deleteFile(deletedPerson.getImage());
+
         PersonDescVo vo = new PersonDescVo(deletedPerson);
         return RestResult.CreateResult(1, vo);
     }

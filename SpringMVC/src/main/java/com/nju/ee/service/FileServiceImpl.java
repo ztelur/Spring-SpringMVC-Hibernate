@@ -87,6 +87,9 @@ public class FileServiceImpl extends ApplicationObjectSupport implements FileSer
 
     @Override
     public RestResult deleteFile(String fileUrl) {
+        if(fileUrl==null){
+            return RestResult.CreateResult(0,new Error(Error.BAD_PARAM,"文件url为空"));
+        }
         String filePath = fileName2FilePath(fileUrl2fileName(fileUrl));
         if (filePath == null) {
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "读取配置文件出错"));

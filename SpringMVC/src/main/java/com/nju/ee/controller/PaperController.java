@@ -50,7 +50,7 @@ public class PaperController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public  String articleDetail(@PathVariable("id") Integer id) {
 //        RestResult result = articleService.getArticleDetail(id);
-//        TODO: 新增新闻详情页
+
         return "paper_detail";
     }
 

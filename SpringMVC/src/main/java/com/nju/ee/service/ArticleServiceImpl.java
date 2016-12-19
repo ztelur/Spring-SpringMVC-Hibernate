@@ -4,8 +4,10 @@ import com.nju.ee.Constant.Constant;
 import com.nju.ee.DAO.ArticleDao;
 import com.nju.ee.DAO.ArticleRepository;
 import com.nju.ee.entity.Article;
-import com.nju.ee.vo.*;
+import com.nju.ee.vo.ArticleVo;
 import com.nju.ee.vo.Error;
+import com.nju.ee.vo.GenericVoPage;
+import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,7 +15,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 //TODO 将dao层异常抛出至service，获取其根源原因以构造出错时的RestResult
 /**
  * Created by 克崽兽 on 2016/12/2.
@@ -25,6 +31,8 @@ public class ArticleServiceImpl implements ArticleService {
     //用于处理分页
     @Autowired
     private ArticleRepository articleRepo;
+    @Autowired
+    private FileService fileService;
 
     public RestResult getArticles(Integer page, Integer num) {
         //使用dao
@@ -100,7 +108,22 @@ public class ArticleServiceImpl implements ArticleService {
         if(deletedArticle==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"删除过程出错"));
         }
+        List<String> images = getImageUrlsFromContent(deletedArticle.getContent());
+        for (String url: images) {
+            fileService.deleteFile(url);
+        }
         ArticleVo vo =new ArticleVo(deletedArticle);
         return RestResult.CreateResult(1,vo);
+    }
+
+    private List<String> getImageUrlsFromContent(String content) {
+        //<img class="fr-dib fr-draggable" src="/files/img/1482125783639.jpg" style="width: 300px;">
+        Pattern pattern = Pattern.compile("<img.*?src=\"(.*?)\".*?>", Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(content);
+        List<String> imageUrls = new ArrayList<>();
+        while(matcher.find()){
+            imageUrls.add(matcher.group(1));
+        }
+        return imageUrls;
     }
 }

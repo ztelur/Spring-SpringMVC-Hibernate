@@ -3,6 +3,7 @@
 <%@ page import="com.nju.ee.vo.ArticleVo" %>
 <%@ page import="com.nju.ee.vo.PersonDescVo" %>
 <%@ page import="com.nju.ee.entity.Person" %>
+<%@ page import="com.nju.ee.vo.RestResult" %>
 <%--
   Created by IntelliJ IDEA.
   User: homer
@@ -35,93 +36,41 @@
     <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
 
-    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
-    <script src="<%=request.getContextPath()%>/js/news.js"></script>
-
-
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/person_show.css" type="text/css" />
 
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
-
-
-<%
-    PersonDescVo personDescVo = (PersonDescVo) session.getAttribute("people");
-
-    if (personDescVo == null) {
-        personDescVo = new PersonDescVo();
-        personDescVo.setName("曹鸥");
-        personDescVo.setPosition("软院院长");
-        personDescVo.setDepartment("软件学院");
-        personDescVo.setTitle("博导");
-        personDescVo.setAvatar("");
-    }
-%>
-
 <div class="wrapper row1">
-    <div id="header" class="clear">
-        <div class="fl_left">
-            <h1><a href="index.html">Academic Education</a></h1>
-            <p>Free CSS Website Template</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-
-            </ul>
-            <form action="#" method="post" id="sitesearch">
-                <fieldset>
-                    <strong>Search:</strong>
-                    <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="/images/search.gif" id="search" alt="Search" />
-                </fieldset>
-            </form>
-        </div>
-    </div>
+    <%@ include file="header.jsp" %>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
     <div class="rnd">
-        <!-- ###### -->
-        <div id="topnav">
-            <ul>
-                <li class="active"><a href="/">主页</a></li>
-                <li><a href="/devices">设备</a></li>
-                <li><a href="/articles">文章</a></li>
-                <li><a href="/teams">团队</a></li>
-                <li><a href="/news">新闻</a></li>
-                <li><a href="/contact">联系我们</a></li>
-            </ul>
-        </div>
-        <!-- ###### -->
+        <%@ include file="nav.jsp" %>
     </div>
 </div>
+
+
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="news_list2">
-            <div class="section-block no-border a_wrapper_no_top">
                 <div class="row-fluid">
                     <div class="span3 a_photo">
                         <div class="section-block no-border">
                             <div class="sec-img-div">
-                                <div class="sec-img-div-inner"><img class="img-polaroid" src="<%=request.getContextPath()%>/images/cxx.jpg" alt=""></div>
+                                <div class="sec-img-div-inner"><img class="img-polaroid" src="${person_detail.data.imageUrl}" alt=""></div>
                             </div>
-                            <p style="margin: 0px 5px;"><span class="teacher-name"><%=personDescVo.getName()%></span></p>
+                            <p style="margin: 0px 5px;"><span class="teacher-name">${person_detail.data.name}</span></p>
                             <ul class="inline">
-                                <li><%=personDescVo.getTitle()%></li>
-                                <li><%=personDescVo.getDepartment()%></li>
-                                <li><%=personDescVo.getPosition()%></li>
-
+                                <li>${person_detail.data.level}</li>
                             </ul>
                         </div>
                     </div>
                     <div class="span9 a_words">
-
+                        ${person_detail.data.introduction}
                     </div>
                 </div>
-            </div>
-
         </div>
     </div>
 

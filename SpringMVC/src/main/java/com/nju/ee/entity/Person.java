@@ -74,11 +74,5 @@ public class Person {
         this.name = name;
     }
 
-//    public Set<Team> getTeams() {
-//        return teams;
-//    }
-//
-//    public void setTeams(Set<Team> teams) {
-//        this.teams = teams;
-//    }
+
 }

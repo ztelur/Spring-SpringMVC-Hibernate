@@ -25,47 +25,15 @@
     <!-- End Homepage Specific Elements -->
 </head>
 <body id="top">
+
 <div class="wrapper row1">
-    <div id="header" class="clear">
-        <div class="fl_left">
-            <h1><a href="index.html">科研组</a></h1>
-            <p>南京大学电子学院</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-                <li><a href="#">主页</a></li>
-                <li><a href="#">联系我们</a></li>
-                <li><a href="#">如何找到我们</a></li>
-            </ul>
-            <form action="#" method="post" id="sitesearch">
-                <fieldset>
-                    <strong>Search:</strong>
-                    <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="images/search.gif" id="search" alt="Search" />
-                </fieldset>
-            </form>
-        </div>
-    </div>
+    <%@ include file="header.jsp" %>
 </div>
-
-
 
 <!-- ####################################################################################################### -->
 <div class="wrapper row2">
     <div class="rnd">
-        <!-- ###### -->
-        <div id="topnav">
-            <ul>
-                <li class="active"><a href="/">主页</a></li>
-                <li><a href="/equipments/main">设备</a></li>
-                <li><a href="/papers/main">论文</a></li>
-                <li><a href="/teams">团队</a></li>
-                <li><a href="/articles/main">新闻</a></li>
-                <li><a href="/contact">联系我们</a></li>
-
-            </ul>
-        </div>
-        <!-- ###### -->
+        <%@ include file="nav.jsp" %>
     </div>
 </div>
 <!-- ####################################################################################################### -->

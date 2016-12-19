@@ -1,6 +1,7 @@
 package com.nju.ee.entity;
 
 import com.nju.ee.vo.BannerVo;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -13,6 +14,7 @@ public class Banner {
     private int id;
     private int position;
     private String title;
+    @Type(type="text")
     private String brief; //简介
     private String imageUrl;
     private String infoUrl; //banner跳转到的url

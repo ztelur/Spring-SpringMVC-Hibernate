@@ -1,6 +1,7 @@
 package com.nju.ee.entity;
 
 import com.nju.ee.vo.PaperVo;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class Paper {
     private int id;
 
     private String title;
+    @Type(type="text")
     private String description;
 
     private String url ;

@@ -80,7 +80,7 @@
                     <h1 >轮播页${banner.id}</h1>
                     <div class="input_wrapper">
                       <input name="banners[${loop.index}].id" value="${banner.id}" style="display:none"/>
-                      <input name="banners[${loop.index}].position" value="1" style="display:none"/>
+                      <input name="banners[${loop.index}].position" value="${banner.id}" style="display:none"/>
                       <input class="person_input" type="text" placeholder="标题" name="banners[${loop.index}].title" id="name" value="${banner.title}"/>
                     </div>
                     <textarea class="introduction"  name="banners[${loop.index}].brief" placeholder="简介" rows="5" id="introduction" value="${banner.brief}">${banner.brief}</textarea>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="head_wrapper">
                         <input type="file" class="banner_image" name="banners[${loop.index}].picture" id="image${banner.id}" accept="image/gif, image/jpeg,image/png" style="display:none;">
-                        <img id="img_head${banner.id}" src="" style="width: 500px;height: 200px;text-align: center;" onclick="click_upload(${banner.id})"/>
+                        <img id="img_head${banner.id}" src="${banner.imageUrl}" style="width: 500px;height: 200px;text-align: center;" onclick="click_upload(${banner.id})"/>
                         <span type="button" class="upload_button" onclick="click_upload(${banner.id})">点击上传图片</span>
                     </div>
                     <%-- <input type="file" name="banners[0].picture" id="image" accept="image/gif, image/jpeg" style="display: none;">

@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Equipment {
     private int id;
     private String name;
+    @Type(type="text")
     private String description;
     private String url;
     public Equipment(){

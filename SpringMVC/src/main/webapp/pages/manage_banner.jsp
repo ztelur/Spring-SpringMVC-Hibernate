@@ -88,8 +88,8 @@
                       <input class="person_input" type="text" placeholder="详情链接" name="banners[${loop.index}].infoUrl" id="name" value="${banner.infoUrl}" />
                     </div>
                     <div class="head_wrapper">
-                        <input type="file" name="banners[${loop.index}].picture" id="image${banner.id}" accept="image/gif, image/jpeg" style="display: none;">
-                        <img id="img_head${banner.id}" src="" style="width: 500px;height: 200px;text-align: center;border-radius: 50%" onclick="click_upload(${banner.id})"/>
+                        <input type="file" class="banner_image" name="banners[${loop.index}].picture" id="image${banner.id}" accept="image/gif, image/jpeg,image/png" style="display:none;">
+                        <img id="img_head${banner.id}" src="" style="width: 500px;height: 200px;text-align: center;" onclick="click_upload(${banner.id})"/>
                         <span type="button" class="upload_button" onclick="click_upload(${banner.id})">点击上传图片</span>
                     </div>
                     <%-- <input type="file" name="banners[0].picture" id="image" accept="image/gif, image/jpeg" style="display: none;">

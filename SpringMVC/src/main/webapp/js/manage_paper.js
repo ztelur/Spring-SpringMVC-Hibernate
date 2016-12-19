@@ -26,15 +26,10 @@ function delete_paper(id){
   var index = pathName.indexOf("/");
   var pathContext = pathName.substring(0, index);
   var url = pathContext + "/papers/manage/delete/"+id;
-  console.log($('#Pagination').children('span.current').not('.current.prev'));
-  console.log($('#Pagination').children('span.current').not('.current.prev').eq(0).html());
-  console.log($('#Pagination').children('.prev').not('.current.prev'));
   $.get(url,{success:'success'},function(data){
       if(data.result==1){
         alert('删除成功');
-        console.log($('#Pagination').children().filter('.current').eq(1).html());
         var page_num=$('#Pagination').children('span.current').not('.current.prev').eq(0).html()-1;
-        console.log(page_num);
         pageselectCallback(page_num,null);
       }
       else{

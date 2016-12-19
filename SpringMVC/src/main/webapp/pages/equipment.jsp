@@ -18,6 +18,7 @@
             <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/touchTouch.css">
 
             <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
             <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery-migrate-1.1.1.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
@@ -29,7 +30,7 @@
     <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
     <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/equipment.js"></script>
-
+    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">

@@ -1,7 +1,6 @@
 package com.nju.ee.DAO;
 
 import com.nju.ee.entity.OtherInfo;
-import com.sun.xml.internal.xsom.impl.WildcardImpl;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;

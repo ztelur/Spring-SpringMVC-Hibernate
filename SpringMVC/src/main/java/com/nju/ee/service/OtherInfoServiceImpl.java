@@ -5,7 +5,6 @@ import com.nju.ee.entity.OtherInfo;
 import com.nju.ee.vo.Error;
 import com.nju.ee.vo.OtherInfoVo;
 import com.nju.ee.vo.RestResult;
-import com.sun.xml.internal.xsom.impl.WildcardImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

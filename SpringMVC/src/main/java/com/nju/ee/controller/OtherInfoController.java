@@ -31,7 +31,7 @@ public class OtherInfoController {
     public String manageOtherInfo(Model model){
         RestResult result=otherInfoService.getOtherInfo();
         model.addAttribute("otherInfo",result);
-        return "manage_otherInfo";
+        return "manage_other_info";
     }
 
     /**

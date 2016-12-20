@@ -57,14 +57,9 @@
     </div>
     <div class="input_wrapper">
       <select class="person_input" name="level" id="level">
-        <option value="博导">博导</option>
-        <option value="教授">教授</option>
-        <option value="副教授">副教授</option>
-        <option value="讲师">讲师</option>
-        <option value="助教">助教</option>
-        <option value="博士">博士</option>
-        <option value="硕士">硕士</option>
-        <option value="无">无</option>
+        <c:forEach items="${level_list}" var="level">
+        <option value="${level}">${level}</option>
+      </c:forEach>
       </select>
     </div>
     <textarea id="edit" name="introduction"></textarea>
@@ -148,6 +143,7 @@
         <!--进入编辑，需要对表单进行赋值-->
         $('#edit').froalaEditor('html.set', '<c:out value="${person_detail.data.introduction}" escapeXml="false"/>');
         $('#name').attr("value",'${person_detail.data.name}');
+        $('#img_head').attr("src",'${person_detail.data.imageUrl}')
         </c:if>
     });
     function reset(){

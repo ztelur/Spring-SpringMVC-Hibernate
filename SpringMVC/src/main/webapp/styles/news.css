@@ -255,3 +255,8 @@ a:hover{text-decoration:underline;}
 
 
 /********************* 自定义区域开始 *********************/
+
+
+.news_list_container {
+    padding: 10px;
+}

@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="grid_4">
                     <div class="box">
-                        <a href="images/equipment1.jpg" class="gall_item"><img src="/images/equipment1.jpg" alt=""><span></span></a>
+                        <a href="images/equipment1.jpg" class="gall_item"><img src="/images/equipment1.jpg" alt=""></a>
                         <div class="box_bot">
                             <div class="box_bot_title">长城温控单轴速率位置转台</div>
                             <p> 购于2016年，主要用于分析</p>
@@ -47,51 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment2.jpg" class="gall_item"><img src="/images/equipment2.jpg" alt=""><span></span></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">Y5340/2F恒加速度试验机</div>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat ma</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment3.jpg" class="gall_item"><img src="/images/equipment3.jpg" alt=""><span></span></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">通用台式仪器</div>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment4.jpg" class="gall_item"><img src="/images/equipment4.jpg" alt=""><span></span></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">HP83711A正弦波发生器</div>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment5.jpg" class="gall_item"><img src="/images/equipment5.jpg" alt=""><span></span></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">HP8133A脉冲信号发生器</div>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment6.jpg" class="gall_item"><img src="/images/equipment6.jpg" alt=""><span></span></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">安捷伦 8417 ET网络分析仪</div>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit</p>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
             <!-- ####################################################################################################### -->

@@ -65,18 +65,18 @@ $(document).ready(function () {
             data: "pageNum=" + page_index + "&pageSize=" + pageSize,
             success: function (data) {
 
-                // var page = data.data;
-                // var pageNum = page.pageSize;
-                // var equipments = page.content;
+                var page = data.data;
+                var pageNum = page.pageSize;
+                var equipments = page.content;
                 // $('.row').empty();
-                // for (var i = 0; i <  equipments.length; i++) {
-                //     var equipment = equipments[i];
-                //     $('.row').append( '<div class="grid_4"> <div class="box"> <a href="' +
-                //         equipment.url + '" class="gall_item"><img src="' +
-                //         equipment.url + '" alt=""><span></span></a> <div class="box_bot"><div class="box_bot_title">' +
-                //         equipment.name + '</div><p>' +
-                //         equipment.description   + '</p> </div> </div> </div>');
-                // }
+                for (var i = 0; i <  equipments.length; i++) {
+                    var equipment = equipments[i];
+                    $('.row').append( '<div class="grid_4"> <div class="box"> <a href="' +
+                        url + "/" + equipment.id + '" class="gall_item"><img src="' +
+                        equipment.url + '" alt=""></a> <div class="box_bot"><div class="box_bot_title">' +
+                        equipment.name + '</div><p>' +
+                        equipment.description   + '</p> </div> </div> </div>');
+                }
             }
         });
         return true;

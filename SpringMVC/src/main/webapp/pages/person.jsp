@@ -19,23 +19,7 @@
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
-
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/images/favicon.ico" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/touchTouch.css"/>
-
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
-    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery-migrate-1.1.1.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
-    <script src="<%=request.getContextPath()%>/js/script.js"></script>
-    <script src="<%=request.getContextPath()%>/js/superfish.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.equalheights.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.mobilemenu.js"></script>
-    <script src="<%=request.getContextPath()%>/js/tmStickUp.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.ui.totop.js"></script>
-    <script src="<%=request.getContextPath()%>/js/touchTouch.jquery.js"></script>
-
+    <script src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/person_show.css" type="text/css" />
 
     <!-- End Gallery Specific Elements -->

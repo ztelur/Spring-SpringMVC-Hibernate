@@ -14,20 +14,7 @@
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 
-    <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="styles/touchTouch.css">
-
-    <link rel="stylesheet" href="styles/style.css">
     <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate-1.1.1.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/superfish.js"></script>
-    <script src="js/jquery.equalheights.js"></script>
-    <script src="js/jquery.mobilemenu.js"></script>
-    <script src="js/tmStickUp.js"></script>
-    <script src="js/jquery.ui.totop.js"></script>
-    <script src="js/touchTouch.jquery.js"></script>
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">

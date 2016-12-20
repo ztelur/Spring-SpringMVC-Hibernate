@@ -14,6 +14,7 @@
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/featured_slide.css" type="text/css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
 
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.slidepanel.setup.js"></script>
@@ -21,7 +22,6 @@
 
 
     <!-- Homepage Specific Elements -->
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
     <!-- End Homepage Specific Elements -->
 </head>
 <body id="top">

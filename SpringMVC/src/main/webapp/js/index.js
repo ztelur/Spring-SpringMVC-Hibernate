@@ -21,25 +21,7 @@ $(document).ready(function () {
             url: url,
             data: "pageNum=1",
             success: function (data) {
-                data = {
-                    "data":[
-                        {
-                            "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客2",
-                            "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
-                        },
-                        {
-                            "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客3",
-                            "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
-                        },
-                        {
-                            "infoUrl":"http://ztelur.github.io/2016/10/30/View%E7%9A%84%E4%B8%89%E6%AC%A1measure-%E4%B8%A4%E6%AC%A1layout%E5%92%8C%E4%B8%80%E6%AC%A1draw/",
-                            "brief":"博客4",
-                            "imageUrl":"http://7xrxif.com1.z0.glb.clouddn.com/20161030-111.png"
-                        }
-                    ]
-                }
+
                 var banners = data.data;
                 $('#featured_slide').empty();
                 for (var i = 0; i <  banners.length; i++) {

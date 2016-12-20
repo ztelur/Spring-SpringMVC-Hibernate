@@ -47,8 +47,8 @@
         <div id="allmap"></div>
         <div id="form_container">
             <form id="form">
-                <input type="hidden" name="longitude" id="longitude" value = "118.785464" />
-                <input type="hidden" name="latitude" id="latitude" value = "32.059227" />
+                <input type="hidden" name="longitude" id="longitude" value = "${otherInfo.data.longitude}" />
+                <input type="hidden" name="latitude" id="latitude" value = "${otherInfo.data.latitude}" />
             </form>
         </div>
     </div>

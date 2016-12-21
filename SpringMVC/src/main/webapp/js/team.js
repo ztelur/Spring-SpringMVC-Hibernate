@@ -26,7 +26,7 @@ $(document).ready(function () {
                     var people = team[p];
                     for (var i =0; i< people.length; i++) {
                         var person = people[i];
-                        content = content + '<a class="block-text" href="'  + person.url + '">' + person.name + '</a>';
+                        content = content + '<a class="block-text" href="'  + pathContext + '/people/' + person.id + '">' + person.name + '</a>';
                         console.log("the person name is " + person.name);
                     }
                     content = content + ' </p>';

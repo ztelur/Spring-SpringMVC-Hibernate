@@ -29,7 +29,7 @@
         <li class="<%=isPapers?"active":""%>"><a href="/papers/main">论文</a></li>
         <li class="<%=isTeams?"active":""%>"><a href="/teams">团队</a></li>
         <li class="<%=isArticles?"active":""%>"><a href="/articles/main">新闻</a></li>
-        <li class="<%=isContact?"active":""%>"><a href="/contact">联系我们</a></li>
+        <li class="<%=isContact?"active":""%>"><a href="/contact/main">联系我们</a></li>
 
     </ul>
 </div>

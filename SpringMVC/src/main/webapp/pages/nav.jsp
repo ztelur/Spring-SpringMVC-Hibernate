@@ -15,11 +15,13 @@
             boolean isTeams = false;
             boolean isArticles = false;
             boolean isMain = false;
+            boolean isContact = false;
             isEquipments = url.contains("equipment");
             isPapers = url.contains("paper");
             isTeams = url.contains("team");
             isArticles = url.contains("article");
-            isMain = !(isEquipments || isPapers || isTeams || isArticles);
+            isContact = url.contains("contact");
+            isMain = !(isEquipments || isPapers || isTeams || isArticles || isContact);
             System.out.println("the url is " + url + " " + isEquipments);
         %>
         <li class="<%=isMain?"active":""%>"><a href="/">主页</a></li>
@@ -27,7 +29,7 @@
         <li class="<%=isPapers?"active":""%>"><a href="/papers/main">论文</a></li>
         <li class="<%=isTeams?"active":""%>"><a href="/teams">团队</a></li>
         <li class="<%=isArticles?"active":""%>"><a href="/articles/main">新闻</a></li>
-        <li class="<%=isArticles?"active":""%>"><a href="/contact">联系我们</a></li>
+        <li class="<%=isContact?"active":""%>"><a href="/contact">联系我们</a></li>
 
     </ul>
 </div>

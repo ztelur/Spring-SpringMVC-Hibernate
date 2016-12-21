@@ -9,7 +9,7 @@
 
     <div id="header" class="clear">
         <div class="fl_left">
-            <h1><a href="index.html">科研组</a></h1>
+            <h1><a class="header_h1" href="index.html">科研组</a></h1>
             <p>南京大学电子学院</p>
         </div>
         <div class="fl_right">

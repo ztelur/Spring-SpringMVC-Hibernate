@@ -45,6 +45,27 @@ $(document).ready(function () {
 
         });
 
+
+        var url = pathContext + "/articles";
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: url,
+            data: "pageNum=1",
+            success: function (data) {
+                var articles = data.data.data;
+                $('#news_container').empty();
+                for (var i = 0; i <  articles.length; i++) {
+                    var article = articles[i];
+                    console.log("dddddddd");
+                    $('#news_container').append('<li class="clear"><div class="imgl"><img class="new_list_img" src="' +
+                        article.imageUrl + '" alt="" /></div><div class="latestnews"><p><a href="' +
+                        url + "/" + article.id + '">' + article.title + ' </a></p><p>' +
+                        article.brief + ' </p> </div></li>');
+                }
+            }
+
+        });
     }();
 });
 

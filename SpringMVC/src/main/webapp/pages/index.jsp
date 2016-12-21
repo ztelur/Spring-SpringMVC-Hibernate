@@ -20,6 +20,7 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.cycle.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
 
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/index.css" type="text/css" />
 
     <!-- Homepage Specific Elements -->
     <!-- End Homepage Specific Elements -->
@@ -53,7 +54,7 @@
                 <!-- ###### -->
                 <div id="latestnews">
                     <h2>最近新闻和事件</h2>
-                    <ul>
+                    <ul id="news_container">
                         <li class="clear">
                             <div class="imgl"><img src="images/10.jpg" alt="" /></div>
                             <div class="latestnews">
@@ -76,7 +77,7 @@
                             </div>
                         </li>
                     </ul>
-                    <p class="readmore"><a href="#">Click here to view all of the latest news and events &raquo;</a></p>
+                    <p class="readmore"><a href="<%=request.getContextPath()%>/articles/main">查看所有新闻</a></p>
                 </div>
                 <!-- ###### -->
                 <div id="right_column">

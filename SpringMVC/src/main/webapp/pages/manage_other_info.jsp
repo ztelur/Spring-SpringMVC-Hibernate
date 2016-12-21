@@ -22,61 +22,70 @@
 
 
 
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/person.css" type="text/css"/>
     <!-- End Gallery Specific Elements -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/manage_other_info.css"/>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=Ai0m8G67QbgALKDDHA1U24hnYHP8rgSF"></script>
 
 </head>
 <body id="top">
-<div class="wrapper row1">
-    <div id="header" class="clear">
-        <div class="fl_left">
-            <h1><a href="index.html">管理端</a></h1>
-            <p>Free CSS Website Template</p>
-        </div>
-        <div class="fl_right">
-            <ul>
+  <div class="wrapper row1">
+      <div id="header" class="clear">
+          <div class="fl_left">
+              <h1><a href="index.html">管理端</a></h1>
+              <p>Free CSS Website Template</p>
+          </div>
+          <div class="fl_right">
+              <ul>
+              </ul>
+              <form action="#" method="post" id="sitesearch">
+                  <fieldset>
+                      <strong>Search:</strong>
+                      <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+                  </fieldset>
+              </form>
+          </div>
+      </div>
+  </div>
+  <!-- ####################################################################################################### -->
+  <div class="wrapper manage-div">
+      <div class="rnd">
+          <!-- ###### -->
+          <div id="topnav">
+              <ul>
+                  <li><a href="/equipments/manage/list">设备</a></li>
+                  <li><a href="/papers/manage/list">论文</a></li>
+                  <li><a href="/teams/manage/list">团队</a></li>
+                  <li ><a href="/articles/manage/list">新闻</a></li>
+                  <li><a href="/people/manage/list">人员</a></li>
+                  <li><a href="/banners/manage/list">轮播页</a></li>
+                  <li class="active"><a href="/otherInfos/manage/list">其他信息</a></li>
 
-            </ul>
-            <form action="#" method="post" id="sitesearch">
-                <fieldset>
-                    <strong>Search:</strong>
-                    <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                </fieldset>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper manage-div">
-    <div class="rnd">
-        <!-- ###### -->
-        <div id="topnav">
-            <ul>
-                <li><a href="/equipments/manage/list">设备</a></li>
-                <li><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/teams/manage/list">团队</a></li>
-                <li ><a href="/articles/manage/list">新闻</a></li>
-                <li><a href="/people/manage/list">人员</a></li>
-                <li><a href="/banners/manage/list">轮播页</a></li>
-                <li class="active"><a href="/otherInfos/manage/list">其它信息</a></li>
-            </ul>
-        </div>
-        <!-- ###### -->
-    </div>
-</div>
-
-<!-- ####################################################################################################### -->
-
+              </ul>
+          </div>
+          <!-- ###### -->
+      </div>
+  </div>
 
 <div class="wrapper row3">
     <div class="rnd">
         <div id="allmap"></div>
         <div id="form_container">
-            <form id="form">
+            <form id="form" method="post" action="/otherInfos/manage/update">
+
+                <input type="hidden" name="id" value="${otherInfo.data.id}">
                 <input type="hidden" name="longitude" id="longitude" value = "${otherInfo.data.longitude}" />
                 <input type="hidden" name="latitude" id="latitude" value = "${otherInfo.data.latitude}" />
+
+                <div class="email_div">
+                  <label class="email_label" for="email">联系邮箱：</label>
+                  <input class="email_input" type="text" placeholder="邮箱" name="email" id="email" value="${otherInfo.data.email}" />
+                </div>
+
+
+                <div class="form_footer">
+                  <button type="submit" class="form_button submit">提交</button>
+                </div>
             </form>
         </div>
     </div>

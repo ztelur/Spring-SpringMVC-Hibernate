@@ -74,8 +74,9 @@ public class PersonServiceImpl implements PersonService {
         if (modifiedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的人员"));
         }
-        String useLessImageUrl = modifiedPerson.getImage();
-        if (person.getImage() != null) {
+        String useLessImageUrl ="";
+        if (person.getImage() != null && person.getImage().getSize()>0) {
+            useLessImageUrl= modifiedPerson.getImage();
             RestResult result = fileService.saveFile(person.getImage());
             if(result.getResult()!=1) {
                 return result;

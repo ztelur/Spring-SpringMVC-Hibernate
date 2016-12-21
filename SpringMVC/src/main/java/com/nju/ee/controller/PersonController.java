@@ -1,5 +1,6 @@
 package com.nju.ee.controller;
 
+import com.nju.ee.Constant.PersonLevelConstant;
 import com.nju.ee.service.PersonService;
 import com.nju.ee.vo.PersonDescVo;
 import com.nju.ee.vo.RestResult;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 /**
  * Created by homer on 16-12-1.
@@ -57,6 +60,7 @@ public class PersonController {
     public String managePeople(Model model) {
         RestResult result = personService.getPeople();
         model.addAttribute("people", result);
+
         return "manage_person";
     }
 
@@ -82,6 +86,7 @@ public class PersonController {
             RestResult result = personService.getPersonDetail(id);
             model.addAttribute("person_detail", result);
         }
+        model.addAttribute("level_list",PersonLevelConstant.level_list);
         model.addAttribute("is_add_page", "0");
         return "add_person";
     }

@@ -1,6 +1,7 @@
 package com.nju.ee.entity;
 
 import com.nju.ee.vo.PersonDescVo;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class Person {
     private String name;
     private String level;
     private String image;
+    @Type(type="text")
     private String introduction;
 
 //    @ManyToMany (fetch = FetchType.LAZY,mappedBy = "people")

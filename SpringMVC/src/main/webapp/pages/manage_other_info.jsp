@@ -1,32 +1,32 @@
 <%--
   Created by IntelliJ IDEA.
-  User: zangxiaojie
-  Date: 2016/12/6
-  Time: 10:53
+  User: 克崽兽
+  Date: 2016/12/20
+  Time: 21:01
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head profile="http://gmpg.org/xfn/11">
-    <title>论文管理</title>
+    <title> 其它信息管理</title>
     <meta charset="utf-8">
-    <meta http-equiv="imagetoolbar" content="no" />
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
-
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css"/>
+    <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico"/>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/touchTouch.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery-1.4.1.min.js"></script>
 
-    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
-    <script src="<%=request.getContextPath()%>/js/manage_paper.js"></script>
 
 
-
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css"/>
     <!-- End Gallery Specific Elements -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/manage_other_info.css"/>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Ai0m8G67QbgALKDDHA1U24hnYHP8rgSF"></script>
+
 </head>
 <body id="top">
 <div class="wrapper row1">
@@ -55,44 +55,34 @@
         <div id="topnav">
             <ul>
                 <li><a href="/equipments/manage/list">设备</a></li>
-                <li class="active"><a href="/papers/manage/list">论文</a></li>
+                <li><a href="/papers/manage/list">论文</a></li>
                 <li><a href="/teams/manage/list">团队</a></li>
-                <li><a href="/articles/manage/list">新闻</a></li>
+                <li ><a href="/articles/manage/list">新闻</a></li>
                 <li><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>
-
+                <li class="active"><a href="/otherInfos/manage/list">其它信息</a></li>
             </ul>
         </div>
         <!-- ###### -->
     </div>
 </div>
-<div class="wrapper manage-div">
-    <div class="add-div">
-        <a  type="button"  href ="/papers/manage/add" class="btn add-button">
-            添加论文
-        </a>
-    </div>
-</div>
+
 <!-- ####################################################################################################### -->
 
 
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="news_list2">
-            <ul class="news_list_container">
-            </ul>
+        <div id="allmap"></div>
+        <div id="form_container">
+            <form id="form">
+                <input type="hidden" name="longitude" id="longitude" value = "${otherInfo.data.longitude}" />
+                <input type="hidden" name="latitude" id="latitude" value = "${otherInfo.data.latitude}" />
+            </form>
         </div>
     </div>
-    <!-- ####################################################################################################### -->
-    <div  id="Pagination" class="pagination">
-
-    </div>
-    <!-- ####################################################################################################### -->
 </div>
 
 <!-- ####################################################################################################### -->
-
-
 
 
 <!-- ####################################################################################################### -->
@@ -102,6 +92,6 @@
         <p class="fl_right">Template from <a href="http://www.cssmoban.com/" title="模板之家">网站模板</a></p>
     </div>
 </div>
-
+<script src="<%=request.getContextPath()%>/js/manage_other_info.js"></script>
 </body>
 </html>

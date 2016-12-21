@@ -14,43 +14,47 @@ public class RichTextUtil {
         Pattern pattern = Pattern.compile("<img.*?src=\"(.*?)\".*?>", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(content);
         List<String> imageUrls = new ArrayList<>();
-        while(matcher.find()){
+        while (matcher.find()) {
             imageUrls.add(matcher.group(1));
         }
         return imageUrls;
     }
 
-    public static String getFirstImageFromContent(String content){
+    public static String getFirstImageFromContent(String content) {
         Pattern pattern = Pattern.compile("<img.*?src=\"(.*?)\".*?>", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(content);
         String imageUrl = "";
-        if (matcher.find()){
-            imageUrl=matcher.group(1);
+        if (matcher.find()) {
+            imageUrl = matcher.group(1);
         }
         return imageUrl;
     }
 
-    public static String getBriefFromContent(String content){
+    public static String getBriefFromContent(String content) {
         Pattern patternOfParagraphs = Pattern.compile("(<p.*?>.*?</p.*?>)", Pattern.DOTALL);
         Matcher matcher = patternOfParagraphs.matcher(content);
         ArrayList<String> paragraphs = new ArrayList<>();
-        while (matcher.find()){
+        while (matcher.find()) {
             paragraphs.add(matcher.group(1));
         }
-        String firstParagraphWithoutImage="";
-        for (String paragraph:paragraphs) {
-            Pattern patternOfImage = Pattern.compile("<img.*?>",Pattern.DOTALL);
+        String firstParagraphWithoutImage = "";
+        for (String paragraph : paragraphs) {
+            Pattern patternOfImage = Pattern.compile("<img.*?>", Pattern.DOTALL);
             Matcher m = patternOfImage.matcher(paragraph);
-            if(!m.find()){
-                firstParagraphWithoutImage= paragraph;
-                break;
+            if (!m.find()) {
+                String simplifiedParagraph = removeHtmlTags(paragraph);
+                if (simplifiedParagraph.length() > 0) {
+                    firstParagraphWithoutImage = simplifiedParagraph;
+                    break;
+                }
             }
         }
-        return removeHtmlTags(firstParagraphWithoutImage);
+        return firstParagraphWithoutImage;
     }
-    private static String removeHtmlTags(String content){
-        Pattern patternOfTag = Pattern.compile("<.*?>",Pattern.DOTALL);
-        Pattern patternOfSpace = Pattern.compile("&nbsp;",Pattern.CASE_INSENSITIVE);
+
+    private static String removeHtmlTags(String content) {
+        Pattern patternOfTag = Pattern.compile("<.*?>", Pattern.DOTALL);
+        Pattern patternOfSpace = Pattern.compile("&nbsp;", Pattern.CASE_INSENSITIVE);
 
         Matcher m1 = patternOfTag.matcher(content);
         content = m1.replaceAll("");

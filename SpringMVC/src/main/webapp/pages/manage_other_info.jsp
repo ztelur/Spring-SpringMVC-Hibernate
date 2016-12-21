@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
-    <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
+    <script src="<%=request.getContextPath() %>/js/jquery-1.4.1.min.js"></script>
 
 
 
@@ -30,12 +30,40 @@
 </head>
 <body id="top">
 <div class="wrapper row1">
-    <%@ include file="header.jsp" %>
+    <div id="header" class="clear">
+        <div class="fl_left">
+            <h1><a href="index.html">管理端</a></h1>
+            <p>Free CSS Website Template</p>
+        </div>
+        <div class="fl_right">
+            <ul>
+
+            </ul>
+            <form action="#" method="post" id="sitesearch">
+                <fieldset>
+                    <strong>Search:</strong>
+                    <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper manage-div">
     <div class="rnd">
-        <%@ include file="nav.jsp" %>
+        <!-- ###### -->
+        <div id="topnav">
+            <ul>
+                <li><a href="/equipments/manage/list">设备</a></li>
+                <li><a href="/papers/manage/list">论文</a></li>
+                <li><a href="/teams/manage/list">团队</a></li>
+                <li ><a href="/articles/manage/list">新闻</a></li>
+                <li><a href="/people/manage/list">人员</a></li>
+                <li><a href="/banners/manage/list">轮播页</a></li>
+                <li class="active"><a href="/otherInfos/manage/list">其它信息</a></li>
+            </ul>
+        </div>
+        <!-- ###### -->
     </div>
 </div>
 

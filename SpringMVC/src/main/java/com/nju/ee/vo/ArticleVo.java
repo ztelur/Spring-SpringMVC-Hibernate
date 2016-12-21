@@ -1,5 +1,6 @@
 package com.nju.ee.vo;
 
+import com.nju.ee.Constant.RichTextUtil;
 import com.nju.ee.entity.Article;
 
 import java.util.Date;
@@ -13,6 +14,10 @@ public class ArticleVo {
     private String category;
     private String content;
     private Date date;
+
+    private String imageUrl;//供主页显示的图片url
+    private String brief;   //供主页显示的简介
+
     public ArticleVo(){
 
     }
@@ -64,5 +69,21 @@ public class ArticleVo {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getImageUrl() {
+        return RichTextUtil.getFirstImageFromContent(this.content);
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getBrief() {
+        return RichTextUtil.getBriefFromContent(this.content);
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
     }
 }

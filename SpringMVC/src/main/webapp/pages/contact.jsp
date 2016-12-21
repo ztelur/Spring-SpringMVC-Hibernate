@@ -13,12 +13,10 @@
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/contact.css" type="text/css" />
     <script src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
 
-    <script src="<%=request.getContextPath()%>/js/equipment.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Ai0m8G67QbgALKDDHA1U24hnYHP8rgSF"></script>
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -36,17 +34,12 @@
     <div class="rnd">
         <div id="container" class="clear">
             <!-- ####################################################################################################### -->
-            <div class="row">
-
-            </div>
-            <!-- ####################################################################################################### -->
-            <div  id="Pagination" class="pagination">
-
-            </div>
+            <div id="allmap"></div>
             <!-- ####################################################################################################### -->
         </div>
     </div>
 </div>
+<script src="<%=request.getContextPath()%>/js/manage_other_info.js"></script>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -37,17 +37,6 @@
         <div id="container" class="clear">
             <!-- ####################################################################################################### -->
             <div class="row">
-                <div class="grid_4">
-                    <div class="box">
-                        <a href="images/equipment1.jpg" class="gall_item"><img src="/images/equipment1.jpg" alt=""></a>
-                        <div class="box_bot">
-                            <div class="box_bot_title">长城温控单轴速率位置转台</div>
-                            <p> 购于2016年，主要用于分析</p>
-                            <a href="#" class="btn">more</a>
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
             <!-- ####################################################################################################### -->

@@ -1,0 +1,133 @@
+.footer .slogan {
+    width: 350px;
+}
+
+.footer .slogan-div {
+}
+
+.pull-left {
+    float: left;
+}
+
+blockquote {
+    padding: 0 0 0 15px;
+    margin: 0 0 20px;
+    border-left: 5px solid #eee;
+}
+
+.footer .slogan h3 {
+    font-size: 1.4em;
+    color: white;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+
+.footer-links {
+    width: 475px;
+    margin-top: 18px;
+    font-weight: normal;
+}
+.pull-right {
+    float: right;
+}
+
+.footer ul li:first-child {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    color: #999;
+    font-weight: normal;
+}
+
+.footer-links ul li {
+    font-size: 1em;
+    float: left;
+    margin-left: 20px;
+    display: block;
+    font-weight: normal;
+    line-height: 20px
+}
+
+
+.soften {
+    height: 1px;
+    margin: 0px 0 10px 0;
+    background-image: -webkit-linear-gradient(left, transparent, rgba(255, 255, 255, 1), transparent);
+    background-image: -moz-linear-gradient(left, transparent, rgba(255, 255, 255, 1), transparent);
+    background-image: -ms-linear-gradient(left, transparent, rgba(255, 255, 255, 1), transparent);
+    background-image: -o-linear-gradient(left, transparent, rgba(255, 255, 255, 1), transparent);
+    border: 0;
+}
+
+.copyright p {
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .span12 {
+        width: 1170px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    [class*="span"] {
+        float: left;
+        min-height: 1px;
+        margin-left: 30px;
+    }
+
+    .copyright {
+        color: #bbb;
+        text-align: center;
+        font-weight: normal;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .row-fluid {
+        width: 100%;
+    }
+
+    .row-fluid {
+        width: 100%;
+    }
+}
+
+
+.container:before, .container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+@media screen and (min-width: 1200px) {
+    .row-fluid {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 1200px){
+    .row-fluid:before, .row-fluid:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .row-fluid:after {
+        clear: both;
+    }
+}
+
+.copyright {
+    color: #bbb;
+    text-align: center;
+    font-weight: normal;
+}
+

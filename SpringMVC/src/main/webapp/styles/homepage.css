@@ -30,8 +30,8 @@ Licence: <a href="#">Website Template Licence</a>
 #homepage #latestnews{
 	display:block;
 	float:left;
-	width:66%;
-	margin:0 0 0 20px;
+	width: 100%;
+
 	}
 
 #homepage #latestnews ul{

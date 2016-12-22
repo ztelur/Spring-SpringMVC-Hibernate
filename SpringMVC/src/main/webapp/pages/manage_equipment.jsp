@@ -18,15 +18,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery-migrate-1.1.1.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.js"></script>
-    <script src="<%=request.getContextPath() %>/js/script.js"></script>
-    <script src="<%=request.getContextPath() %>/js/superfish.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.equalheights.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.mobilemenu.js"></script>
-    <script src="<%=request.getContextPath() %>/js/tmStickUp.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
-    <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
+
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/manage_equipment.js"></script>
 
@@ -75,6 +67,8 @@
     </div>
 </div>
 <div class="wrapper manage-div">
+
+
     <div class="add-div">
         <a type="button"  href ="/equipments/manage/add" class="btn add-button">
             添加设备

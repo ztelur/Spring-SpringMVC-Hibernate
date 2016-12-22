@@ -8,18 +8,36 @@ $(document).ready(function () {
     //回调函数的作用是显示对应分页的列表项内容
     //回调函数在用户每次点击分页链接的时候执行
     //参数page_index{int整型}表示当前的索引页
-    var initPagination = function() {
-        // 创建分页
-        $("#Pagination").pagination(20, {
-            num_edge_entries: 2, //边缘页数
-            num_display_entries: 4, //主体页数
-            callback: pageselectCallback,
-            items_per_page:2 //每页显示1项
-        });
+    var initPagination = function(totalPage, pageSize) {
+      // 创建分页
+      $("#Pagination").pagination(totalPage, {
+          num_edge_entries: 2, //边缘页数
+          num_display_entries: 4, //主体页数
+          callback: pageselectCallback,
+          items_per_page:2 //每页显示1项
+      });
 
-    }();
+  }();
+  var load = function () {
+      var currentUrl = window.location.href;
+      var pathName = document.location.pathname;
+      var index = pathName.indexOf("/");
+      var pathContext = pathName.substring(0, index);
+      var url = pathContext + "/people/papers/list";
+      $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: url,
+          data: "pageNum=1",
+          success: function (data) {
+              var page = data.data;
+              var totalPage = page.totalPage;
+              var pageSize = page.pageSize;
+              initPagination(totalPage, pageSize);
+          }
+      });}
 
-});
+  });
 
 function delete_paper(id){
   var pathName = document.location.pathname;
@@ -54,7 +72,6 @@ function pageselectCallback(page_index, jq){
         url: url,
         data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
         success: function (data) {
-            console.log(data);
             var papers = data.data.data;
             $('.news_list_container').empty();
             for (var i = 0; i <  papers.length; i++) {

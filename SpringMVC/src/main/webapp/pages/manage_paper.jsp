@@ -56,7 +56,6 @@
             <ul>
                 <li><a href="/equipments/manage/list">设备</a></li>
                 <li class="active"><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/teams/manage/list">团队</a></li>
                 <li><a href="/articles/manage/list">新闻</a></li>
                 <li><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>
@@ -68,10 +67,12 @@
     </div>
 </div>
 <div class="wrapper manage-div">
-    <div class="add-div">
-        <a  type="button"  href ="/papers/manage/add" class="btn add-button">
-            添加论文
-        </a>
+    <div style="height: 40px;">
+        <div class="add-div">
+            <a  type="button"  href ="/papers/manage/add" class="btn add-button">
+                添加论文
+            </a>
+        </div>
     </div>
 </div>
 <!-- ####################################################################################################### -->

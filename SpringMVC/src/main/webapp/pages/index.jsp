@@ -54,41 +54,17 @@
                 <div id="latestnews">
                     <h2>最近新闻和事件</h2>
                     <ul id="news_container">
-                        <li class="clear">
-                            <div class="imgl"><img src="images/10.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队成员到xxxx一游</a></p>
-                                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx</p>
-                            </div>
-                        </li>
-                        <li class="clear">
-                            <div class="imgl"><img src="images/11.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队成员获得学校奖学金</a></p>
-                                <p> xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                            </div>
-                        </li>
-                        <li class="last clear">
-                            <div class="imgl"><img src="images/12.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队老师获得花旗银行优秀教师奖</a></p>
-                                <p>sdfsdfsdf sdfsdfadafdafasdfsadfasdfasdfasdfasdfasdf dsfasdfjadsjfkadjfkjasdlfkjsdlkfjalsdkf dsfkasdjflkajsdflkjadfksjadflkjdfkasdjfalkd adfkajdsflkjaf</p>
-                            </div>
-                        </li>
                     </ul>
                     <p class="readmore"><a href="<%=request.getContextPath()%>/articles/main">查看所有新闻</a></p>
                 </div>
                 <!-- ###### -->
-                <div id="right_column">
-                    <div class="holder">
-                        <h2>介绍视频</h2>
-                        <a href="#"><img src="images/video.gif" alt="" /></a> </div>
-                    <div class="holder">
-                        <h2>Quick Information</h2>
-                        <div class="apply"><a href="#"><img src="images/13.jpg" alt="" /> <strong>Make An Application</strong></a></div>
-                        <div class="apply"><a href="#"><img src="images/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a></div>
-                    </div>
-                </div>
+                <%--<div id="right_column">--%>
+                    <%--<div class="holder">--%>
+                        <%--<h2>快速链接</h2>--%>
+                        <%--<div class="apply"><a href="#"><img src="images/13.jpg" alt="" /> <strong>Make An Application</strong></a></div>--%>
+                        <%--<div class="apply"><a href="#"><img src="images/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a></div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <!-- ###### -->
             </div>
             <!-- ####################################################################################################### -->

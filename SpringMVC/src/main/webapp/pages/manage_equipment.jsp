@@ -15,18 +15,14 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
     <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/touchTouch.css">
+      <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery-migrate-1.1.1.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.js"></script>
-    <script src="<%=request.getContextPath() %>/js/script.js"></script>
-    <script src="<%=request.getContextPath() %>/js/superfish.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.equalheights.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.mobilemenu.js"></script>
-    <script src="<%=request.getContextPath() %>/js/tmStickUp.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
-    <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/manage_equipment.js"></script>
 
@@ -49,7 +45,7 @@
                 <fieldset>
                     <strong>Search:</strong>
                     <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="images/search.gif" id="search" alt="Search" />
+                    <input type="image" src="" id="search" alt="Search" />
                 </fieldset>
             </form>
         </div>
@@ -63,7 +59,6 @@
             <ul>
                 <li class="active"><a href="/equipments/manage/list">设备</a></li>
                 <li><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/teams/manage/list">团队</a></li>
                 <li><a href="/articles/manage/list">新闻</a></li>
                 <li><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>
@@ -75,6 +70,8 @@
     </div>
 </div>
 <div class="wrapper manage-div">
+
+
     <div class="add-div">
         <a type="button"  href ="/equipments/manage/add" class="btn add-button">
             添加设备

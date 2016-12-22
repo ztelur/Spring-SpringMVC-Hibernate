@@ -20,20 +20,11 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery-migrate-1.1.1.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.js"></script>
-    <script src="<%=request.getContextPath() %>/js/script.js"></script>
-    <script src="<%=request.getContextPath() %>/js/superfish.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.equalheights.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.mobilemenu.js"></script>
-    <script src="<%=request.getContextPath() %>/js/tmStickUp.js"></script>
-    <script src="<%=request.getContextPath() %>/js/jquery.ui.totop.js"></script>
-    <script src="<%=request.getContextPath() %>/js/touchTouch.jquery.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/manage_article.js"></script>
 
 
-
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/articles-list.css" type="text/css" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/news.css" type="text/css" />
     <!-- End Gallery Specific Elements -->
 </head>
@@ -65,7 +56,6 @@
             <ul>
                 <li><a href="/equipments/manage/list">设备</a></li>
                 <li><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/teams/manage/list">团队</a></li>
                 <li class="active"><a href="/articles/manage/list">新闻</a></li>
                 <li><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>

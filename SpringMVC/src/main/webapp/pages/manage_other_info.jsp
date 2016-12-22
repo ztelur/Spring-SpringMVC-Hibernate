@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/css/person.css" type="text/css"/>
     <!-- End Gallery Specific Elements -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/manage_other_info.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css"/>
     <script src="http://api.map.baidu.com/api?v=2.0&ak=Ai0m8G67QbgALKDDHA1U24hnYHP8rgSF"></script>
 
 </head>
@@ -55,7 +56,6 @@
               <ul>
                   <li><a href="/equipments/manage/list">设备</a></li>
                   <li><a href="/papers/manage/list">论文</a></li>
-                  <li><a href="/teams/manage/list">团队</a></li>
                   <li ><a href="/articles/manage/list">新闻</a></li>
                   <li><a href="/people/manage/list">人员</a></li>
                   <li><a href="/banners/manage/list">轮播页</a></li>
@@ -95,12 +95,6 @@
 
 
 <!-- ####################################################################################################### -->
-<div class="wrapper">
-    <div id="copyright" class="clear">
-        <p class="fl_left">Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></p>
-        <p class="fl_right">Template from <a href="http://www.cssmoban.com/" title="模板之家">网站模板</a></p>
-    </div>
-</div>
 <script src="<%=request.getContextPath()%>/js/manage_other_info.js"></script>
 </body>
 </html>

@@ -67,6 +67,7 @@
                 <li><a href="/articles/manage/list">新闻</a></li>
                 <li><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>
+                <li><a href="/otherInfos/manage/list">其他信息</a></li>
 
             </ul>
         </div>

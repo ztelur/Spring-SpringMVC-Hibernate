@@ -23,7 +23,7 @@
     <script src="<%=request.getContextPath()%>/js/article.js"></script>
 
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />
+    <%--<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />--%>
 
     <!-- End Gallery Specific Elements -->
 </head>

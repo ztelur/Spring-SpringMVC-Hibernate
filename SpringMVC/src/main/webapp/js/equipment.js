@@ -71,11 +71,12 @@ $(document).ready(function () {
                 // $('.row').empty();
                 for (var i = 0; i <  equipments.length; i++) {
                     var equipment = equipments[i];
-                    $('.row').append( '<div class="grid_4"> <div class="box"> <a href="' +
-                        url + "/" + equipment.id + '" class="gall_item"><img src="' +
-                        equipment.url + '" alt=""></a> <div class="box_bot"><div class="box_bot_title">' +
-                        equipment.name + '</div><p>' +
-                        equipment.description   + '</p> </div> </div> </div>');
+                    for (var j =0; j <3; j++) {
+                        $('.row').append('<div class="grid_4"> <div class="box"> <a href="' +
+                            url + "/" + equipment.id + '" class="gall_item"><img src="' +
+                            equipment.url + '" alt=""></a> <div class="box_bot"><div class="box_bot_title">' +
+                            equipment.name + '</div></div> </div> </div>');
+                    }
                 }
             }
         });

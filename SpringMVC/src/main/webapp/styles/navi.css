@@ -125,3 +125,24 @@
 	color: #55ABDA;
 	background-color: #F9F9F9;
 }
+
+
+
+.header_h1 {
+	outline: none;
+	text-decoration: none;
+	color: #55ABDA;
+	background-color: #F9F9F9;
+}
+
+.fl_left p {
+	font-size: 13px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+header div {
+	vertical-align: middle;
+}

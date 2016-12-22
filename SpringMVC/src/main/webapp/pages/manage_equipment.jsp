@@ -19,10 +19,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
     <script src="<%=request.getContextPath() %>/js/jquery.js"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
     <script src="<%=request.getContextPath()%>/js/manage_equipment.js"></script>
 

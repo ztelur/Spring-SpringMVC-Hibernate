@@ -14,7 +14,7 @@
         </div>
         <div class="fl_right">
             <ul>
-                <li><a href="#">联系我们</a></li>
+                <%--<li><a href="#">联系我们</a></li>--%>
             </ul>
             <form action="#" method="post" id="sitesearch">
                 <fieldset>

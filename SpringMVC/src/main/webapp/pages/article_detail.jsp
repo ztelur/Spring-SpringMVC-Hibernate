@@ -62,16 +62,18 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
-        <div class="news_list2">
+        <div id="container" class="clear">
+            <div class="news_list2">
             <div class="content">
                 <div class="article-title">${article.data.title}</div>
 
                 <span><i class="icon-calendar "></i>类别：${article.data.category}</span>
-                <span><i class="icon-calendar "></i>发表时间：${article.data.date}</span>
+                <span style="margin-left: 5px"><i class="icon-calendar "></i>发表时间：${article.data.date}</span>
                 <p>
                     ${article.data.content}
                 </p>
             </div>
+        </div>
         </div>
     </div>
     <!-- ####################################################################################################### -->

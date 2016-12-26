@@ -20,10 +20,10 @@ $(document).ready(function () {
             var longitude = data.data.longitude;
             var latitude = data.data.latitude;
             var email = data.data.email;
-            var email = data.data.
-            $("#email").val(email);
-            $("#phone").val();
-            $("#email").val(email);
+            console.log("the email is " + email);
+            $("#email").html(email);
+            $("#phone").html();
+            $("#email").html(email);
 
             console.log("the size is " + longitude + " " +　latitude);
             var map = new BMap.Map("allmap");

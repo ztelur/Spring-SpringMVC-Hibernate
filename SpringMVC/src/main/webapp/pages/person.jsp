@@ -39,22 +39,22 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
+        <div id="container" class="clear">
                 <div class="row-fluid">
-                    <div class="span3 a_photo">
+                    <div class="span3">
                         <div class="section-block no-border">
                             <div class="sec-img-div">
                                 <div class="sec-img-div-inner"><img class="img-polaroid" src="${person_detail.data.imageUrl}" alt=""></div>
                             </div>
-                            <p style="margin: 0px 5px;"><span class="teacher-name">${person_detail.data.name}</span></p>
-                            <ul class="inline">
-                                <li>${person_detail.data.level}</li>
-                            </ul>
+                            <p style="margin: 0px 10px;"><span class="teacher-name">${person_detail.data.name}</span></p>
+                            <p style="margin: 0px 10px;"><span class="teacher-level">${person_detail.data.level}</span></p>
                         </div>
                     </div>
-                    <div class="span9 a_words">
+                    <div class="span9">
                         ${person_detail.data.introduction}
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 

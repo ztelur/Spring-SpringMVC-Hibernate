@@ -8,6 +8,7 @@ import com.nju.ee.entity.Paper;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -18,7 +19,7 @@ public class PaperVo {
     private String title;
     private String desc;
     private String url ;
-    private Date date;
+    private String date;
     private MultipartFile pdf;
 
     public PaperVo(){
@@ -29,7 +30,7 @@ public class PaperVo {
         this.title = paper.getTitle();
         this.desc = paper.getDescription();
         this.url = paper.getUrl();
-        this.date = paper.getDate();
+        this.date =  new SimpleDateFormat("yyyy-MM-dd").format(paper.getDate());
     }
 
 
@@ -73,11 +74,11 @@ public class PaperVo {
         this.url = url;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
     }
 }

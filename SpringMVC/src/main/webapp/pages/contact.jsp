@@ -42,16 +42,16 @@
                     <br>
                 </p>
                 <p class="MsoPlainText">
-                    <span style="font-family:宋体;">地址：北京大学微纳电子大厦</span>
+                    <span style="font-family:宋体;" id="location"></span>
                 </p>
                 <p class="MsoPlainText">
-                    <span style="font-family:宋体;">电话：</span><span lang="EN-US">010-62753137,010-62753128</span>
+                    <span style="font-family:宋体;">电话：</span><span id="phone" lang="EN-US"></span>
                 </p>
                 <p class="MsoPlainText">
-                    <span style="font-family:宋体;">传真：</span><span lang="EN-US">010-62751789</span>
+                    <span style="font-family:宋体;">传真：</span><span lang="EN-US"></span>
                 </p>
                 <p class="MsoPlainText">
-                    <span style="font-family:宋体;">电邮：</span><span lang="EN-US"><a href="mailto:wdz@ime.pku.edu.cn">wdz@ime.pku.edu.cn</a></span>
+                    <span style="font-family:宋体;">电邮：</span><span lang="EN-US"><a href="" id="email"></a></span>
                 </p>
                 <p>
                     <br>

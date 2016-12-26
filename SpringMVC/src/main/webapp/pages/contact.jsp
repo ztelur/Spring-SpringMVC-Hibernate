@@ -35,11 +35,33 @@
         <div id="container" class="clear">
             <!-- ####################################################################################################### -->
             <div id="allmap"></div>
+
+
+            <div class="subcontent">
+                <p>
+                    <br>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">地址：北京大学微纳电子大厦</span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">电话：</span><span lang="EN-US">010-62753137,010-62753128</span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">传真：</span><span lang="EN-US">010-62751789</span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">电邮：</span><span lang="EN-US"><a href="mailto:wdz@ime.pku.edu.cn">wdz@ime.pku.edu.cn</a></span>
+                </p>
+                <p>
+                    <br>
+                </p></div>
+
             <!-- ####################################################################################################### -->
         </div>
     </div>
 </div>
-<script src="<%=request.getContextPath()%>/js/manage_other_info.js"></script>
+<script src="<%=request.getContextPath()%>/js/contact.js"></script>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

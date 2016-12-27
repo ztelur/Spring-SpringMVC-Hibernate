@@ -17,16 +17,21 @@ public class OtherInfo {
     @GeneratedValue
     private int id;
     private String email;
+    private String telephone;
+    private String fax;
     private double longitude;
     private double latitude;
 
     public OtherInfo(){
 
     }
-    public OtherInfo(String email, double longitude, double latitude) {
+    public OtherInfo(String email, String telephone,String fax,double longitude, double latitude) {
         this.email = email;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.telephone=telephone;
+        this.fax=fax;
+
     }
 
 
@@ -61,5 +66,22 @@ public class OtherInfo {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    public String getTelephone() {
+
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 }

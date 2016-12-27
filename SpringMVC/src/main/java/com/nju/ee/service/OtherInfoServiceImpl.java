@@ -38,6 +38,8 @@ public class OtherInfoServiceImpl implements OtherInfoService {
         }
         otherInfo.setEmail(otherInfoVo.getEmail());
         otherInfo.setLongitude(otherInfoVo.getLongitude());
+        otherInfo.setFax(otherInfoVo.getFax());
+        otherInfo.setTelephone(otherInfoVo.getTelephone());
         otherInfo.setLatitude(otherInfoVo.getLatitude());
 
         OtherInfo updateInfo=otherInfoDao.update(otherInfo);

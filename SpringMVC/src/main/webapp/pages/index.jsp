@@ -14,12 +14,12 @@
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/featured_slide.css" type="text/css" />
-
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.slidepanel.setup.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.cycle.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
 
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/index.css" type="text/css" />
 
     <!-- Homepage Specific Elements -->
     <!-- End Homepage Specific Elements -->
@@ -53,42 +53,18 @@
                 <!-- ###### -->
                 <div id="latestnews">
                     <h2>最近新闻和事件</h2>
-                    <ul>
-                        <li class="clear">
-                            <div class="imgl"><img src="images/10.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队成员到xxxx一游</a></p>
-                                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx</p>
-                            </div>
-                        </li>
-                        <li class="clear">
-                            <div class="imgl"><img src="images/11.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队成员获得学校奖学金</a></p>
-                                <p> xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                            </div>
-                        </li>
-                        <li class="last clear">
-                            <div class="imgl"><img src="images/12.jpg" alt="" /></div>
-                            <div class="latestnews">
-                                <p><a href="#">团队老师获得花旗银行优秀教师奖</a></p>
-                                <p>sdfsdfsdf sdfsdfadafdafasdfsadfasdfasdfasdfasdfasdf dsfasdfjadsjfkadjfkjasdlfkjsdlkfjalsdkf dsfkasdjflkajsdflkjadfksjadflkjdfkasdjfalkd adfkajdsflkjaf</p>
-                            </div>
-                        </li>
+                    <ul id="news_container">
                     </ul>
-                    <p class="readmore"><a href="#">Click here to view all of the latest news and events &raquo;</a></p>
+                    <p class="readmore"><a href="<%=request.getContextPath()%>/articles/main">查看所有新闻</a></p>
                 </div>
                 <!-- ###### -->
-                <div id="right_column">
-                    <div class="holder">
-                        <h2>介绍视频</h2>
-                        <a href="#"><img src="images/video.gif" alt="" /></a> </div>
-                    <div class="holder">
-                        <h2>Quick Information</h2>
-                        <div class="apply"><a href="#"><img src="images/13.jpg" alt="" /> <strong>Make An Application</strong></a></div>
-                        <div class="apply"><a href="#"><img src="images/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a></div>
-                    </div>
-                </div>
+                <%--<div id="right_column">--%>
+                    <%--<div class="holder">--%>
+                        <%--<h2>快速链接</h2>--%>
+                        <%--<div class="apply"><a href="#"><img src="images/13.jpg" alt="" /> <strong>Make An Application</strong></a></div>--%>
+                        <%--<div class="apply"><a href="#"><img src="images/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a></div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <!-- ###### -->
             </div>
             <!-- ####################################################################################################### -->

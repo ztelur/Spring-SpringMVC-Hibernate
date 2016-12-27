@@ -101,6 +101,7 @@ public class PersonController {
     @RequestMapping(value = "/manage/add")
     public String addPerson(Model model) {
         model.addAttribute("is_add_page", "1");
+        model.addAttribute("level_list",PersonLevelConstant.level_list);
         return "add_person";
     }
 

@@ -2,3 +2,27 @@
     height: 300px;
     width: 100%;
 }
+.email_input{
+    width:800px;
+    margin: 20px 0 20px;
+    line-height: 1.33;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.email_label{
+  float: left;
+  margin: 20px 15px 20px;
+  line-height: 1.33;
+  font-size: 18px;
+  color: white;
+  padding: 10px 16px;
+}
+
+
+.form_footer{
+    width: 100%;
+}

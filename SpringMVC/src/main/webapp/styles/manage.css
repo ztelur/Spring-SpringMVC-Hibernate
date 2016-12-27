@@ -1,22 +1,26 @@
 .add-button{
-	float: right;
+		float:right;
   	border-radius: 6px ;
   	margin-top: 2px !important;
   	margin-top: 2px !important;
   	padding: 3px 20px 3px !important;
   	cursor: pointer;
+		font-size: 18px;
 
 }
 .manage-div{
 	margin-bottom: 2px !important;
 }
 .add-div{
-	float: right;
 	height: 30px;
 	margin-bottom:1px !important;
 	margin-top:1px !important;
+<<<<<<< HEAD
+	width: 958px;
+=======
 	width: 200px;
-
+	vertical-align: middle;
+>>>>>>> origin/master
 }
 
 #set-div{

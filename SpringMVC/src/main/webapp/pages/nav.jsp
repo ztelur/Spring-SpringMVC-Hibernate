@@ -18,18 +18,18 @@
             boolean isContact = false;
             isEquipments = url.contains("equipment");
             isPapers = url.contains("paper");
-            isTeams = url.contains("team");
+            isTeams = url.contains("team") || url.contains("people");
             isArticles = url.contains("article");
             isContact = url.contains("contact");
             isMain = !(isEquipments || isPapers || isTeams || isArticles || isContact);
             System.out.println("the url is " + url + " " + isEquipments);
         %>
-        <li class="<%=isMain?"active":""%>"><a href="/">主页</a></li>
-        <li class="<%=isEquipments?"active":""%>"><a href="/equipments/main">设备</a></li>
-        <li class="<%=isPapers?"active":""%>"><a href="/papers/main">论文</a></li>
-        <li class="<%=isTeams?"active":""%>"><a href="/teams">团队</a></li>
-        <li class="<%=isArticles?"active":""%>"><a href="/articles/main">新闻</a></li>
-        <li class="<%=isContact?"active":""%>"><a href="/contact/main">联系我们</a></li>
+        <li class="<%=isMain?"active nav-li":"nav-li"%>"><a href="/">主页</a></li>
+        <li class="<%=isEquipments?"active nav-li":"nav-li"%>"><a href="/equipments/main">设备</a></li>
+        <li class="<%=isPapers?"active nav-li":"nav-li"%>"><a href="/papers/main">论文</a></li>
+        <li class="<%=isTeams?"active nav-li":"nav-li"%>"><a href="/teams">团队</a></li>
+        <li class="<%=isArticles?"active nav-li":"nav-li"%>"><a href="/articles/main">新闻</a></li>
+        <li class="<%=isContact?"active nav-li":"nav-li"%>"><a href="/contact/main">联系我们</a></li>
 
     </ul>
 </div>

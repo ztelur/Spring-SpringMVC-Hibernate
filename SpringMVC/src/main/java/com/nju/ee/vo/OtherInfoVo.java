@@ -8,6 +8,8 @@ import com.nju.ee.entity.OtherInfo;
 public class OtherInfoVo {
     private int id;
     private String email;
+    private String telephone;
+    private String fax;
     private double longitude;
     private double latitude;
 
@@ -17,11 +19,16 @@ public class OtherInfoVo {
     public OtherInfoVo(OtherInfo otherInfo){
         this.id=otherInfo.getId();
         this.email=otherInfo.getEmail();
+        this.telephone=otherInfo.getTelephone();
+        this.fax=otherInfo.getFax();
         this.longitude=otherInfo.getLongitude();
         this.latitude=otherInfo.getLatitude();
+
     }
-    public OtherInfoVo(String email, double longitude, double latitude) {
+    public OtherInfoVo(String email, String telephone,String fax,double longitude, double latitude) {
         this.email = email;
+        this.telephone=telephone;
+        this.fax=fax;
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -56,5 +63,21 @@ public class OtherInfoVo {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 }

@@ -23,7 +23,7 @@
     <script src="<%=request.getContextPath()%>/js/article.js"></script>
 
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />
+    <%--<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/news.css" type="text/css" />--%>
 
     <!-- End Gallery Specific Elements -->
 </head>
@@ -42,16 +42,18 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
+        <div id="container" class="clear">
         <div class="news_list2">
             <ul class="news_list_container">
             </ul>
         </div>
-    </div>
     <!-- ####################################################################################################### -->
-    <div  id="Pagination" class="pagination">
+        <div  id="Pagination" class="pagination">
 
+        </div>
     </div>
     <!-- ####################################################################################################### -->
+        </div>
 </div>
 <!-- ####################################################################################################### -->
 <%@ include file="footer.jsp" %>

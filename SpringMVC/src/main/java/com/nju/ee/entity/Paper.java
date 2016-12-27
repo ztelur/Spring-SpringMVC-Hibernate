@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -34,7 +36,12 @@ public class Paper {
         this.title = paperVo.getTitle();
         this.description = paperVo.getDesc();
         this.url = paperVo.getUrl();
-        this.date = paperVo.getDate();
+        try {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            this.date = df.parse(paperVo.getDate());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

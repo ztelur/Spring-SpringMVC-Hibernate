@@ -13,12 +13,10 @@
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/contact.css" type="text/css" />
     <script src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
 
-    <script src="<%=request.getContextPath()%>/js/equipment.js"></script>
-    <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=Ai0m8G67QbgALKDDHA1U24hnYHP8rgSF"></script>
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -36,17 +34,32 @@
     <div class="rnd">
         <div id="container" class="clear">
             <!-- ####################################################################################################### -->
-            <div class="row">
+            <div id="allmap"></div>
+            <div class="subcontent">
+                <p>
+                    <br>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;" id="location"></span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">电话：</span><span id="phone" lang="EN-US"></span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">传真：</span><span lang="EN-US"></span>
+                </p>
+                <p class="MsoPlainText">
+                    <span style="font-family:宋体;">电邮：</span><span lang="EN-US"><a href="" id="email"></a></span>
+                </p>
+                <p>
+                    <br>
+                </p></div>
 
-            </div>
-            <!-- ####################################################################################################### -->
-            <div  id="Pagination" class="pagination">
-
-            </div>
             <!-- ####################################################################################################### -->
         </div>
     </div>
 </div>
+<script src="<%=request.getContextPath()%>/js/contact.js"></script>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

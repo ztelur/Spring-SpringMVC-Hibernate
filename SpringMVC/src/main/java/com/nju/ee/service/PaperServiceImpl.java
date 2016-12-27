@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -73,6 +74,7 @@ public class PaperServiceImpl implements PaperService {
         }
         paperVo.setUrl(url);
         Paper paper = new Paper(paperVo);
+
         paper.setDate(new Date());
         Paper savedPaper = paperDao.save(paper);
         if (savedPaper == null) {

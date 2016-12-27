@@ -68,14 +68,13 @@ $(document).ready(function () {
                 var page = data.data;
                 var pageNum = page.pageSize;
                 var equipments = page.content;
-                // $('.row').empty();
+                $('.row-list').empty();
                 for (var i = 0; i <  equipments.length; i++) {
                     var equipment = equipments[i];
-                    $('.row').append( '<div class="grid_4"> <div class="box"> <a href="' +
-                        url + "/" + equipment.id + '" class="gall_item"><img src="' +
-                        equipment.url + '" alt=""></a> <div class="box_bot"><div class="box_bot_title">' +
-                        equipment.name + '</div><p>' +
-                        equipment.description   + '</p> </div> </div> </div>');
+                        $('.row-list').append('<div class="grid_4"> <div class="box"> <a href="' +
+                            url + "/" + equipment.id + '" class="gall_item"><img src="' +
+                            equipment.url + '" alt=""></a> <div class="box_bot"><div class="box_bot_title">' +
+                            equipment.name + '</div></div> </div> </div>');
                 }
             }
         });

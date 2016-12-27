@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/articles-list.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/pagination.css">
 
     <script src="<%=request.getContextPath() %>/js/jquery-1.4.1.min.js"></script>
 
@@ -41,7 +43,7 @@
                 <fieldset>
                     <strong>Search:</strong>
                     <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                    <input type="image" src="images/search.gif" id="search" alt="Search" />
+                    <input type="image" src="" id="search" alt="Search" />
                 </fieldset>
             </form>
         </div>
@@ -55,10 +57,10 @@
             <ul>
                 <li><a href="/equipments/manage/list">设备</a></li>
                 <li><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/teams/manage/list">团队</a></li>
                 <li><a href="/articles/manage/list">新闻</a></li>
                 <li class="active"><a href="/people/manage/list">人员</a></li>
                 <li><a href="/banners/manage/list">轮播页</a></li>
+                <li><a href="/otherInfos/manage/list">其他信息</a></li>
 
             </ul>
         </div>

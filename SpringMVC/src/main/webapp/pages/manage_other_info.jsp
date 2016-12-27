@@ -82,6 +82,16 @@
                   <input class="email_input" type="text" placeholder="邮箱" name="email" id="email" value="${otherInfo.data.email}" />
                 </div>
 
+                <div class="email_div">
+                  <label class="email_label" for="telephone">联系电话：</label>
+                  <input class="email_input" type="text" placeholder="电话" name="telephone" id="telephone" value="${otherInfo.data.telephone}" />
+                </div>
+
+                <div class="email_div">
+                  <label class="email_label" for="fax">传&nbsp&nbsp&nbsp&nbsp&nbsp真：</label>
+                  <input class="email_input" type="text" placeholder="传真" name="fax" id="fax" value="${otherInfo.data.fax}" />
+                </div>
+
 
                 <div class="form_footer">
                   <button type="submit" class="form_button submit">提交</button>

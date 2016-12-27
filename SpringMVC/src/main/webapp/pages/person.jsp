@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
     <script src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/person_show.css" type="text/css" />
-
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -50,7 +50,7 @@
                             <p style="margin: 0px 10px;"><span class="teacher-level">${person_detail.data.level}</span></p>
                         </div>
                     </div>
-                    <div class="span9">
+                    <div class="span9 fr-view">
                         ${person_detail.data.introduction}
                     </div>
                 </div>

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/style.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/equipment_show.css" type="text/css" />
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
@@ -33,9 +34,9 @@
         <div id="container" class="clear">
             <div class="article-title">${equipment.data.name}</div>
             <div id="description">
-                <p>
+                <div class="fr-view">
                     ${equipment.data.description}
-                </p>
+                </div>
             </div>
         </div>
     </div>

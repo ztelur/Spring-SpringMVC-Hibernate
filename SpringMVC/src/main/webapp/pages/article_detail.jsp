@@ -20,8 +20,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Include Editor style. -->
-    <link href="/node_modules/froala-editor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
-    <link href="/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Include Code Mirror style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
@@ -69,9 +69,9 @@
 
                 <span><i class="icon-calendar "></i>类别：${article.data.category}</span>
                 <span style="margin-left: 5px"><i class="icon-calendar "></i>发表时间：${article.data.date}</span>
-                <p>
+                <div class="fr-view">
                     ${article.data.content}
-                </p>
+                </div>
             </div>
         </div>
         </div>

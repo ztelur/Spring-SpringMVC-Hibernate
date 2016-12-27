@@ -17,25 +17,25 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Include Editor style. -->
-    <link href="/node_modules/froala-editor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
-    <link href="/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/node_modules/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Include Code Mirror style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 
     <!-- Include Editor Plugins style. -->
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/char_counter.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/code_view.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/colors.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/emoticons.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/file.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/fullscreen.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/image.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/image_manager.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/line_breaker.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/quick_insert.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/table.css">
-    <link rel="stylesheet" href="/node_modules/froala-editor/css/plugins/video.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/char_counter.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/code_view.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/colors.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/emoticons.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/file.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/fullscreen.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/image.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/image_manager.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/line_breaker.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/quick_insert.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/table.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/video.css">
 
     <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 </head>

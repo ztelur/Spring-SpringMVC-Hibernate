@@ -20,11 +20,18 @@ $(document).ready(function () {
             var longitude = data.data.longitude;
             var latitude = data.data.latitude;
             var email = data.data.email;
+            var phone = data.data.telephone;
+            var fax = data.data.fax;
             console.log("the email is " + email);
-            $("#email").html(email);
-            $("#phone").html();
-            $("#email").html(email);
-
+            if (email) {
+                $("#email").html(email);
+            }
+            if (phone) {
+                $("#phone").html(phone);
+            }
+            if (fax) {
+                $("#fax").html(fax);
+            }
             console.log("the size is " + longitude + " " +　latitude);
             var map = new BMap.Map("allmap");
             map.centerAndZoom(new BMap.Point(longitude, latitude), 15);

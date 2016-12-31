@@ -46,7 +46,7 @@
                     <span style="font-family:宋体;">电话：</span><span id="phone" lang="EN-US"></span>
                 </p>
                 <p class="MsoPlainText">
-                    <span style="font-family:宋体;">传真：</span><span lang="EN-US"></span>
+                    <span style="font-family:宋体;">传真：</span><span id="fax" lang="EN-US"></span>
                 </p>
                 <p class="MsoPlainText">
                     <span style="font-family:宋体;">电邮：</span><span lang="EN-US"><a href="" id="email"></a></span>

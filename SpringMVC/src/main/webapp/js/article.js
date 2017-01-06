@@ -10,11 +10,12 @@ $(document).ready(function () {
     //参数page_index{int整型}表示当前的索引页
     var initPagination = function(totalPage, pageSize) {
         // 创建分页
+        console.log("the pagesize is " + totalPage);
         $("#Pagination").pagination(totalPage, {
-            num_edge_entries: 2, //边缘页数
-            num_display_entries: 4, //主体页数
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 1, //主体页数
             callback: pageselectCallback,
-            items_per_page:2 //每页显示1项
+            items_per_page:1 //每页显示1项
         });
     };
 
@@ -67,7 +68,7 @@ $(document).ready(function () {
                 $('.news_list_container').empty();
                 for (var i = 0; i <  articles.length; i++) {
                     var news = articles[i];
-                    $('.news_list_container').append('<li> <span class="title"><a href=' + url + '/' +news.id + '>' + news.title +  '</a></span><br> <span class="time">' +
+                    $('.news_list_container').append('<li style="margin-bottom: 16px"> <span class="title"><a style="font-size: 16px" href=' + url + '/' +news.id + '>' + news.title +  '</a></span><br> <span class="time">' +
                         news.date + '</span> <span class="class">分类：' + news.category  + ' </span> </li>');
                 }
 

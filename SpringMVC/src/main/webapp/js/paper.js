@@ -10,10 +10,10 @@ $(document).ready(function () {
     var initPagination = function(totalPage, pageSize) {
         // 创建分页
         $("#Pagination").pagination(totalPage, {
-            num_edge_entries: 2, //边缘页数
-            num_display_entries: 4, //主体页数
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 1, //主体页数
             callback: pageselectCallback,
-            items_per_page:2 //每页显示1项
+            items_per_page:1 //每页显示1项
         });
     };
 

@@ -60,7 +60,7 @@ $(document).ready(function () {
                     console.log("dddddddd");
                     $('#news_container').append('<li class="clear"><div class="imgl"><img class="new_list_img" src="' +
                         article.imageUrl + '" alt="" /></div><div class="latestnews"><p><a href="' +
-                        url + "/" + article.id + '">' + article.title + ' </a></p><p>' +
+                        url + "/" + article.id + '">' + article.title + ' </a></p><p class="news_brief">' +
                         article.brief + ' </p> </div></li>');
                 }
             }

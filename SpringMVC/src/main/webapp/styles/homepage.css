@@ -51,10 +51,13 @@ Licence: <a href="#">Website Template Licence</a>
 #latestnews .latestnews{
 	display:block;
 	float:left;
-	width:300px;
 	margin:20px;
 	padding:0;
 	}
+
+.news_brief {
+	word-wrap: break-word;
+}
 
 #latestnews .latestnews p{
 	margin:0 0 8px 0;

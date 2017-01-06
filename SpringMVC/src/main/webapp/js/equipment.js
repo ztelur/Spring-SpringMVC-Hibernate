@@ -33,7 +33,7 @@ $(document).ready(function () {
             type: "GET",
             dataType: "json",
             url: url,
-            data: "pageNum=0",
+            data: "pageNum=1",
             success: function (data) {
                 var page = data.data;
                 var totalPage = page.totalPage;

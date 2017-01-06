@@ -46,7 +46,7 @@
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage/${article_detail.data.id}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage/update/${article_detail.data.id}">
   </c:if>
   <c:if test="${is_add_page == 1}">
   <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage">

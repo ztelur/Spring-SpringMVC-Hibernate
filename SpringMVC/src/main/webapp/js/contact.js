@@ -39,7 +39,7 @@ $(document).ready(function () {
             var marker = new BMap.Marker(new BMap.Point(longitude, latitude));
             map.addOverlay(marker);
 
-            var label = new BMap.Label("电子学院所在地,可拖动设置新地点",{offset:new BMap.Size(20,-10)});
+            var label = new BMap.Label("电子学院所在地",{offset:new BMap.Size(20,-10)});
             marker.setLabel(label);
             marker.addEventListener("dragend", function (e) {
                 // console.log("longitutde:" + $("#longitude").val() + ";latitude:" + $("#latitude").val());

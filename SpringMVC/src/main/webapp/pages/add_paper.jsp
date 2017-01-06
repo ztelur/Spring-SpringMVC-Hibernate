@@ -30,7 +30,7 @@
 
     </c:if>
     <c:if test="${is_add_page == 0}">
-            <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="/papers/manage/${paper_detail.data.id}">
+            <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="/papers/manage/update/${paper_detail.data.id}">
                 <div class="input_wrapper">
 
                     <input class="person_input" type="text" placeholder="论文题目" name="title" required value="${paper_detail.data.title}"/>

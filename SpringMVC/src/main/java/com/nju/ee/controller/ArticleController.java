@@ -134,7 +134,7 @@ public class ArticleController {
      * 属性2：key为“article_detail”，value为RestResult对象
      * (data为ArticleVo，包含编辑过的新闻信息）
      */
-    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/manage/update/{id}", method = RequestMethod.POST)
     public String put(@PathVariable("id") Integer id, ArticleVo article, RedirectAttributes ra) {
         RestResult result = articleService.modifyArticle(id, article);
         if(result.getResult() == 1){//修改成功跳转至新闻详情界面

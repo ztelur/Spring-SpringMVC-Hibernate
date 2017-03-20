@@ -18,7 +18,7 @@
             boolean isContact = false;
             isEquipments = url.contains("equipment");
             isPapers = url.contains("paper");
-            isTeams = url.contains("team") || url.contains("people");
+            isTeams = url.contains("team") || url.contains("person");
             isArticles = url.contains("article");
             isContact = url.contains("contact");
             isMain = !(isEquipments || isPapers || isTeams || isArticles || isContact);

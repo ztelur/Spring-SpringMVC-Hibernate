@@ -38,44 +38,44 @@ $(document).ready(function () {
         });
     }();
 
-    function pageselectCallback(page_index, jq) {
-        var currentUrl = window.location.href;
-        var pageSize = 10;
 
-        var pathName = document.location.pathname;
-        var index = pathName.indexOf("/");
-        var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/articles";
-
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: url,
-            data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
-            success: function (data) {
-                var page = data.data;
-                var pageNum = page.pageSize;
-                var articles = page.data;
-                $('.news_list_container').empty();
-                for (var i = 0; i < articles.length; i++) {
-                    var news = articles[i];
-                    $('.news_list_container').append(
-                        '<li> <span class="title"> <a href=' + url + '/' + news.id + '>' + news.title + '</a> ' +
-                        '</span><br>' +
-                        '<span class="hits">' +
-                        '<a type="button" class="edit_button" href="/articles/manage/' + news.id + '">编辑</a>&nbsp&nbsp&nbsp' +
-                        '<a type="button" class="delete_button" id="' + news.id + '" value="' + news.id + '" onclick="delete_article(' + news.id + ')">删除</a>' +
-                        '</span>' +
-                        '<span class="time">' + news.date + '</span> <span class="class">分类：' + news.category + ' </span> </li>');
-                }
-            }
-        });
-        return true;
-    }
 
 });
+function pageselectCallback(page_index, jq) {
+    var currentUrl = window.location.href;
+    var pageSize = 10;
 
+    var pathName = document.location.pathname;
+    var index = pathName.indexOf("/");
+    var pathContext = pathName.substring(0, index);
+    var url = pathContext + "/articles";
+
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: url,
+        data: "pageNum=" + (page_index + 1) + "&pageSize=" + pageSize,
+        success: function (data) {
+            var page = data.data;
+            var pageNum = page.pageSize;
+            var articles = page.data;
+            $('.news_list_container').empty();
+            for (var i = 0; i < articles.length; i++) {
+                var news = articles[i];
+                $('.news_list_container').append(
+                    '<li> <span class="title"> <a href=' + url + '/' + news.id + '>' + news.title + '</a> ' +
+                    '</span><br>' +
+                    '<span class="hits">' +
+                    '<a type="button" class="edit_button" href="/articles/manage/' + news.id + '">编辑</a>&nbsp&nbsp&nbsp' +
+                    '<a type="button" class="delete_button" id="' + news.id + '" value="' + news.id + '" onclick="delete_article(' + news.id + ')">删除</a>' +
+                    '</span>' +
+                    '<span class="time">' + news.date + '</span> <span class="class">分类：' + news.category + ' </span> </li>');
+            }
+        }
+    });
+    return true;
+}
 function delete_article(id) {
     var pathName = document.location.pathname;
     var index = pathName.indexOf("/");

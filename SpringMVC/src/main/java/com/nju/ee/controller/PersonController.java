@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 /**
  * Created by homer on 16-12-1.
  */
@@ -43,7 +41,6 @@ public class PersonController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public RestResult get(){
-        System.out.println("in the get");
         RestResult result =personService.getPeople();
         return result;
     }

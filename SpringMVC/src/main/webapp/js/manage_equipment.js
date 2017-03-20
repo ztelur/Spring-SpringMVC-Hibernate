@@ -71,10 +71,10 @@ function pageselectCallback(page_index, jq) {
         type: "GET",
         dataType: "json",
         url: url,
-        data: "pageNum=" + page_index + "&pageSize=" + pageSize,
+        data: "pageNum=" + (page_index+1) + "&pageSize=" + pageSize,
         success: function (data) {
             var data = data.data;
-            var content = data.content;
+            var content = data.data;
             $('.news_list_container').empty();
             for (var i = 0; i < content.length; i++) {
                 var equipment = content[i];

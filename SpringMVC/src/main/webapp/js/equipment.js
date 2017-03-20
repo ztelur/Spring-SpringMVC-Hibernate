@@ -62,12 +62,12 @@ $(document).ready(function () {
             type: "GET",
             dataType: "json",
             url: url,
-            data: "pageNum=" + page_index + "&pageSize=" + pageSize,
+            data: "pageNum=" + (page_index+1) + "&pageSize=" + pageSize,
             success: function (data) {
 
                 var page = data.data;
                 var pageNum = page.pageSize;
-                var equipments = page.content;
+                var equipments = page.data;
                 $('.row-list').empty();
                 for (var i = 0; i <  equipments.length; i++) {
                     var equipment = equipments[i];

@@ -51,7 +51,6 @@ public class PaperController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public  String paperDetail(@PathVariable("id") Integer id) {
 //        RestResult result = paperService.getpaperDetail(id);
-
         return "paper_detail";
     }
 
@@ -127,7 +126,7 @@ public class PaperController {
      *
      * @param id 论文编号
      * @param paperVo 论文对象（需传入与其属性相对应的参数）
-     * @return 若修改成功则重定向至论文详情界面,同时存入属性：
+     * @return 若修改成功则重定向至论文管理列表界面,同时存入属性：
      * key为“update_success”,value为“1”；
      *
      * 若修改失败则重定向至论文编辑界面，同时存入属性1：
@@ -140,7 +139,8 @@ public class PaperController {
         RestResult result =paperService.modifyPaper(id, paperVo);
         if(result.getResult() ==1){
             ra.addFlashAttribute("update_success","1");
-            return "redirect:/papers/"+((PaperVo) result.getData()).getId();
+//            return "redirect:/papers/"+((PaperVo) result.getData()).getId();
+            return "redirect:/papers/manage/list";
         }else{
             ra.addFlashAttribute("update_fail_result","result："+result.getError().getMessage());
             paperVo.setId(id);

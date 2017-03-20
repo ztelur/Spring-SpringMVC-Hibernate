@@ -34,6 +34,9 @@
         <div id="container" class="clear">
             <div class="article-title">${equipment.data.name}</div>
             <div id="description">
+                <div class = "imgholder">
+                    <img src="${equipment.data.url}" width="40%">
+                </div>
                 <div class="fr-view">
                     ${equipment.data.description}
                 </div>

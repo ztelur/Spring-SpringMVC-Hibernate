@@ -39,7 +39,7 @@
                 <textarea class="introduction" required name="desc" placeholder="论文简介" rows="3"  >
                         ${fn:trim(paper_detail.data.desc)}
                 </textarea>
-                <label>原论文：</label><a href="${paper_detail.data.url}">点击预览 </a></span>
+                <label>原论文：</label><a href="${paper_detail.data.url}" target="_blank">点击预览 </a></span>
                 </c:if>
                 <input type="file" name="pdf" id="pdf" accept="application/pdf" >
                 <div class="form_footer">

@@ -31,22 +31,7 @@
 </head>
 <body id="top">
   <div class="wrapper row1">
-      <div id="header" class="clear">
-          <div class="fl_left">
-              <h1><a href="index.html">管理端</a></h1>
-              <p>Free CSS Website Template</p>
-          </div>
-          <div class="fl_right">
-              <ul>
-              </ul>
-              <form action="#" method="post" id="sitesearch">
-                  <fieldset>
-                      <strong>Search:</strong>
-                      <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                  </fieldset>
-              </form>
-          </div>
-      </div>
+      <%@ include file="manage_header.jsp" %>
   </div>
   <!-- ####################################################################################################### -->
   <div class="wrapper manage-div">
@@ -88,7 +73,7 @@
                 </div>
 
                 <div class="email_div">
-                  <label class="email_label" for="fax">传&nbsp&nbsp&nbsp&nbsp&nbsp真：</label>
+                  <label class="email_label" for="fax">传&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp真：</label>
                   <input class="email_input" type="text" placeholder="传真" name="fax" id="fax" value="${otherInfo.data.fax}" />
                 </div>
 
@@ -102,7 +87,6 @@
 </div>
 
 <!-- ####################################################################################################### -->
-
 
 <!-- ####################################################################################################### -->
 <script src="<%=request.getContextPath()%>/js/manage_other_info.js"></script>

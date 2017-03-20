@@ -5,6 +5,7 @@ import com.nju.ee.DAO.EquipmentRepository;
 import com.nju.ee.entity.Equipment;
 import com.nju.ee.vo.EquipmentForm;
 import com.nju.ee.vo.EquipmentVo;
+import com.nju.ee.vo.GenericVoPage;
 import com.nju.ee.vo.RestResult;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
@@ -15,11 +16,9 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -92,16 +91,20 @@ public class EquipmentServiceImpl implements EquipmentService{
     }
 
     @Override
-    public Page<EquipmentVo> query(Pageable pageable) {
+    public RestResult query(Pageable pageable) {
         Page<Equipment> page=repository.findAll(pageable);
         List<Equipment> list=page.getContent();
-        List<EquipmentVo> voList=new ArrayList<>();
-        long total=page.getTotalElements();
+//        List<EquipmentVo> voList=new ArrayList<>();
+//        long total=page.getTotalElements();
+        GenericVoPage<EquipmentVo> voPage = new GenericVoPage<>(page.getSize(),page.getNumber(),page.getTotalPages());
+
         for(Equipment equipment:list){
-            voList.add(new EquipmentVo(equipment.getId(),equipment.getName(), equipment.getDescription(),equipment.getUrl()));
+            //voList.add(new EquipmentVo(equipment.getId(),equipment.getName(), equipment.getDescription(),equipment.getUrl()));
+            EquipmentVo vo =new EquipmentVo(equipment.getId(),equipment.getName(), equipment.getDescription(),equipment.getUrl());
+            voPage.getData().add(vo);
         }
-        PageImpl<EquipmentVo> pvo=new PageImpl<EquipmentVo>(voList,pageable,total);
-        return pvo;
+        //PageImpl<EquipmentVo> pvo=new PageImpl<EquipmentVo>(voList,pageable,total);
+        return RestResult.CreateResult(1,voPage);
     }
 
     private String getImageUrl(EquipmentForm form){

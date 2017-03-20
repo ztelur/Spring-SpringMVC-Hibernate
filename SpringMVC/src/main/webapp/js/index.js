@@ -26,6 +26,8 @@ $(document).ready(function () {
                 $('#featured_slide').empty();
                 for (var i = 0; i <  banners.length; i++) {
                     var banner = banners[i];
+                    if(!banner.enabled)
+                        continue;
                     $('#featured_slide').append(
                     '<div class="featured_box"><a href="#"><img src="' +
                     banner.imageUrl + '" alt="" /></a> <div class="floater"><h2>' +

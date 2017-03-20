@@ -1,9 +1,8 @@
 package com.nju.ee.service;
 
-import com.nju.ee.entity.Equipment;
 import com.nju.ee.vo.EquipmentForm;
 import com.nju.ee.vo.EquipmentVo;
-import org.springframework.data.domain.Page;
+import com.nju.ee.vo.RestResult;
 import org.springframework.data.domain.Pageable;
 
 /**
@@ -14,5 +13,5 @@ public interface EquipmentService {
     boolean deleteEquipment(int id);
     EquipmentVo modifyEquipment(EquipmentForm form,int id);
     EquipmentVo findById(int id);
-    Page<EquipmentVo> query(Pageable pageable);
+    RestResult query(Pageable pageable);
 }

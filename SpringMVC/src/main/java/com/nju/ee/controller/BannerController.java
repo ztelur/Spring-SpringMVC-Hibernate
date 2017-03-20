@@ -70,19 +70,23 @@ public class BannerController {
     @RequestMapping(value = "/manage/update", method =  RequestMethod.POST)
     public String put(BannerListForm bannerListForm, RedirectAttributes ra){
         String errorMessage = "";
-        for (BannerVo bannerVo:bannerListForm.getBanners()) {
-            if(bannerVo== null){
-                continue;
-            }
-            RestResult result = bannerService.modifyBanner(bannerVo);
-            if(result.getResult()!=1){
-                errorMessage+= bannerVo.getPosition()+"位置的banner未成功存储，原因："
-                        +result.getError().getMessage()+"\r\n";
+        if(bannerListForm == null || bannerListForm.getBanners() ==null || bannerListForm.getBanners().size()<=0){
+            errorMessage = "banner列表内容为空";
+        }else {
+            for (BannerVo bannerVo : bannerListForm.getBanners()) {
+                if (bannerVo == null) {
+                    continue;
+                }
+                RestResult result = bannerService.modifyBanner(bannerVo);
+                if (result.getResult() != 1) {
+                    errorMessage += bannerVo.getPosition() + "位置的banner未成功存储，原因："
+                            + result.getError().getMessage() + "\r\n";
+                }
             }
         }
         if(!errorMessage.equals("")){//若在存储过程中出错
             ra.addFlashAttribute("update_fail_result", errorMessage);
-            ra.addFlashAttribute("banners", RestResult.CreateResult(1,bannerListForm.getBanners()));
+            ra.addFlashAttribute("banners", get());
         }else{
             ra.addFlashAttribute("update_success","1");
         }

@@ -71,7 +71,7 @@ $(document).ready(function () {
                                     paper.date.replace("-", "/") +
                                     ' - ' +
                                     paper.desc +
-                                    '<br><a href="' + paper.url + '">点击下载 </a><a href="' +
+                                    '<br><a href="' + paper.url + '" download>点击下载 </a><a href="' +
                                     paper.url +
                                     '"><img src="/images/pdf_button.png" border="0"></a></p>'
                 );

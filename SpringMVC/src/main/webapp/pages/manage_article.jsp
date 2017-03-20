@@ -30,23 +30,7 @@
 </head>
 <body id="top">
 <div class="wrapper row1">
-    <div id="header" class="clear">
-        <div class="fl_left">
-            <h1><a href="index.html">管理端</a></h1>
-            <p>Free CSS Website Template</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-
-            </ul>
-            <form action="#" method="post" id="sitesearch">
-                <fieldset>
-                    <strong>Search:</strong>
-                    <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-                </fieldset>
-            </form>
-        </div>
-    </div>
+    <%@ include file="manage_header.jsp" %>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper manage-div">
@@ -96,12 +80,6 @@
 
 
 <!-- ####################################################################################################### -->
-<div class="wrapper">
-    <div id="copyright" class="clear">
-        <p class="fl_left">Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></p>
-        <p class="fl_right">Template from <a href="http://www.cssmoban.com/" title="模板之家">网站模板</a></p>
-    </div>
-</div>
 
 </body>
 </html>

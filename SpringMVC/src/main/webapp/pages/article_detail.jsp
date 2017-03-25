@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/video.css">
 
     <!--my css-->
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/article.css">
+    <%--<link rel="stylesheet" href="<%=request.getContextPath()%>/css/article.css">--%>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/article_detail.css" type="text/css" />
     <script src="<%=request.getContextPath()%>/js/jquery-1.4.1.min.js"></script>
 

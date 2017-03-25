@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head profile="http://gmpg.org/xfn/11">
-    <title>文章</title>
+    <title>新闻</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/styles/layout.css" type="text/css" />

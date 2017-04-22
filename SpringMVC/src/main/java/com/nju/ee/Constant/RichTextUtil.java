@@ -23,7 +23,7 @@ public class RichTextUtil {
     public static String getFirstImageFromContent(String content) {
         Pattern pattern = Pattern.compile("<img.*?src=\"(.*?)\".*?>", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(content);
-        String imageUrl = "";
+        String imageUrl = "/files/image/default.default";
         if (matcher.find()) {
             imageUrl = matcher.group(1);
         }

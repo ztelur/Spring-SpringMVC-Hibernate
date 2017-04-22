@@ -26,50 +26,31 @@
 </head>
 <body id="top">
 
-<div class="wrapper row1">
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
+</header>
 
 <!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper">
-    <div id="featured_slide">
 
-
-    </div>
-</div>
 <!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div id="container" class="clear">
-            <!-- ####################################################################################################### -->
-            <div id="homepage" class="clear">
-                <!-- ###### -->
-                <!-- ###### -->
-                <div id="latestnews">
-                    <h2>最近新闻和事件</h2>
-                    <ul id="news_container">
-                    </ul>
-                    <p class="readmore"><a href="<%=request.getContextPath()%>/articles/main">查看所有新闻</a></p>
-                </div>
-                <!-- ###### -->
-                <%--<div id="right_column">--%>
-                    <%--<div class="holder">--%>
-                        <%--<h2>快速链接</h2>--%>
-                        <%--<div class="apply"><a href="#"><img src="images/13.jpg" alt="" /> <strong>Make An Application</strong></a></div>--%>
-                        <%--<div class="apply"><a href="#"><img src="images/14.jpg" alt="" /> <strong>Order A Prospectus</strong></a></div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <!-- ###### -->
+<div  id="container">
+    <div id="main">
+        <div class="wrapper">
+            <div id="featured_slide">
             </div>
-            <!-- ####################################################################################################### -->
-            <!-- ####################################################################################################### -->
         </div>
+
+        <div id="homepage" class="clear">
+            <div id="latestnews">
+                <h2>最近新闻和事件</h2>
+                <ul id="news_container">
+                </ul>
+                <p class="readmore"><a href="<%=request.getContextPath()%>/articles/main">查看所有新闻</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
     </div>
 </div>
 <!-- ####################################################################################################### -->

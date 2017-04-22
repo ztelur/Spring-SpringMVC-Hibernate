@@ -4,15 +4,16 @@ import com.nju.ee.Constant.Constant;
 import com.nju.ee.DAO.PaperDao;
 import com.nju.ee.DAO.PaperRepository;
 import com.nju.ee.entity.Paper;
-import com.nju.ee.vo.*;
 import com.nju.ee.vo.Error;
+import com.nju.ee.vo.GenericVoPage;
+import com.nju.ee.vo.PaperVo;
+import com.nju.ee.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -87,7 +88,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public RestResult modifyPaper(Integer id, PaperVo paper) {
         if (id == null) {
-            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少新闻编号"));
+            return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "缺少论文编号"));
         }
         Paper modifiedPaper = paperDao.getPaperById(id);
         if (modifiedPaper == null) {
@@ -95,11 +96,27 @@ public class PaperServiceImpl implements PaperService {
         }
         modifiedPaper.setTitle(paper.getTitle());
         modifiedPaper.setDescription(paper.getDesc());
-        modifiedPaper.setUrl(paper.getUrl());
+
+        String uselessPaperUrl = "";
+        //判断是否有新的论文上传，若有，调用FileService接口上传文件并将url进行替换，否则无需修改
+        if(paper.getPdf()!=null&& paper.getPdf().getSize()>0){
+            uselessPaperUrl = modifiedPaper.getUrl();
+            RestResult result = fileService.saveFile(paper.getPdf());
+            if(result.getResult()!=1) {
+                return result;
+            }
+            modifiedPaper.setUrl((String) result.getData());
+        }
+
         Paper updatedPaper = paperDao.update(modifiedPaper);
         if(updatedPaper==null){
+            //修改失败，删除新的论文
+            fileService.deleteFile(modifiedPaper.getUrl());
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"修改过程出错"));
         }
+        //若修改成功，删除原论文
+        fileService.deleteFile(uselessPaperUrl);
+
         PaperVo vo =new PaperVo(updatedPaper);
         return RestResult.CreateResult(1,vo);
     }
@@ -117,6 +134,7 @@ public class PaperServiceImpl implements PaperService {
         if(deletedPaper==null){
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"删除过程出错"));
         }
+        fileService.deleteFile(deletedPaper.getUrl());
         PaperVo vo =new PaperVo(deletedPaper);
         return RestResult.CreateResult(1,vo);
     }

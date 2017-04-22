@@ -68,10 +68,11 @@ $(document).ready(function () {
                     console.log("the url is " + paper.url);
                     $('.news_list_container').append('<h1 class="paper-title"><span style="font-size: 14pt;">' +
                                     paper.title + '<br></span></h1> <p class="paper-desc">' +
-                                    paper.date.replace("-", "/") +
-                                    ' - ' +
                                     paper.desc +
-                                    '<br><a href="' + paper.url + '" download>点击下载 </a><a href="' +
+                                    '<br>' +
+                                    paper.date.replace("-", "/") +
+                                    "-" +
+                                    '<a href="' + paper.url + '" download>点击下载 </a><a href="' +
                                     paper.url +
                                     '"><img src="/images/pdf_button.png" border="0"></a></p>'
                 );

@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 //TODO 将dao层异常抛出至service，获取其根源原因以构造出错时的RestResult
@@ -89,17 +90,26 @@ public class ArticleServiceImpl implements ArticleService {
         modifiedArticle.setContent(article.getContent());
 
         Article updatedArticle = articleDao.update(modifiedArticle);
+        String usefulContent = updatedArticle.getContent();
+
+        List<String> imagesBefore = RichTextUtil.getImageUrlsFromContent(uselessContent);
+        List<String> imagesAfter = RichTextUtil.getImageUrlsFromContent(usefulContent);
+
         if(updatedArticle==null){
             //修改失败，删除新的图片
-            List<String> images = RichTextUtil.getImageUrlsFromContent(modifiedArticle.getContent());
-            for (String url: images) {
+            //在旧的介绍内容中不存在的图片信息
+            List<String> usefulImages = new ArrayList<>(imagesAfter);
+            usefulImages.removeAll(imagesBefore);
+            for (String url: usefulImages) {
                 fileService.deleteFile(url);
             }
             return RestResult.CreateResult(0,new Error(Error.SYS_ERROR,"修改过程出错"));
         }
         //修改成功，删除旧的图片
-        List<String> images = RichTextUtil.getImageUrlsFromContent(uselessContent);
-        for (String url: images) {
+        //在新的介绍内容中不存在的图片信息
+        List<String> uselessImages = new ArrayList<>(imagesBefore);
+        uselessImages.removeAll(imagesAfter);
+        for (String url: uselessImages) {
             fileService.deleteFile(url);
         }
         ArticleVo vo =new ArticleVo(updatedArticle);

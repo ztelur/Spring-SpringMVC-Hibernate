@@ -1,5 +1,6 @@
 package com.nju.ee.service;
 
+import com.nju.ee.Constant.RichTextUtil;
 import com.nju.ee.DAO.PersonDao;
 import com.nju.ee.entity.Person;
 import com.nju.ee.vo.Error;
@@ -74,6 +75,8 @@ public class PersonServiceImpl implements PersonService {
         if (modifiedPerson == null) {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的人员"));
         }
+
+        String uselessDescription = modifiedPerson.getIntroduction();
         String useLessImageUrl ="";
         if (person.getImage() != null && person.getImage().getSize()>0) {
             useLessImageUrl= modifiedPerson.getImage();
@@ -88,13 +91,31 @@ public class PersonServiceImpl implements PersonService {
         modifiedPerson.setIntroduction(person.getIntroduction());
 
         Person updatedPerson = personDao.update(modifiedPerson);
+        String usefulDescription = updatedPerson.getIntroduction();
+
+        List<String> imagesBefore = RichTextUtil.getImageUrlsFromContent(uselessDescription);
+        List<String> imagesAfter = RichTextUtil.getImageUrlsFromContent(usefulDescription);
+
         if (updatedPerson == null) {
             //修改失败，删除新的头像图片
             fileService.deleteFile(modifiedPerson.getImage());
+            //在旧的介绍内容中不存在的图片信息
+            List<String> usefulImages = new ArrayList<>(imagesAfter);
+            usefulImages.removeAll(imagesBefore);
+            for (String url: usefulImages) {
+                fileService.deleteFile(url);
+            }
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "修改过程出错"));
         }
         //若修改成功，删除原头像图片
         fileService.deleteFile(useLessImageUrl);
+        //在新的介绍内容中不存在的图片信息
+        List<String> uselessImages = new ArrayList<>(imagesBefore);
+        uselessImages.removeAll(imagesAfter);
+        for (String url: uselessImages) {
+            fileService.deleteFile(url);
+        }
+
         PersonDescVo vo = new PersonDescVo(updatedPerson);
         return RestResult.CreateResult(1, vo);
     }
@@ -117,7 +138,10 @@ public class PersonServiceImpl implements PersonService {
         }
         //若修改成功，删除原头像图片
         fileService.deleteFile(deletedPerson.getImage());
-
+        List<String> images = RichTextUtil.getImageUrlsFromContent(deletedPerson.getIntroduction());
+        for (String url: images) {
+            fileService.deleteFile(url);
+        }
         PersonDescVo vo = new PersonDescVo(deletedPerson);
         return RestResult.CreateResult(1, vo);
     }

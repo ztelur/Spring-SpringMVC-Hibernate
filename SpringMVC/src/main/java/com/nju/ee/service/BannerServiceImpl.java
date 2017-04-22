@@ -66,11 +66,11 @@ public class BannerServiceImpl implements BannerService {
             return RestResult.CreateResult(0, new Error(Error.BAD_PARAM, "不存在该编号的banner"));
         }
 
-        String useLessImageUrl ="";
+        String uselessImageUrl ="";
         //修改所有（可修改的）属性
         //判断是否有图片上传，若有，调用FileService接口上传文件并将url进行替换，否则无需修改
         if (bannerVo.getPicture() != null && bannerVo.getPicture().getSize()>0) {
-            useLessImageUrl= modifiedBanner.getImageUrl();
+            uselessImageUrl= modifiedBanner.getImageUrl();
             RestResult result = fileService.saveFile(bannerVo.getPicture());
             if(result.getResult()!=1) {
                 return result;
@@ -90,7 +90,8 @@ public class BannerServiceImpl implements BannerService {
             return RestResult.CreateResult(0, new Error(Error.SYS_ERROR, "修改过程出错"));
         }
         //若修改成功，删除原banner图片
-        fileService.deleteFile(useLessImageUrl);
+        fileService.deleteFile(uselessImageUrl);
+
         BannerVo vo = new BannerVo(updatedBanner);
         return RestResult.CreateResult(1, vo);
     }

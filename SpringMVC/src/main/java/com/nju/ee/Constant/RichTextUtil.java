@@ -49,6 +49,11 @@ public class RichTextUtil {
                 }
             }
         }
+        int maxLength = 100;
+        if(firstParagraphWithoutImage.length()>maxLength){
+            firstParagraphWithoutImage = firstParagraphWithoutImage.substring(0,maxLength);
+            firstParagraphWithoutImage += "...";
+        }
         return firstParagraphWithoutImage;
     }
 

@@ -9,6 +9,7 @@
     margin: 20px 3px 10px 3px !important;
     border: 0px solid #DEDACB !important;
     padding-bottom: 0px !important;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .paper-desc {
@@ -18,7 +19,7 @@
     font-size: 1em;
     line-height: 18px;
     color: #333;
-
+    font-family: Verdana, Geneva, sans-serif;
 }
 a {
     color: #0061a1;

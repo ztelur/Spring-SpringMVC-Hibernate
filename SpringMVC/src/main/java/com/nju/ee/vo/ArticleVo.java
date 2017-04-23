@@ -80,7 +80,7 @@ public class ArticleVo {
     }
 
     public String getBrief() {
-        return RichTextUtil.getBriefFromContent(this.content);
+        return RichTextUtil.getBriefFromContent(this.content , 100);
     }
 
     public void setBrief(String brief) {

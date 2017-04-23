@@ -2,6 +2,7 @@ package com.nju.ee.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +24,13 @@ public class RichTextUtil {
     public static String getFirstImageFromContent(String content) {
         Pattern pattern = Pattern.compile("<img.*?src=\"(.*?)\".*?>", Pattern.DOTALL);
         Matcher matcher = pattern.matcher(content);
-        String imageUrl = "/files/image/default.default";
+        Properties properties = PropertiesUtil.getProperties("file_save.properties");
+        if (properties == null) {
+            return null;
+        }
+        String contextRoot = properties.getProperty("contextRoot");
+
+        String imageUrl = contextRoot+"/image/default.default";
         if (matcher.find()) {
             imageUrl = matcher.group(1);
         }

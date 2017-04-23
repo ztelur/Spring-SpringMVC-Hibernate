@@ -47,9 +47,11 @@ function pageselectCallback(page_index, jq) {
     var pageSize = 10;
 
     var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/articles";
+    console.log("ddd" + pathContext + " " + pathName);
+    var url = "/" + pathContext + "/articles";
 
 
     $.ajax({
@@ -68,7 +70,7 @@ function pageselectCallback(page_index, jq) {
                     '<li> <span class="title"> <a href=' + url + '/' + news.id + '>' + news.title + '</a> ' +
                     '</span><br>' +
                     '<span class="hits">' +
-                    '<a type="button" class="edit_button" href="/articles/manage/' + news.id + '">编辑</a>&nbsp&nbsp&nbsp' +
+                    '<a type="button" class="edit_button" href="/' + pathContext + '/articles/manage/' + news.id + '">编辑</a>&nbsp&nbsp&nbsp' +
                     '<a type="button" class="delete_button" id="' + news.id + '" value="' + news.id + '" onclick="delete_article(' + news.id + ')">删除</a>' +
                     '</span>' +
                     '<span class="time">' + news.date + '</span> <span class="class">分类：' + news.category + ' </span> </li>');
@@ -79,9 +81,10 @@ function pageselectCallback(page_index, jq) {
 }
 function delete_article(id) {
     var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/articles/manage/delete/" + id;
+    var url = "/" + pathContext + "/articles/manage/delete/" + id;
     console.log($('#Pagination').children('span.current').not('.current.prev'));
     console.log($('#Pagination').children('span.current').not('.current.prev').eq(0).html());
     console.log($('#Pagination').children('.prev').not('.current.prev'));

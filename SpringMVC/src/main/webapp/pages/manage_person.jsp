@@ -52,7 +52,7 @@
 </div>
 <div class="wrapper manage-div">
     <div class="add-div">
-        <a type="button"  href ="/people/manage/add" class="btn add-button">
+        <a type="button"  href ="<%=request.getContextPath() %>/people/manage/add" class="btn add-button">
             添加人员
         </a>
     </div>

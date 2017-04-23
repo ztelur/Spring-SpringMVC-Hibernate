@@ -56,7 +56,7 @@
 <div class="wrapper row3">
     <div class="rnd">
         <ul class="news_list_container">
-            <form method="post" action="/banners/manage/update" enctype="multipart/form-data">
+            <form method="post" action="<%=request.getContextPath() %>/banners/manage/update" enctype="multipart/form-data">
                 <c:forEach items="${banners.data}" var="banner" varStatus="loop">
                     <div class="container banner_manager_div">
                         <h1>轮播页${banner.id}</h1>

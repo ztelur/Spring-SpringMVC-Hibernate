@@ -23,6 +23,7 @@ $(document).ready(function () {
       pathName = pathName.substring(1,pathName.length);
       var index = pathName.indexOf("/");
       var pathContext = pathName.substring(0, index);
+      console.log("dddd" + pathContext);
       var url = "/" + pathContext + "/papers";
       $.ajax({
           type: "GET",
@@ -45,6 +46,7 @@ function delete_paper(id){
     pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
+    console.log("dddd" + pathContext);
   var url = "/" + pathContext + "/papers/manage/delete/"+id;
   $.get(url,{success:'success'},function(data){
       if(data.result==1){
@@ -66,6 +68,7 @@ function pageselectCallback(page_index, jq){
     pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
+    console.log("dddd" + pathContext);
     var url = "/" + pathContext + "/papers";
 
 
@@ -83,7 +86,7 @@ function pageselectCallback(page_index, jq){
                     '<li> <span class="title"> <a href=' + url + '/' +paper.id + '>' + paper.title  + '</a> ' +
                     '</span><br>' +
                     '<span class="hits">'+
-                    '<a type="button" class="edit_button" href="/papers/manage/'+paper.id+'">编辑</a>&nbsp&nbsp&nbsp'+
+                    '<a type="button" class="edit_button" href="/' + pathContext + '/papers/manage/'+paper.id+'">编辑</a>&nbsp&nbsp&nbsp'+
                     '<a type="button" class="delete_button" id="'+paper.id+'" value="'+paper.id+'" onclick="delete_paper('+paper.id+')">删除</a>'+
                     '</span>'+
                     '<span class="time">' +paper.date + '</span>  </li>');

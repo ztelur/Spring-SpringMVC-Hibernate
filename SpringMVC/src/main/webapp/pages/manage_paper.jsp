@@ -53,7 +53,7 @@
 <div class="wrapper manage-div">
     <div style="height: 40px;">
         <div class="add-div">
-            <a  type="button"  href ="/papers/manage/add" class="btn add-button">
+            <a  type="button"  href ="<%=request.getContextPath() %>/papers/manage/add" class="btn add-button">
                 添加论文
             </a>
         </div>

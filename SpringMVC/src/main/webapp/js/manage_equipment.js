@@ -23,6 +23,7 @@ $(document).ready(function () {
         pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
+        console.log("ddd" + pathContext);
         var url = "/" + pathContext + "/equipments";
         $.ajax({
             type: "GET",
@@ -45,6 +46,8 @@ function delete_equipment(id) {
     pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
+    console.log("ddd" + pathContext);
+    console.log("ddd12sdf3213" + pathContext);
     var url = "/" + pathContext + "/equipments/manage/delete/" + id;
     $.get(url, {success: 'success'}, function (data) {
         if (data.result == 1) {
@@ -59,15 +62,13 @@ function delete_equipment(id) {
 }
 
 function pageselectCallback(page_index, jq) {
-    var currentUrl = window.location.href;
     var pageSize = 10;
-
     var pathName = document.location.pathname;
     pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
+    console.log("ddd123213" + pathContext);
     var url = "/" + pathContext + "/equipments";
-
 
     $.ajax({
         type: "GET",
@@ -84,7 +85,7 @@ function pageselectCallback(page_index, jq) {
                     '<li> <span class="title"> <a href=' + url + '/' + equipment.id + '>' + equipment.name + '</a> ' +
                     '</span>' +
                     '<span class="hits">' +
-                    '<a type="button" class="edit_button" href="/equipments/manage/' + equipment.id + '">编辑</a>&nbsp&nbsp&nbsp' +
+                    '<a type="button" class="edit_button" href="/' + pathContext + '/equipments/manage/' + equipment.id + '">编辑</a>&nbsp&nbsp&nbsp' +
                     '<a type="button" class="delete_button" id="' + equipment.id + '" value="' + equipment.id + '" onclick="delete_equipment(' + equipment.id + ')">删除</a>' +
                     '</span>' +
                     ' </li>');

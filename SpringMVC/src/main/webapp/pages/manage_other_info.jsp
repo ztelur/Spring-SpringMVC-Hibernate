@@ -56,7 +56,7 @@
     <div class="rnd">
         <div id="allmap"></div>
         <div id="form_container">
-            <form id="form" method="post" action="/otherInfos/manage/update">
+            <form id="form" method="post" action="<%=request.getContextPath() %>/otherInfos/manage/update">
 
                 <input type="hidden" name="id" value="${otherInfo.data.id}">
                 <input type="hidden" name="longitude" id="longitude" value = "${otherInfo.data.longitude}" />

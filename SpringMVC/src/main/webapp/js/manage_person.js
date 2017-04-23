@@ -87,7 +87,7 @@ function pageselectCallback(page_index, jq){
                         '<li> <span class="title"> <a href=' + url + '/' +person.id + '>' + person.name  + '</a> ' +
                         '</span><br>' +
                         '<span class="hits">'+
-                        '<a type="button" class="edit_button" href="/people/manage/'+person.id+'">编辑</a>&nbsp&nbsp&nbsp'+
+                        '<a type="button" class="edit_button" href="/' + pathContext + '/people/manage/'+person.id+'">编辑</a>&nbsp&nbsp&nbsp'+
                         '<a type="button" class="delete_button" id="'+person.id+'" value="'+person.id+'" onclick="delete_person('+person.id+')">删除</a>'+
                         '</span>'+
                         '<span class="class">职别：' + person.level  + ' </span> </li>');

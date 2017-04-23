@@ -52,7 +52,7 @@
 
 
     <div class="add-div">
-        <a type="button"  href ="/equipments/manage/add" class="btn add-button">
+        <a type="button"  href ="<%=request.getContextPath() %>/equipments/manage/add" class="btn add-button">
             添加设备
         </a>
     </div>

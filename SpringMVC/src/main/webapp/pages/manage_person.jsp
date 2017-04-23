@@ -38,12 +38,12 @@
         <!-- ###### -->
         <div id="topnav">
             <ul>
-                <li><a href="/equipments/manage/list">设备</a></li>
-                <li><a href="/papers/manage/list">论文</a></li>
-                <li><a href="/articles/manage/list">新闻</a></li>
-                <li class="active"><a href="/people/manage/list">人员</a></li>
-                <li><a href="/banners/manage/list">轮播页</a></li>
-                <li><a href="/otherInfos/manage/list">其他信息</a></li>
+                <li><a href="<%=request.getContextPath() %>/equipments/manage/list">设备</a></li>
+                <li><a href="<%=request.getContextPath() %>/papers/manage/list">论文</a></li>
+                <li><a href="<%=request.getContextPath() %>/articles/manage/list">新闻</a></li>
+                <li class="active"><a href="<%=request.getContextPath() %>/people/manage/list">人员</a></li>
+                <li><a href="<%=request.getContextPath() %>/banners/manage/list">轮播页</a></li>
+                <li><a href="<%=request.getContextPath() %>/otherInfos/manage/list">其他信息</a></li>
 
             </ul>
         </div>

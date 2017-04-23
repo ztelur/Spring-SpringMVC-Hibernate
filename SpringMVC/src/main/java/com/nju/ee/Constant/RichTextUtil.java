@@ -30,7 +30,7 @@ public class RichTextUtil {
         return imageUrl;
     }
 
-    public static String getBriefFromContent(String content) {
+    public static String getBriefFromContent(String content ,int maxLength) {
         Pattern patternOfParagraphs = Pattern.compile("(<p.*?>.*?</p.*?>)", Pattern.DOTALL);
         Matcher matcher = patternOfParagraphs.matcher(content);
         ArrayList<String> paragraphs = new ArrayList<>();
@@ -49,7 +49,6 @@ public class RichTextUtil {
                 }
             }
         }
-        int maxLength = 100;
         if(firstParagraphWithoutImage.length()>maxLength){
             firstParagraphWithoutImage = firstParagraphWithoutImage.substring(0,maxLength);
             firstParagraphWithoutImage += "...";

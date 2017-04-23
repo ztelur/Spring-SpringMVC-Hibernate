@@ -10,11 +10,11 @@
 
 $(document).ready(function () {
     var load = function () {
-        var currentUrl = window.location.href;
         var pathName = document.location.pathname;
+        pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/banners";
+        var url = "/" + pathContext + "/banners";
         $.ajax({
             type: "GET",
             dataType: "json",
@@ -55,7 +55,7 @@ $(document).ready(function () {
         });
 
 
-        var url = pathContext + "/articles";
+        var url = "/" + pathContext + "/articles";
         $.ajax({
             type: "GET",
             dataType: "json",

@@ -3,11 +3,11 @@
  */
 $(document).ready(function () {
 
-    var currentUrl = window.location.href;
     var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/otherInfos";
+    var url = "/" + pathContext + "/otherInfos";
     console.log("ddd");
     $.ajax({
         type: "GET",

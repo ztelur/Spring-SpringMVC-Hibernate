@@ -5,11 +5,11 @@
 
 $(document).ready(function () {
     var load = function () {
-        var currentUrl = window.location.href;
         var pathName = document.location.pathname;
+        pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/people";
+        var url = "/" + pathContext + "/people";
         console.log("the url is " + url);
         $.ajax({
             type: "GET",
@@ -26,7 +26,7 @@ $(document).ready(function () {
                     var people = team[p];
                     for (var i =0; i< people.length; i++) {
                         var person = people[i];
-                        content = content + '<a class="people-block-text" href="'  + pathContext + '/people/' + person.id + '">' + person.name + '</a>';
+                        content = content + '<a class="people-block-text" href="/' + pathContext + '/people/' + person.id + '">' + person.name + '</a>';
                         console.log("the person name is " + person.name);
                     }
                     content = content + ' </p>';

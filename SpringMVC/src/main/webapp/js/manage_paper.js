@@ -19,11 +19,11 @@ $(document).ready(function () {
 
   };
   var load = function () {
-      var currentUrl = window.location.href;
       var pathName = document.location.pathname;
+      pathName = pathName.substring(1,pathName.length);
       var index = pathName.indexOf("/");
       var pathContext = pathName.substring(0, index);
-      var url = pathContext + "/papers";
+      var url = "/" + pathContext + "/papers";
       $.ajax({
           type: "GET",
           dataType: "json",
@@ -41,10 +41,11 @@ $(document).ready(function () {
   });
 
 function delete_paper(id){
-  var pathName = document.location.pathname;
-  var index = pathName.indexOf("/");
-  var pathContext = pathName.substring(0, index);
-  var url = pathContext + "/papers/manage/delete/"+id;
+    var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
+    var index = pathName.indexOf("/");
+    var pathContext = pathName.substring(0, index);
+  var url = "/" + pathContext + "/papers/manage/delete/"+id;
   $.get(url,{success:'success'},function(data){
       if(data.result==1){
         alert('删除成功');
@@ -62,9 +63,10 @@ function pageselectCallback(page_index, jq){
     var pageSize = 10;
 
     var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/papers";
+    var url = "/" + pathContext + "/papers";
 
 
     $.ajax({

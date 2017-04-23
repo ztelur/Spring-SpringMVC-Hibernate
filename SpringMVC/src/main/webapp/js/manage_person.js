@@ -42,10 +42,11 @@ $(document).ready(function () {
 });
 
 function delete_person(id){
-  var pathName = document.location.pathname;
-  var index = pathName.indexOf("/");
-  var pathContext = pathName.substring(0, index);
-  var url = pathContext + "/people/manage/delete/"+id;
+    var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
+    var index = pathName.indexOf("/");
+    var pathContext = pathName.substring(0, index);
+  var url = "/" + pathContext + "/people/manage/delete/"+id;
   $.get(url,{success:'success'},function(data){
       if(data.result==1){
         alert('删除成功');
@@ -63,9 +64,10 @@ function pageselectCallback(page_index, jq){
     // var pageSize = 10;
 
     var pathName = document.location.pathname;
+    pathName = pathName.substring(1,pathName.length);
     var index = pathName.indexOf("/");
     var pathContext = pathName.substring(0, index);
-    var url = pathContext + "/people";
+    var url = "/" + pathContext + "/people";
 
 
     $.ajax({

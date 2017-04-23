@@ -25,9 +25,10 @@ $(document).ready(function () {
         var pageSize = 10;
 
         var pathName = document.location.pathname;
+        pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/articles";
+        var url = "/" + pathContext + "/articles";
 
 
         $.ajax({

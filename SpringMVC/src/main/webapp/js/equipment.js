@@ -24,11 +24,11 @@ $(document).ready(function () {
     };
 
     var load = function () {
-        var currentUrl = window.location.href;
         var pathName = document.location.pathname;
+        pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/equipments";
+        var url = "/" + pathContext + "/equipments";
         $.ajax({
             type: "GET",
             dataType: "json",
@@ -53,9 +53,10 @@ $(document).ready(function () {
         var pageSize = 10;
 
         var pathName = document.location.pathname;
+        pathName = pathName.substring(1,pathName.length);
         var index = pathName.indexOf("/");
         var pathContext = pathName.substring(0, index);
-        var url = pathContext + "/equipments";
+        var url = "/" + pathContext + "/equipments";
 
 
         $.ajax({

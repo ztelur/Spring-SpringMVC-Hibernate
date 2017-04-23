@@ -10,7 +10,7 @@
     <div class="clear">
         <div id="textlogo">
             <h1 class="site-name">
-                <a href="/" title="name">科研组</a>
+                <a href="<%=request.getContextPath()%>/" title="name">科研组</a>
             </h1>
             <h2 class="blog-motto">
                 南京大学电子学院

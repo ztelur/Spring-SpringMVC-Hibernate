@@ -83,7 +83,7 @@ function pageselectCallback(page_index, jq){
             for (var i = 0; i <  papers.length; i++) {
                 var paper = papers[i];
                 $('.news_list_container').append(
-                    '<li> <span class="title"> <a href=' + url + '/' +paper.id + '>' + paper.title  + '</a> ' +
+                    '<li> <span class="title"> <a>' + paper.title  + '</a> ' +
                     '</span><br>' +
                     '<span class="hits">'+
                     '<a type="button" class="edit_button" href="/' + pathContext + '/papers/manage/'+paper.id+'">编辑</a>&nbsp&nbsp&nbsp'+

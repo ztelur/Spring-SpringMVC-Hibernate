@@ -28,12 +28,19 @@ $(document).ready(function () {
                     var banner = banners[i];
                     if(!banner.enabled)
                         continue;
-                    $('#featured_slide').append(
-                    '<div class="featured_box"><a href="#"><img src="' +
-                    banner.imageUrl + '" alt="" /></a> <div class="floater"><h2>' +
-                        banner.title + '</h2> <p>' +
-                        banner.brief + '</p> <p class="readmore"><a href="'  +
-                    banner.infoUrl +  '">Continue Reading &raquo;</a></p> </div> </div>');
+                    if (banner.brief == "" ) {
+                        var content = '<div class="featured_box"><a href="#"><img src="' +
+                            banner.imageUrl + '" alt="" /></a> <div class="floater"> <div class="banner-content"><h2 style="height: 100%">' +
+                            banner.title + '</h2></div> <p class="readmore"><a href="' +
+                            banner.infoUrl + '">Continue Reading &raquo;</a></p> </div> </div>'
+                    } else {
+                        var content = '<div class="featured_box"><a href="#"><img src="' +
+                            banner.imageUrl + '" alt="" /></a> <div class="floater"> <div class="banner-content"><h2 >' +
+                            banner.title + '</h2> <div class="banner-desc">' +
+                            banner.brief + '</div></div> <p class="readmore"><a href="' +
+                            banner.infoUrl + '">Continue Reading &raquo;</a></p> </div> </div>'
+                    }
+                    $('#featured_slide').append(content);
                 }
 
                 $('#featured_slide').after('<div id="fsn"><ul id="fs_pagination">').cycle({

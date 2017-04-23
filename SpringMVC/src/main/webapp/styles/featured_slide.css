@@ -51,23 +51,44 @@ Licence: <a href="#">Website Template Licence</a>
 	position:absolute;
 	top:25px;
 	right:25px;
-	width:290px;
-	height:60%;
+	width:300px;
+	height:70%;
 	margin:0;
 	padding:30px;
 	background-image:url("../images/featured_slide_trans.png");
 	overflow:hidden;
 	}
 
+
+.banner-content {
+	height: 88%;
+	padding: 5px 5px 5px 5px;
+	overflow: hidden;
+}
+
 .featured_box p{
 	margin:0;
 	padding:0;
+	width: 100%;
 	line-height:1.6em;
+	font-size: 0.8em;
+	text-overflow:ellipsis
 	}
 .floater h2 {
-	height: 80%;
+	width:100%;
 	font-size: 1em;
-	overflow: auto;
+	text-overflow:ellipsis;
+	float: left;
+	overflow:hidden
+}
+.banner-desc {
+	margin:0;
+	padding:0;
+	width: 100%;
+	line-height:1.6em;
+	font-size: 0.8em;
+	text-overflow:ellipsis;
+	overflow:hidden
 }
 
 .featured_box p.readmore{

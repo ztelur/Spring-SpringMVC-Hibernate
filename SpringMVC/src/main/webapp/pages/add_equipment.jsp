@@ -38,21 +38,21 @@
   <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/video.css">
 
   <!--my css-->
-  <link rel="stylesheet" href="/css/equipment.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/equipment.css">
 </head>
 <body>
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage/update/${equipment_detail.data.id}" enctype="multipart/form-data">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="<%=request.getContextPath()%>/equipments/manage/update/${equipment_detail.data.id}" enctype="multipart/form-data">
   </c:if>
   <c:if test="${is_add_page == 1}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/equipments/manage" enctype="multipart/form-data">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="<%=request.getContextPath()%>/equipments/manage" enctype="multipart/form-data">
   </c:if>
     <div class="head_wrapper">
       <input type="file" name="image" id="image" accept="image/gif, image/jpeg,image/png" style="display: none;">
-      <img id="img_head" src="/images/img_nopic.png" class="equipment_pic" onclick="click_upload()"/>
+      <img id="img_head" src="<%=request.getContextPath()%>/images/img_nopic.png" class="equipment_pic" onclick="click_upload()"/>
       <span onclick="click_upload()" class="upload_button">上传展示图片</span>
     </div>
     <input type="text" class="title_input" placeholder="设备名称" id="name" name="name" required/>
@@ -126,7 +126,7 @@
       charCounterMax:10000,
       heightMin:400,
       // Set the image upload URL.
-      imageUploadURL: '/files',
+      imageUploadURL: '<%=request.getContextPath()%>/files',
       // Set request type.
       imageUploadMethod: 'POST',
       imageUploadParam:'file',

@@ -13,7 +13,7 @@
     <title>论文管理</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage_layout.css" type="text/css" />
 
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>

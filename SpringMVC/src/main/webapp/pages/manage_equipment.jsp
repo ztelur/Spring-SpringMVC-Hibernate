@@ -12,7 +12,7 @@
     <title>设备管理</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no" />
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/manage_layout.css" type="text/css" />
     <link rel="shortcut icon" href="<%=request.getContextPath() %>/images/favicon.ico" />
     <link rel="stylesheet" href="<%=request.getContextPath() %>/styles/touchTouch.css">
       <link rel="stylesheet" href="<%=request.getContextPath()%>/css/pagination.css"/>

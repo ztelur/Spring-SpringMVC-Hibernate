@@ -24,7 +24,7 @@
             isMain = !(isEquipments || isPapers || isTeams || isArticles || isContact);
             System.out.println("the url is " + url + " " + isEquipments);
         %>
-        <li class="<%=isMain?"active nav-li":"nav-li"%>"><a href="/">主页</a></li>
+        <li class="<%=isMain?"active nav-li":"nav-li"%>"><a href="<%=request.getContextPath()%>/">主页</a></li>
         <li class="<%=isEquipments?"active nav-li":"nav-li"%>"><a href="<%=request.getContextPath()%>/equipments/main">设备</a></li>
         <li class="<%=isPapers?"active nav-li":"nav-li"%>"><a href="<%=request.getContextPath()%>/papers/main">论文</a></li>
         <li class="<%=isTeams?"active nav-li":"nav-li"%>"><a href="<%=request.getContextPath()%>/teams">团队</a></li>

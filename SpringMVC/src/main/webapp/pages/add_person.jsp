@@ -11,7 +11,7 @@
 <head>
   <meta charset="utf-8">
   <!--my css-->
-    <link rel="stylesheet" href="/css/person.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/person.css">
 
     <!-- Include Font Awesome. -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -42,14 +42,14 @@
 <body>
 <div class="container">
 <c:if test="${is_add_page == 0}">
-  <form method="post" action="/people/manage/update/${person_detail.data.id}" enctype="multipart/form-data">
+  <form method="post" action="<%=request.getContextPath()%>/people/manage/update/${person_detail.data.id}" enctype="multipart/form-data">
 </c:if>
 <c:if test="${is_add_page == 1}">
-  <form method="post" action="/people/manage" enctype="multipart/form-data">
+  <form method="post" action="<%=request.getContextPath()%>/people/manage" enctype="multipart/form-data">
 </c:if>
     <div class="head_wrapper">
         <input type="file" name="image" id="image" accept="image/gif, image/jpeg,image/png" style="display: none;">
-        <img id="img_head" src="/images/head.png" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload()"/>
+        <img id="img_head" src="<%=request.getContextPath()%>/images/head.png" style="width: 120px;height: 120px;text-align: center;border-radius: 50%" onclick="click_upload()"/>
         <span type="button" onclick="click_upload()" class="upload_button">点击上传头像</span>
     </div>
     <div class="input_wrapper">
@@ -70,38 +70,38 @@
   </form>
 </div>
 <!-- Include JS files. -->
-<script type="text/javascript" src="/node_modules/froala-editor/js/froala_editor.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/froala_editor.min.js"></script>
 
 <!-- Include Code Mirror. -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
 
 <!-- Include Plugins. -->
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/align.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/char_counter.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/code_beautifier.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/code_view.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/colors.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/emoticons.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/entities.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/file.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/font_family.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/font_size.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/fullscreen.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/image.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/image_manager.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/inline_style.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/line_breaker.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/link.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/lists.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/paragraph_format.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/paragraph_style.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/quick_insert.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/quote.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/table.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/save.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/url.min.js"></script>
-<script type="text/javascript" src="/node_modules/froala-editor/js/plugins/video.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/align.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/char_counter.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/code_beautifier.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/code_view.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/colors.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/emoticons.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/entities.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/file.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/font_family.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/font_size.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/fullscreen.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/image.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/image_manager.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/inline_style.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/line_breaker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/link.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/lists.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/paragraph_format.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/paragraph_style.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/quick_insert.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/quote.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/table.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/save.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/url.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/node_modules/froala-editor/js/plugins/video.min.js"></script>
 <script>
     <c:if test="${is_add_page == 0}">
     <!--进入编辑,需要对表单进行赋值-->
@@ -130,7 +130,7 @@
             charCounterMax:10000,
             heightMin:400,
             // Set the image upload URL.
-            imageUploadURL: '/files',
+            imageUploadURL: '<%=request.getContextPath()%>/files',
             // Set request type.
             imageUploadMethod: 'POST',
             imageUploadParam:'file',

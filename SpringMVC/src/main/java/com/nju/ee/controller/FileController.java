@@ -42,7 +42,7 @@ public class FileController {
     public String post(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) {
         RestResult result = fileService.saveFile(file);
         if(result.getResult()==1) {
-            return "{\"link\":\""+request.getContextPath()+(String) result.getData()+"\"}";
+            return "{\"link\":\""+(String) result.getData()+"\"}";
         }else{
             return null;
         }

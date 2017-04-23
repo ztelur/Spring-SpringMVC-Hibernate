@@ -14,13 +14,13 @@
     <meta charset="utf-8">
     <title>添加论文</title>
     <!--my css-->
-    <link rel="stylesheet" href="/css/person.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/person.css">
 </head>
 <body>
 <div class="container">
 
     <c:if test="${is_add_page == 1}">
-        <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="/papers/manage">
+        <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/papers/manage">
             <div class="input_wrapper">
 
                 <input class="person_input" type="text" placeholder="论文题目" name="title" required />
@@ -30,7 +30,7 @@
 
     </c:if>
     <c:if test="${is_add_page == 0}">
-            <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="<%=request.getContextPath() %>/papers/manage/update/${paper_detail.data.id}">
+            <form class="paper_form" onsubmit="return checkForm()" method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/papers/manage/update/${paper_detail.data.id}">
                 <div class="input_wrapper">
 
                     <input class="person_input" type="text" placeholder="论文题目" name="title" required value="${paper_detail.data.title}"/>

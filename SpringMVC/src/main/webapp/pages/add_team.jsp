@@ -10,7 +10,7 @@
 <head>
   <meta charset="utf-8">
   <!--my css-->
-  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/team.css">
 </head>
 <body>
 <div class="container">
@@ -42,6 +42,6 @@
 </div>
 <!-- Include jQuery. -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="/js/team.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/team.js"></script>
 </body>
 </html>

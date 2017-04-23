@@ -39,17 +39,17 @@
   <link rel="stylesheet" href="<%=request.getContextPath()%>/node_modules/froala-editor/css/plugins/video.css">
 
   <!--my css-->
-  <link rel="stylesheet" href="/css/article.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/article.css">
 </head>
 <body>
 <!-- Create a tag that we will use as the editable area.
      You can use a div tag as well. -->
 <div class="container">
   <c:if test="${is_add_page == 0}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage/update/${article_detail.data.id}">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="<%=request.getContextPath()%>/articles/manage/update/${article_detail.data.id}">
   </c:if>
   <c:if test="${is_add_page == 1}">
-  <form class="article_form" onsubmit="return checkForm()" method="post" action="/articles/manage">
+  <form class="article_form" onsubmit="return checkForm()" method="post" action="<%=request.getContextPath()%>/articles/manage">
   </c:if>
     <input type="text" class="title_input" placeholder="请输入标题" id="title" name="title" required/>
     <textarea id="edit" name="content"></textarea>
@@ -109,7 +109,7 @@
       charCounterMax:10000,
       heightMin:400,
       // Set the image upload URL.
-      imageUploadURL: '/files',
+      imageUploadURL: '<%=request.getContextPath()%>/files',
       // Set request type.
       imageUploadMethod: 'POST',
       imageUploadParam:'file',

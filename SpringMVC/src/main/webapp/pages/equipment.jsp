@@ -19,34 +19,41 @@
 
     <script src="<%=request.getContextPath()%>/js/equipment.js"></script>
     <script src="<%=request.getContextPath()%>/js/jquery.pagination.js"></script>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/equipment_show.css" type="text/css" />
+
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
-<div class="wrapper row1">
+
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div id="container" class="clear">
-            <!-- ####################################################################################################### -->
-            <div class="row-list">
+</header>
 
-            </div>
-            <!-- ####################################################################################################### -->
-            <div  id="Pagination" class="pagination" >
+<!-- ####################################################################################################### -->
 
+<!-- ####################################################################################################### -->
+<div  id="container">
+    <div id="main">
+        <div class="wrapper">
+            <div id="featured_slide">
             </div>
-            <!-- ####################################################################################################### -->
+        </div>
+
+        <div id="homepage" class="clear">
+            <div >
+                <div class="row-list">
+                </div>
+                <!-- ####################################################################################################### -->
+                <div  id="Pagination" class="pagination" >
+            </div>
         </div>
     </div>
+        </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
+    </div>
 </div>
+
 <%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -39,6 +39,7 @@ Licence: <a href="#">Website Template Licence</a>
     display:block;
     float:left;
     width:100%;
+    background: #f3f3f3;
 }
 
 #homepage #latestnews ul{
@@ -58,9 +59,10 @@ Licence: <a href="#">Website Template Licence</a>
 
 #latestnews .latestnews{
     display:block;
-    float:left;
-    margin:20px;
-    padding:0;
+    width: 80%;
+    margin: 10px 0 10px 0;
+    padding-top: 10px;
+    overflow: hidden;
 }
 
 .news_brief {
@@ -75,6 +77,8 @@ Licence: <a href="#">Website Template Licence</a>
 #latestnews .imgl{
     margin:0;
     float: left;
+    width: 10%;
+    margin: 10px 10px 10px 10px;
 }
 
 #latestnews p.readmore{
@@ -84,6 +88,10 @@ Licence: <a href="#">Website Template Licence</a>
     margin:0;
     padding:0;
     text-align:right;
+}
+#latestnews p.readmore a {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 /* ----------------------------------------------Right Column-------------------------------------*/
@@ -202,3 +210,5 @@ Licence: <a href="#">Website Template Licence</a>
 #academiclinks .last{
     margin:0;
 }
+
+

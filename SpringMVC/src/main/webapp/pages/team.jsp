@@ -20,21 +20,29 @@
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
-<div class="wrapper row1">
-    <%@ include file="header.jsp" %>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div class="ss-general-info">
 
+<header class="wrapper row1">
+    <%@ include file="header.jsp" %>
+</header>
+
+<!-- ####################################################################################################### -->
+
+<!-- ####################################################################################################### -->
+<div  id="container">
+    <div id="main">
+        <div class="rnd">
+            <div class="ss-general-info">
+
+            </div>
+        </div>
     </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
+    </div>
+</div>
+
+<div class="wrapper row3">
+
     </div>
 </div>
 <!-- ####################################################################################################### -->

@@ -29,26 +29,33 @@
 </head>
 <body id="top">
 
-
-<div class="wrapper row1">
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
+</header>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div id="container" class="clear">
+<div  id="container">
+    <div id="main">
         <div class="news_list2">
             <ul class="news_list_container">
             </ul>
         </div>
-    <!-- ####################################################################################################### -->
+        <!-- ####################################################################################################### -->
         <div  id="Pagination" class="pagination">
+        </div>
+        </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
+    </div>
+</div>
+
+<!-- ####################################################################################################### -->
+<div class="wrapper row3">
+    <div class="rnd">
+        <div id="container" class="clear">
+
 
         </div>
     </div>

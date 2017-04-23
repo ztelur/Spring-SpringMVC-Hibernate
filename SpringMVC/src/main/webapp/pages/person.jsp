@@ -25,36 +25,42 @@
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
-<div class="wrapper row1">
+
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
+</header>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
+
+<!-- ####################################################################################################### -->
+<div  id="container">
+    <div id="main">
+        <div  class="clear">
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="section-block no-border">
+                        <div class="sec-img-div">
+                            <div class="sec-img-div-inner"><img class="img-polaroid" src="${person_detail.data.imageUrl}" alt=""></div>
+                        </div>
+                        <p class="person_info"><span class="teacher-name">${person_detail.data.name}</span></p>
+                        <p class="person_info"><span class="teacher-level">${person_detail.data.level}</span></p>
+                    </div>
+                </div>
+                <div class="person_desc">
+                    ${person_detail.data.introduction}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
     </div>
 </div>
-
 
 <!-- ####################################################################################################### -->
 <div class="wrapper row3">
     <div class="rnd">
-        <div id="container" class="clear">
-                <div class="row-fluid">
-                    <div class="span3">
-                        <div class="section-block no-border">
-                            <div class="sec-img-div">
-                                <div class="sec-img-div-inner"><img class="img-polaroid" src="${person_detail.data.imageUrl}" alt=""></div>
-                            </div>
-                            <p style="margin: 0px 10px;"><span class="teacher-name">${person_detail.data.name}</span></p>
-                            <p style="margin: 0px 10px;"><span class="teacher-level">${person_detail.data.level}</span></p>
-                        </div>
-                    </div>
-                    <div class="span9 fr-view">
-                        ${person_detail.data.introduction}
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 

@@ -34,8 +34,17 @@
 
 
 .teacher-name {
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: "楷体","Microsoft YaHei";
+    margin: 10px auto;
+    width: 184px;
+}
+
+.teacher-level {
+    font-size: 1.4em;
+    font-family: "楷体","Microsoft YaHei";
+    margin: 10px auto;
+    width: 184px;
 }
 
 .ss-article .article-content .a_photo ul {
@@ -46,15 +55,6 @@
     margin: 5px 0;
     line-height: 1.8em;
     font-size: 0.9em;
-}
-
-body {
-    font: 10px 'Source Sans Pro',Arial,Helvetica,sans-serif;
-    font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif,TrueType;
-}
-
-div {
-    font-size: 14px;
 }
 
 .inline {
@@ -103,4 +103,21 @@ div {
     display: table;
     line-height: 0;
     content: "";
+}
+
+.person_desc {
+    padding-top: 20px;
+    width: 74.35897435897436%;
+    margin-left: 23.076923076923077%
+}
+
+@media screen and (min-width: 1200px) {
+    .person_desc {
+        min-height: 1px;
+        margin-left: 30px;
+    }
+}
+
+.person_info {
+    text-align: center;
 }

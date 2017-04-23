@@ -66,10 +66,10 @@ $(document).ready(function () {
                 for (var i = 0; i <  papers.length; i++) {
                     var paper = papers[i];
                     console.log("the url is " + paper.url);
-                    $('.news_list_container').append('<h1 class="paper-title"><span style="font-size: 14pt;">' +
+                    $('.news_list_container').append('<h1 class="paper-title"><span>' +
                                     paper.title + '<br></span></h1> <p class="paper-desc">' +
                                     paper.desc +
-                                    '<br>' +
+                                    '</p><p class="paper-time">' +
                                     paper.date.replace("-", "/") +
                                     "-" +
                                     '<a href="' + paper.url + '" download>点击下载 </a><a href="' +

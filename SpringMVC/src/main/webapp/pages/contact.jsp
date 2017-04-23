@@ -20,19 +20,17 @@
     <!-- End Gallery Specific Elements -->
 </head>
 <body id="top">
-<div class="wrapper row1">
+
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
+</header>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div id="container" class="clear">
+<div  id="container">
+    <div id="main">
+        <div  class="clear">
             <!-- ####################################################################################################### -->
             <div id="allmap"></div>
             <div class="subcontent">
@@ -58,7 +56,11 @@
             <!-- ####################################################################################################### -->
         </div>
     </div>
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
+    </div>
 </div>
+
 <script src="<%=request.getContextPath()%>/js/contact.js"></script>
 <%@ include file="footer.jsp" %>
 </body>

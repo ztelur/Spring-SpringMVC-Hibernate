@@ -10,10 +10,11 @@
 	}
 
 #topnav, #topnav a{
-	font-size: 40px;
+	font-size: 32px;
 	text-transform:uppercase;
 	color:#06213F;
 	background-color:#F9F9F9;
+	text-decoration: none;
 	}
 
 #topnav a:hover, #topnav li.active a{

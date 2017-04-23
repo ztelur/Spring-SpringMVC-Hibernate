@@ -49,21 +49,16 @@
 </head>
 <body id="top">
 
-
-<div class="wrapper row1">
+<header class="wrapper row1">
     <%@ include file="header.jsp" %>
-</div>
+</header>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row2">
-    <div class="rnd">
-        <%@ include file="nav.jsp" %>
-    </div>
-</div>
+
 <!-- ####################################################################################################### -->
-<div class="wrapper row3">
-    <div class="rnd">
-        <div id="container" class="clear">
-            <div class="news_list2">
+<div  id="container">
+    <div id="main">
+        <div class="news_list2">
             <div class="content">
                 <div class="article-title">${article.data.title}</div>
 
@@ -74,10 +69,10 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
-    <!-- ####################################################################################################### -->
-    <!-- ####################################################################################################### -->
+    <div id="asidepart">
+        <%@ include file="nav.jsp"%>
+    </div>
 </div>
 <!-- ####################################################################################################### -->
 <%@ include file="footer.jsp" %>
